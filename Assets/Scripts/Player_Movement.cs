@@ -5,8 +5,8 @@ using UnityEngine;
 public class Player_Movement : MonoBehaviour
 {
     private float horizontal;
-    private float speed = 15f;
-    private float jumpingPower = 16f;
+    public float speed = 15f;
+    public float jumpingPower = 16f;
     private bool isFacingRight = true;
 
     [SerializeField] public Rigidbody2D rb;

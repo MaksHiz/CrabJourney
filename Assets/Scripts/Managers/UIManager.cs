@@ -1,49 +1,62 @@
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
 {
-    private Canvas canvas;
-    public GameObject Current_Menu;
+    public static UIManager Instance { get; private set; }
 
-    public void ChangeScene(string scene_name) 
-    {
-        SceneManager.LoadScene(scene_name);
-    }
+    private Canvas _canvas;
+    private GameObject _menu;
+    private GameObject _background;
 
-    public void LoadMenu(GameObject menu) 
-    {
-        Current_Menu.SetActive(false);
-        Current_Menu = menu;
-        Current_Menu.SetActive(true);
-    }
-
-    private void InitializeCanvas() 
-    {
-        canvas = GameObject.FindGameObjectWithTag("Canvas").GetComponent<Canvas>();
-        foreach (Transform child in canvas.transform)
-        {
-            child.gameObject.SetActive(false);
-        }
-        if (Current_Menu != null) 
-        {
-            Current_Menu.SetActive(true);
-        }
-    }
-
-    // Start is called before the first frame update
     void Start()
     {
-        InitializeCanvas();
+        if (Instance == null || Instance == this)
+        {
+            DontDestroyOnLoad(this.gameObject);
+            Instance = this;
+
+            _canvas = GetComponentInChildren<Canvas>();
+        }
+        else 
+        {
+            Destroy(this);
+        }
     }
 
-    // Update is called once per frame
-    void Update()
+    public GameObject LoadMenu(GameObject menu)
     {
-        if (canvas == null) 
-        {
-            InitializeCanvas();
-            if (canvas == null) Debug.LogError("This scene does not contain a Canvas tagged with 'Canvas' tag.");
-        }
+        _menu.SetActive(false);
+        GameObject forReturn = _menu;
+        _menu = menu;
+        _menu.SetActive(true);
+        return forReturn;
+    }
+
+    public void DestroyAndLoadMenu(GameObject menu)
+    {
+        _menu.SetActive(false);
+        Destroy(_menu);
+        _menu = menu;
+        _menu.SetActive(true);
+    }
+
+    public GameObject SetBackground(GameObject background) 
+    {
+        _background.SetActive(false);
+        GameObject forReturn = _background;
+        _background = background;
+        _background.SetActive(true);
+        return forReturn;
+    }
+
+    public void DestroyAndSetBackground(GameObject background) 
+    {
+        _background.SetActive(false);
+        Destroy(_background);
+        _background = background;
+        _background.SetActive(true);
     }
 }

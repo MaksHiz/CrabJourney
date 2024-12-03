@@ -69,15 +69,15 @@ TagManager:
   - name: 6Sea
     uniqueID: 2979790293
     locked: 0
-  - name: Player
-    uniqueID: 3094839135
-    locked: 0
-  - name: Ground
-    uniqueID: 2248591739
-    locked: 0
   - name: 7Ground
     uniqueID: 2083031085
     locked: 0
   - name: 8Ground
     uniqueID: 2263971053
+    locked: 0
+  - name: Ground
+    uniqueID: 2248591739
+    locked: 0
+  - name: Player
+    uniqueID: 3094839135
     locked: 0

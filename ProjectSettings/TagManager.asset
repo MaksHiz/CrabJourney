@@ -51,28 +51,28 @@ TagManager:
   - name: Interactive
     uniqueID: 763957347
     locked: 0
-  - name: 1Sky
+  - name: 8
     uniqueID: 386523925
     locked: 0
-  - name: 2Sky
+  - name: 7
     uniqueID: 855806343
     locked: 0
-  - name: 3Sky
+  - name: 6
     uniqueID: 51910379
     locked: 0
-  - name: 4Sea
+  - name: 5
     uniqueID: 8669331
     locked: 0
-  - name: 5Sea
+  - name: 4
     uniqueID: 2014561193
     locked: 0
-  - name: 6Sea
+  - name: 3
     uniqueID: 2979790293
     locked: 0
-  - name: 7Ground
+  - name: 2
     uniqueID: 2083031085
     locked: 0
-  - name: 8Ground
+  - name: 1
     uniqueID: 2263971053
     locked: 0
   - name: Ground

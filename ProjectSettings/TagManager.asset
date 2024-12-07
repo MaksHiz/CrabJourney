@@ -45,15 +45,39 @@ TagManager:
   - name: Background
     uniqueID: 1664931489
     locked: 0
-  - name: Ground
-    uniqueID: 2248591739
-    locked: 0
   - name: WalkInFront
     uniqueID: 1101400495
     locked: 0
-  - name: Player
-    uniqueID: 3094839135
-    locked: 0
   - name: Interactive
     uniqueID: 763957347
+    locked: 0
+  - name: 8
+    uniqueID: 386523925
+    locked: 0
+  - name: 7
+    uniqueID: 855806343
+    locked: 0
+  - name: 6
+    uniqueID: 51910379
+    locked: 0
+  - name: 5
+    uniqueID: 8669331
+    locked: 0
+  - name: 4
+    uniqueID: 2014561193
+    locked: 0
+  - name: 3
+    uniqueID: 2979790293
+    locked: 0
+  - name: 2
+    uniqueID: 2083031085
+    locked: 0
+  - name: 1
+    uniqueID: 2263971053
+    locked: 0
+  - name: Ground
+    uniqueID: 2248591739
+    locked: 0
+  - name: Player
+    uniqueID: 3094839135
     locked: 0

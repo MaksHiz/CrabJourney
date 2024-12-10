@@ -42,15 +42,6 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
-  - name: Background
-    uniqueID: 1664931489
-    locked: 0
-  - name: WalkInFront
-    uniqueID: 1101400495
-    locked: 0
-  - name: Interactive
-    uniqueID: 763957347
-    locked: 0
   - name: 8
     uniqueID: 386523925
     locked: 0
@@ -74,6 +65,15 @@ TagManager:
     locked: 0
   - name: 1
     uniqueID: 2263971053
+    locked: 0
+  - name: Background
+    uniqueID: 1664931489
+    locked: 0
+  - name: Interactive
+    uniqueID: 763957347
+    locked: 0
+  - name: WalkInFront
+    uniqueID: 1101400495
     locked: 0
   - name: Ground
     uniqueID: 2248591739

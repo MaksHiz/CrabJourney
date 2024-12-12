@@ -1,35 +1,64 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading;
 using UnityEngine;
 
 public class PearlMovement : MonoBehaviour
 {
     [SerializeField]
-    private float force=1f;
+    private float force;
     [SerializeField]
-    private float switchDirection=2f;
+    private Vector2 startPos; 
     Rigidbody2D pearlrb;
     private Vector2 currDirect;
+    private Vector2 prevPos;
+    private Vector2 currPos;
     private bool isMoving = true;
+    private float timer = 0f;
     void Start()
     {
        pearlrb=GetComponent<Rigidbody2D>();
-       currDirect = Vector2.right;
-        StartCoroutine(SwitchDirection());
+       currDirect = Vector2.left;
+       prevPos = transform.position;
     }
-    void FixedUpdate()
+    void Update()
     {
-        if (isMoving)
-        {
+        if (isMoving) { 
+            currPos= transform.position;
+            timer += Time.deltaTime;
+            if (timer >= 10f)
+            {
+                if (Mathf.Abs(prevPos.x-currPos.x)<1f && Mathf.Abs(prevPos.y - currPos.y) < 1f)
+                {
+                    transform.position = startPos;
+                    currDirect = Vector2.left;
+                }
+                prevPos = currPos;
+                timer = 0f;
+            }
             pearlrb.AddForce(currDirect * force);
         }
     }
-    private IEnumerator SwitchDirection()
+    private void OnTriggerEnter2D(Collider2D collider)
     {
-        while (true)
+        if(collider.CompareTag("DirectionSwitcher") && isMoving)
         {
-            yield return new WaitForSeconds(switchDirection);
+            Debug.Log("Switched direction");
             currDirect = currDirect == Vector2.right ? Vector2.left : Vector2.right;
         }
+        else if (collider.CompareTag("ForceDisabler") && isMoving)
+        {
+            Debug.Log("Switched direction");
+            isMoving = false;
+            force = 0;
+            currDirect = Vector2.zero;
+        }
+        else if(collider.CompareTag("PearlReseter") && isMoving)
+        {
+            transform.position = startPos;
+            currDirect = Vector2.left;
+        }
     }
+    
+
 }

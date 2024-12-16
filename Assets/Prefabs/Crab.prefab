@@ -43,9 +43,9 @@ GameObject:
   - component: {fileID: 3322395314240842384}
   - component: {fileID: 4730962626935617980}
   - component: {fileID: 8857358548800611980}
-  - component: {fileID: 203889058099703163}
   - component: {fileID: 438651346198266523}
   - component: {fileID: 3743750602499175586}
+  - component: {fileID: 7937945343507949624}
   m_Layer: 0
   m_Name: Crab
   m_TagString: Player
@@ -63,7 +63,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.6855241, y: 0.56177425, z: 0}
+  m_LocalScale: {x: 0.7362254, y: 0.71553427, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 812505389870949233}
@@ -112,7 +112,7 @@ SpriteRenderer:
   m_SortingLayerID: -1200128161
   m_SortingLayer: 13
   m_SortingOrder: 0
-  m_Sprite: {fileID: -9095717837082945937, guid: 207ee8102dd4143d288186ef0be518ee, type: 3}
+  m_Sprite: {fileID: 21300000, guid: af6f3acf58ffd7348bced16705096fb3, type: 3}
   m_Color: {r: 0.9528302, g: 0.42167473, b: 0.21124065, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -186,34 +186,15 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 2}
+    oldSize: {x: 1.5833334, y: 1.75}
     newSize: {x: 1, y: 2}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 2}
+  m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &203889058099703163
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4610811951954204065}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bd217647f491019499b59dafe18cfcdf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 15
-  jumpingPower: 16
-  rb: {fileID: 4730962626935617980}
-  groundCheck: {fileID: 812505389870949233}
-  groundLayer:
-    serializedVersion: 2
-    m_Bits: 64
 --- !u!114 &438651346198266523
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -242,6 +223,62 @@ MonoBehaviour:
   grabPoint: {fileID: 3812800494761112242}
   rayPoint: {fileID: 4185909811813349996}
   rayDistance: 1
+--- !u!114 &7937945343507949624
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4610811951954204065}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1dd9017aefa31b743b2004e92556bc6f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  onGround: 0
+  groundLength: 0.5
+  colliderOffset: {x: 0.3, y: 0, z: 0}
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 64
+  onWallLeft: 0
+  onWallRight: 0
+  onWall: 0
+  wallLength: 0.5
+  wallColliderOffset: {x: 0, y: 0.2, z: 0}
+  wallLayer:
+    serializedVersion: 2
+    m_Bits: 512
+  maxGroundSpeed: 10
+  maxGroundAcceleration: 52
+  maxGroundDecceleration: 52
+  maxGroundTurnSpeed: 80
+  maxAirSpeed: 10
+  maxAirAcceleration: 52
+  maxAirDeceleration: 52
+  maxAirTurnSpeed: 80
+  maxWallAcceleration: 52
+  maxWallDecceleration: 52
+  maxWallTurnSpeed: 80
+  maxWallSpeed: 10
+  wallJumpSpeedHorizontal: 10
+  wallJumpSpeedVertical: 5
+  wallWaitBuffer: 0.15
+  jumpHeight: 1.95
+  timeToJumpApex: 0.2
+  upwardMovementMultiplier: 1
+  downwardMovementMultiplier: 2
+  jumpCutOff: 1.5
+  fallSpeedLimit: 3
+  coyoteTime: 0.1
+  jumpBuffer: 0.1
+  pressingKeyHorizontal: 0
+  pressingKeyWall: 0
+  pressingJumpWall: 0
+  holdingWall: 0
+  velocity: {x: 0, y: 0}
+  jumpSpeed: 0
+  gravMultiplier: 1
 --- !u!1 &7368898113157230725
 GameObject:
   m_ObjectHideFlags: 0

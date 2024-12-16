@@ -19,7 +19,7 @@ TagManager:
   - Ground
   - GrabObject
   - Lever
-  - 
+  - Wall
   - 
   - 
   - 
@@ -87,4 +87,7 @@ TagManager:
     locked: 0
   - name: ForegroundColor
     uniqueID: 870256687
+    locked: 0
+  - name: Wall
+    uniqueID: 3117344885
     locked: 0

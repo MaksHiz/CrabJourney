@@ -23,7 +23,7 @@ public class closeClam : MonoBehaviour
         {
             hasPearl = true;
             boxColClam.enabled = false;
-            pearl.transform.position = new Vector2((float)26.2299995, (float)-10.0270004);
+            pearl.transform.position = new Vector2((float)33.8300018,(float) -9.71000004);
             pearlRigidBody.bodyType = RigidbodyType2D.Static;
             Animator clamAnimator = clam.GetComponent<Animator>();
             clamAnimator.Play("ClamClosing");

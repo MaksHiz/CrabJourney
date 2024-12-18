@@ -85,6 +85,9 @@ TagManager:
   - name: Player
     uniqueID: 3094839135
     locked: 0
+  - name: PlayerWalksBehind
+    uniqueID: 1575758671
+    locked: 0
   - name: ForegroundColor
     uniqueID: 870256687
     locked: 0

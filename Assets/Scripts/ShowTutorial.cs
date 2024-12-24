@@ -8,6 +8,11 @@ public class ShowTutorial : MonoBehaviour
 
     void Start(){
         bubbletext.SetActive(false);
+        if (bubbletext == null)
+    {
+        Debug.LogError("Bubbletext GameObject is not assigned in the Inspector!");
+        return;
+    }
     }
     private void OnTriggerEnter(Collider other){
         if (other.CompareTag("Player")){

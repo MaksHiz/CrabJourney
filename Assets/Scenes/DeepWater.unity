@@ -5600,6 +5600,10 @@ PrefabInstance:
       propertyPath: cam
       value: 
       objectReference: {fileID: 285240310}
+    - target: {fileID: 4886267664394356358, guid: 4f418dbece2360a499c4659944928a3b, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.3
+      objectReference: {fileID: 0}
     - target: {fileID: 6223457353816773809, guid: 4f418dbece2360a499c4659944928a3b, type: 3}
       propertyPath: cam
       value: 
@@ -5608,10 +5612,6 @@ PrefabInstance:
       propertyPath: cam
       value: 
       objectReference: {fileID: 285240310}
-    - target: {fileID: 8686266205276104886, guid: 4f418dbece2360a499c4659944928a3b, type: 3}
-      propertyPath: parallaxEffect
-      value: 0.85
-      objectReference: {fileID: 0}
     - target: {fileID: 9203899512380361825, guid: 4f418dbece2360a499c4659944928a3b, type: 3}
       propertyPath: m_LocalPosition.x
       value: 1.4883512

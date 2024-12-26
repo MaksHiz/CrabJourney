@@ -29,6 +29,15 @@ public class GrabObjects : MonoBehaviour
         // Determine ray direction based on facing direction
         Vector2 rayDirection = isFacingRight ? Vector2.right : Vector2.left;
 
+        if (isFacingRight)
+        {
+            transform.localScale = new Vector3(1, 1, 1);
+        }
+        else
+        {
+            transform.localScale = new Vector3(-1, 1, 1);
+        }
+
         // Debug: Draw the ray in the scene view
         Debug.DrawRay(rayPoint.position, rayDirection * rayDistance, Color.green);
 

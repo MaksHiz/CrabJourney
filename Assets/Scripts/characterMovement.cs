@@ -5,7 +5,14 @@ using UnityEngine.UIElements;
 public class characterMovement : MonoBehaviour
 {    
     private Rigidbody2D body;
-
+    private Animator animator;
+    
+    //Bounce pad settings
+    private bool isFalling=false;
+    private float fallStartHeight;
+    private float fallEndHeight;
+    private GameObject BouncePad;
+    public float bounceFactor=1f;
 
     enum State
     {
@@ -114,10 +121,33 @@ public class characterMovement : MonoBehaviour
     //     if (onWall) { Gizmos.color = Color.green; } else { Gizmos.color = Color.red; }
     //     Gizmos.DrawLine(transform.position + wallColliderOffset, transform.position + wallColliderOffset + Vector3.left * wallLength);
     //     Gizmos.DrawLine(transform.position - wallColliderOffset, transform.position - wallColliderOffset + Vector3.left * wallLength);
-        
+
     //     Gizmos.DrawLine(transform.position + wallColliderOffset, transform.position + wallColliderOffset + Vector3.right * wallLength);
     //     Gizmos.DrawLine(transform.position - wallColliderOffset, transform.position - wallColliderOffset + Vector3.right * wallLength);
     // }
+
+    //Handling the BouncePad logic
+    private void handleBounce()
+    {
+        if (!onGround && body.velocity.y < 0f && !isFalling)
+        {
+            isFalling = true;
+            fallStartHeight = transform.position.y;
+        }
+        if(onGround && isFalling)
+        {
+            isFalling = false;
+            fallEndHeight = transform.position.y;
+        }
+    }
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("BouncePad"))
+        {
+            float heightFactor = Mathf.Abs(fallStartHeight-fallEndHeight);
+            body.AddForce(Vector2.up * heightFactor * bounceFactor, ForceMode2D.Impulse);
+        }
+    }
 
     private void checkCollision()
     {
@@ -138,10 +168,14 @@ public class characterMovement : MonoBehaviour
         Vector2 newGravity = new Vector2(0, (-2 * jumpHeight) / (timeToJumpApex * timeToJumpApex));
         body.gravityScale = (newGravity.y / Physics2D.gravity.y) * gravMultiplier;
     }
-
+    private void Start()
+    {
+        animator = GetComponent<Animator>();
+        BouncePad = GameObject.FindGameObjectWithTag("BouncePad");
+    }
     private void Update()
     {        
-
+	
         checkCollision();
 
         horizontal = Input.GetAxisRaw("Horizontal");
@@ -157,6 +191,7 @@ public class characterMovement : MonoBehaviour
             pressingJump = false;
         }
 
+        handleBounce();
 
         pressingKeyWall = vertical != 0 ? true : false;
         pressingKeyHorizontal = horizontal != 0 ? true : false;
@@ -197,12 +232,13 @@ public class characterMovement : MonoBehaviour
         
         holdingWall = false;
 
-        if (horizontal != 0)
+        if (horizontal<0)
         {
-            transform.localScale = new Vector3(
-                    Math.Abs(transform.localScale.x) * (horizontal > 0 ? 1 : -1), 
-                    transform.localScale.y, 
-                    transform.localScale.z);
+            transform.rotation = Quaternion.Euler(0, 180, 0);
+        }
+        else if(horizontal>0)
+        {
+            transform.rotation = Quaternion.Euler(0, 0, 0);
         }
 
         setGravity();
@@ -270,7 +306,6 @@ public class characterMovement : MonoBehaviour
             }
         }
     }
-
     private void calculateGravity()
     {
         if (body.velocity.y > 0.01f)
@@ -419,8 +454,8 @@ private void Jump()
         // Debug.Log(desiredVelocity + " " + maxSpeedChange);
 
         velocity.x = Mathf.MoveTowards(velocity.x, desiredVelocity.x, maxSpeedChange);
-
         body.velocity = velocity;
+        animator.SetFloat("xVelocity", Math.Abs(body.velocity.x));
     }
 
 }

@@ -29,14 +29,14 @@ public class GrabObjects : MonoBehaviour
         // Determine ray direction based on facing direction
         Vector2 rayDirection = isFacingRight ? Vector2.right : Vector2.left;
 
-        if (isFacingRight)
+        /*if (isFacingRight)
         {
             transform.localScale = new Vector3(1, 1, 1);
         }
         else
         {
             transform.localScale = new Vector3(-1, 1, 1);
-        }
+        }*/
 
         // Debug: Draw the ray in the scene view
         Debug.DrawRay(rayPoint.position, rayDirection * rayDistance, Color.green);
@@ -146,7 +146,7 @@ public class GrabObjects : MonoBehaviour
         else
         {
             // Face left
-            rayPoint.localPosition = new Vector3(0.5f, 0, 0); // Adjust position for facing left
+            rayPoint.localPosition = new Vector3(0.65f, 0, 0); // Adjust position for facing left
             rayPoint.localRotation = Quaternion.Euler(0, 180, 0); // Rotate to face left
         }
     }

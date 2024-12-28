@@ -9,6 +9,7 @@ TagManager:
   - DirectionSwitcher
   - ForceDisabler
   - PearlReseter
+  - BouncePad
   layers:
   - Default
   - TransparentFX

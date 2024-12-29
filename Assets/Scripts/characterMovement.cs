@@ -3,16 +3,19 @@ using System;
 using UnityEngine.UIElements;
 
 public class characterMovement : MonoBehaviour
-{    
+{
     private Rigidbody2D body;
+    //[SerializeField]
     private Animator animator;
-    
+    private GrabObjects grabObjects;
+
     //Bounce pad settings
-    private bool isFalling=false;
+    private bool isFalling = false;
     private float fallStartHeight;
     private float fallEndHeight;
     private GameObject BouncePad;
-    public float bounceFactor=1f;
+    public float bounceFactor = 1f;
+    [SerializeField]
 
     enum State
     {
@@ -20,29 +23,24 @@ public class characterMovement : MonoBehaviour
         OnWall,
         OnGround
     }
+    enum LastPressed
+    {
+        Left,
+        Right
+    }
 
     [Header("Ground")]
     public bool onGround;
     [SerializeField] private float groundLength = 0.5f;
-    [SerializeField]private Vector3 colliderOffset = new Vector3(0.5f, 0f, 0f);
+    [SerializeField] private Vector3 colliderOffset = new Vector3(0.5f, 0f, 0f);
     [SerializeField] private LayerMask groundLayer;
-
-
-    [Header("Wall")]
-    public bool onWallLeft;
-    public bool onWallRight;
-    public bool onWall;
-    [SerializeField] private float wallLength = 0.5f;
-    [SerializeField] private Vector3 wallColliderOffset = new Vector3(0f, 0.5f, 0f);
-    [SerializeField] private LayerMask wallLayer;
-
 
     [Header("Horizontal")]
     [SerializeField, Range(0f, 30f)] public float maxGroundSpeed = 10f;
     [SerializeField, Range(0f, 100f)] public float maxGroundAcceleration = 50f;
     [SerializeField, Range(0f, 100f)] public float maxGroundDecceleration = 50f;
     [SerializeField, Range(0f, 100f)] public float maxGroundTurnSpeed = 80f;
-    
+
     [Header("Air")]
     [SerializeField, Range(0f, 30f)] public float maxAirSpeed = 10f;
     [SerializeField, Range(0f, 100f)] public float maxAirAcceleration = 50f;
@@ -54,10 +52,21 @@ public class characterMovement : MonoBehaviour
     [SerializeField, Range(0f, 100f)] public float maxWallDecceleration = 50f;
     [SerializeField, Range(0f, 100f)] public float maxWallTurnSpeed = 80f;
     [SerializeField, Range(0f, 30f)] public float maxWallSpeed = 10f;
+
+    public bool onWallLeft;
+    public bool onWallRight;
+    public bool onWall;
+    [SerializeField] private float wallLength = 0.5f;
+    [SerializeField] private Vector3 wallColliderOffset = new Vector3(0f, 0.5f, 0f);
+    [SerializeField] private LayerMask wallLayer;
+
+    [Header("Wall Jump")]
+    [SerializeField, Range(1f, 10f)] public float strongWallJumpPushHorizontal = 5f;
+    [SerializeField, Range(1f, 10f)] public float wallJumpHeight = 5f;
+    [SerializeField, Range(0f, 0.3f)] public float wallWaitBuffer = 0.15f;
     [SerializeField, Range(0f, 30f)] public float wallJumpSpeedHorizontal = 10f;
     [SerializeField, Range(0f, 30f)] public float wallJumpSpeedVertical = 5f;
 
-    [SerializeField, Range(0f, 0.3f)] public float wallWaitBuffer = 0.15f;
 
     [Header("Jump")]
     [SerializeField, Range(1f, 10f)] public float jumpHeight = 5f;
@@ -87,7 +96,13 @@ public class characterMovement : MonoBehaviour
     public bool pressingKeyWall;
 
     public bool pressingJumpWall;
+    public bool pressingOpposite;
     public bool holdingWall;
+
+    public bool pressingLeft;
+    public bool pressingRight;
+
+    private LastPressed lastPressed;
 
 
 
@@ -110,6 +125,12 @@ public class characterMovement : MonoBehaviour
     {
         body = GetComponent<Rigidbody2D>();
         wallWaitCounter = wallWaitBuffer + 1f;
+        grabObjects = GetComponent<GrabObjects>();
+        BouncePad = GameObject.FindGameObjectWithTag("BouncePad");
+    }
+    private void Start()
+    {
+        animator = GetComponent<Animator>();
     }
 
     // private void OnDrawGizmos()
@@ -134,7 +155,7 @@ public class characterMovement : MonoBehaviour
             isFalling = true;
             fallStartHeight = transform.position.y;
         }
-        if(onGround && isFalling)
+        if (onGround && isFalling)
         {
             isFalling = false;
             fallEndHeight = transform.position.y;
@@ -144,20 +165,20 @@ public class characterMovement : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("BouncePad"))
         {
-            float heightFactor = Mathf.Abs(fallStartHeight-fallEndHeight);
+            float heightFactor = Mathf.Abs(fallStartHeight - fallEndHeight);
             body.AddForce(Vector2.up * heightFactor * bounceFactor, ForceMode2D.Impulse);
         }
     }
 
     private void checkCollision()
     {
-        onGround = Physics2D.Raycast(transform.position + colliderOffset, Vector2.down, groundLength, groundLayer) 
+        onGround = Physics2D.Raycast(transform.position + colliderOffset, Vector2.down, groundLength, groundLayer)
                 || Physics2D.Raycast(transform.position - colliderOffset, Vector2.down, groundLength, groundLayer);
 
-        onWallLeft = Physics2D.Raycast(transform.position + wallColliderOffset, Vector2.left, wallLength, wallLayer) 
+        onWallLeft = Physics2D.Raycast(transform.position + wallColliderOffset, Vector2.left, wallLength, wallLayer)
                 || Physics2D.Raycast(transform.position - wallColliderOffset, Vector2.left, wallLength, wallLayer);
 
-        onWallRight = Physics2D.Raycast(transform.position + wallColliderOffset, Vector2.right, wallLength, wallLayer) 
+        onWallRight = Physics2D.Raycast(transform.position + wallColliderOffset, Vector2.right, wallLength, wallLayer)
                 || Physics2D.Raycast(transform.position - wallColliderOffset, Vector2.right, wallLength, wallLayer);
 
         onWall = onWallLeft || onWallRight;
@@ -168,17 +189,51 @@ public class characterMovement : MonoBehaviour
         Vector2 newGravity = new Vector2(0, (-2 * jumpHeight) / (timeToJumpApex * timeToJumpApex));
         body.gravityScale = (newGravity.y / Physics2D.gravity.y) * gravMultiplier;
     }
-    private void Start()
+    private void updateHorizontal()
     {
-        animator = GetComponent<Animator>();
-        BouncePad = GameObject.FindGameObjectWithTag("BouncePad");
+        if (Input.GetButtonDown("Left"))
+        {
+            pressingLeft = true;
+            lastPressed = LastPressed.Left;
+        }
+        else if (Input.GetButtonUp("Left"))
+        {
+            pressingLeft = false;
+        }
+
+        if (Input.GetButtonDown("Right"))
+        {
+            pressingRight = true;
+            lastPressed = LastPressed.Right;
+        }
+        else if (Input.GetButtonUp("Right"))
+        {
+            pressingRight = false;
+        }
+    }
+    public float getHorizontal()
+    {
+        if (lastPressed == LastPressed.Left)
+        {
+            if (pressingLeft) return -1;
+            else if (pressingRight) return 1;
+            else return 0;
+        }
+        else
+        {
+            if (pressingRight) return 1;
+            else if (pressingLeft) return -1;
+            else return 0;
+        }
     }
     private void Update()
-    {        
-	
+    {
+        handleBounce();
+        updateHorizontal();
         checkCollision();
 
-        horizontal = Input.GetAxisRaw("Horizontal");
+
+        horizontal = getHorizontal();
         vertical = Input.GetAxisRaw("Vertical");
 
         if (Input.GetButtonDown("Jump"))
@@ -191,33 +246,61 @@ public class characterMovement : MonoBehaviour
             pressingJump = false;
         }
 
-        handleBounce();
-
         pressingKeyWall = vertical != 0 ? true : false;
         pressingKeyHorizontal = horizontal != 0 ? true : false;
 
         pressingJumpWall = false;
+        pressingOpposite = false;
 
-        if (! (wallWaitCounter > wallWaitBuffer))
+        if (!(wallWaitCounter > wallWaitBuffer))
         {
             wallWaitCounter += Time.deltaTime;
         }
 
-        if (onWall)
+        if (!currentlyJumping && !onGround)
         {
-            if (onWallLeft && horizontal < 0f || onWallRight && horizontal > 0f)
+            coyoteTimeCounter += Time.deltaTime;
+        }
+        else
+        {
+            coyoteTimeCounter = 0;
+        }
+
+        if (onWall && grabObjects.getGrabObject()==null)
+        {
+            if (onWallLeft && pressingLeft || onWallRight && pressingRight)
             {
+
+                if (holdingWall == false)
+                {
+                    pressingJump = false;
+                }
+
+                if (onWallLeft && pressingRight || onWallRight && pressingLeft)
+                {
+                    pressingOpposite = true;
+                }
+
                 holdingWall = true;
 
                 body.gravityScale = 0;
 
-                if (Input.GetKey(KeyCode.Space))
+                if (pressingJump)
                 {
+                    setGravity();
+
                     desiredJump = false;
 
                     pressingJumpWall = true;
 
-                    desiredVelocity = new Vector2(wallJumpSpeedHorizontal * (onWallLeft ? 1 : -1), wallJumpSpeedVertical);
+                    if (pressingOpposite)
+                    {
+                        desiredVelocity = new Vector2(strongWallJumpPushHorizontal * (onWallLeft ? 1 : -1), 0);
+                    }
+                    else
+                    {
+                        desiredVelocity = new Vector2(wallJumpSpeedHorizontal * (onWallLeft ? 1 : -1), wallJumpSpeedVertical);
+                    }
 
                     wallWaitCounter = 0;
 
@@ -229,14 +312,14 @@ public class characterMovement : MonoBehaviour
                 return;
             }
         }
-        
+
         holdingWall = false;
 
-        if (horizontal<0)
+        if (horizontal < 0)
         {
             transform.rotation = Quaternion.Euler(0, 180, 0);
         }
-        else if(horizontal>0)
+        else if (horizontal > 0)
         {
             transform.rotation = Quaternion.Euler(0, 0, 0);
         }
@@ -258,23 +341,13 @@ public class characterMovement : MonoBehaviour
             }
         }
 
-        if (!currentlyJumping && !onGround)
-        {
-            coyoteTimeCounter += Time.deltaTime;
-        }
-        else
-        {
-            coyoteTimeCounter = 0;
-        }
-        
         if (onGround)
         {
-
             desiredVelocity = new Vector2(horizontal * maxGroundSpeed, 0f);
 
             return;
         }
-        else 
+        else
         {
             desiredVelocity = new Vector2(horizontal * maxAirSpeed, 0f);
         }
@@ -287,13 +360,14 @@ public class characterMovement : MonoBehaviour
         if (onWall && holdingWall)
         {
             moveWall();
+            body.velocity = new Vector3(velocity.x, Mathf.Clamp(velocity.y, -fallSpeedLimit, 100));
         }
         else //if (onGround)
         {
             if (desiredJump)
             {
                 Jump();
-                body.velocity = velocity;
+                body.velocity = new Vector3(velocity.x, Mathf.Clamp(velocity.y, -fallSpeedLimit, 100));
             }
             else
             {
@@ -352,7 +426,7 @@ public class characterMovement : MonoBehaviour
         body.velocity = new Vector3(velocity.x, Mathf.Clamp(velocity.y, -fallSpeedLimit, 100));
     }
 
-private void Jump()
+    private void Jump()
     {
         if (onGround || (coyoteTimeCounter > 0.03f && coyoteTimeCounter < coyoteTime))
         {
@@ -380,6 +454,26 @@ private void Jump()
             desiredJump = false;
         }
     }
+    private void StrongWallJump()
+    {
+        desiredJump = false;
+        jumpBufferCounter = 0;
+        coyoteTimeCounter = 0;
+
+        jumpSpeed = Mathf.Sqrt(-2f * Physics2D.gravity.y * body.gravityScale * wallJumpHeight);
+
+        if (velocity.y > 0f)
+        {
+            jumpSpeed = Mathf.Max(jumpSpeed - velocity.y, 0f);
+        }
+        else if (velocity.y < 0f)
+        {
+            jumpSpeed += Mathf.Abs(body.velocity.y);
+        }
+
+        // Debug.Log("y strong");
+        velocity.y += jumpSpeed;
+    }
 
     public void moveWall()
     {
@@ -387,46 +481,44 @@ private void Jump()
         deceleration = maxWallDecceleration;
         turnSpeed = maxWallTurnSpeed;
 
-
-        // Debug.Log("vert 1");
-
-        if (pressingJumpWall)
+        if (pressingJumpWall && !currentlyJumping)
         {
-            // pressingJumpWall = false;
+            currentlyJumping = true;
             velocity.x = desiredVelocity.x;
-
+            // Debug.Break();
+            Debug.Log("y wall jump");
             velocity.y = desiredVelocity.y;
-
-            // Debug.Log("vert 2");
+            if (pressingOpposite)
+            {
+                StrongWallJump();
+                // Jump();
+                wallWaitCounter = 0.1f;
+                return;
+            }
         }
         else
         {
-            // Debug.Log("vert 3");
+            currentlyJumping = false;
+
             if (pressingKeyWall)
             {
-                // Debug.Log("vert 3");
                 if (Mathf.Sign(vertical) != Mathf.Sign(velocity.y))
                 {
-                    maxSpeedChange = maxWallTurnSpeed * Time.deltaTime;
+                    maxSpeedChange = turnSpeed * Time.deltaTime;
                 }
                 else
                 {
-                    maxSpeedChange = maxWallAcceleration * Time.deltaTime;
+                    maxSpeedChange = acceleration * Time.deltaTime;
                 }
             }
             else
             {
-                // Debug.Log("vert 4");
-                maxSpeedChange = maxWallDecceleration * Time.deltaTime;
+                maxSpeedChange = deceleration * Time.deltaTime;
             }
 
-            // Debug.Log("vert 5");
-            // Debug.Log(desiredVelocity + " " + maxSpeedChange);
-
+            Debug.Log("y wall");
             velocity.y = Mathf.MoveTowards(velocity.y, desiredVelocity.y, maxSpeedChange);
         }
-
-        body.velocity = velocity;
     }
 
     private void moveHorizontal()
@@ -450,12 +542,16 @@ private void Jump()
         {
             maxSpeedChange = deceleration * Time.deltaTime;
         }
-        
+
         // Debug.Log(desiredVelocity + " " + maxSpeedChange);
 
         velocity.x = Mathf.MoveTowards(velocity.x, desiredVelocity.x, maxSpeedChange);
-        body.velocity = velocity;
-        animator.SetFloat("xVelocity", Math.Abs(body.velocity.x));
+        body.velocity = new Vector3(velocity.x, Mathf.Clamp(velocity.y, -fallSpeedLimit, 100));
+        if (onGround)
+        {
+            animator.SetFloat("xVelocity", Math.Abs(body.velocity.x));
+        }
+        
     }
 
 }

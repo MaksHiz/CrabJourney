@@ -15,6 +15,11 @@ public class GrabObjects : MonoBehaviour
     private LayerMask grabLayerMask; // Mask for grabbable objects
     private LayerMask leverLayerMask; // Mask for lever objects
     private bool isFacingRight = true; // Current facing direction of the player
+    
+    public GameObject getGrabObject()
+    {
+        return grabbedObject;
+    }
 
     private void Start()
     {

@@ -17387,11 +17387,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5219312943049997202, guid: c1904f8aa86f78a41a6870cede7ffb5f, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 67.5823
+      value: 72.55
       objectReference: {fileID: 0}
     - target: {fileID: 5219312943049997202, guid: c1904f8aa86f78a41a6870cede7ffb5f, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -10.43
+      value: -8.42
       objectReference: {fileID: 0}
     - target: {fileID: 5219312943049997202, guid: c1904f8aa86f78a41a6870cede7ffb5f, type: 3}
       propertyPath: m_LocalPosition.z
@@ -20173,7 +20173,7 @@ GameObject:
   - component: {fileID: 1316453433}
   - component: {fileID: 1316453435}
   - component: {fileID: 1316453434}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -37404,7 +37404,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3540568295999152047, guid: a654d363e89f61f4b9fe3cba12564c56, type: 3}
       propertyPath: force
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3540568295999152047, guid: a654d363e89f61f4b9fe3cba12564c56, type: 3}
       propertyPath: startPos.x

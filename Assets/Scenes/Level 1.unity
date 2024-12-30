@@ -17666,11 +17666,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5219312943049997202, guid: c1904f8aa86f78a41a6870cede7ffb5f, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 21.81
+      value: 33.8
       objectReference: {fileID: 0}
     - target: {fileID: 5219312943049997202, guid: c1904f8aa86f78a41a6870cede7ffb5f, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 52.75
+      value: 61.01
       objectReference: {fileID: 0}
     - target: {fileID: 5219312943049997202, guid: c1904f8aa86f78a41a6870cede7ffb5f, type: 3}
       propertyPath: m_LocalPosition.z
@@ -17705,8 +17705,12 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7937945343507949624, guid: c1904f8aa86f78a41a6870cede7ffb5f, type: 3}
+      propertyPath: jumpHeight
+      value: 3.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 7937945343507949624, guid: c1904f8aa86f78a41a6870cede7ffb5f, type: 3}
       propertyPath: wallLength
-      value: 1
+      value: 0.8
       objectReference: {fileID: 0}
     - target: {fileID: 7937945343507949624, guid: c1904f8aa86f78a41a6870cede7ffb5f, type: 3}
       propertyPath: bounceFactor
@@ -17714,7 +17718,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7937945343507949624, guid: c1904f8aa86f78a41a6870cede7ffb5f, type: 3}
       propertyPath: groundLength
-      value: 1
+      value: 0.65
       objectReference: {fileID: 0}
     - target: {fileID: 7937945343507949624, guid: c1904f8aa86f78a41a6870cede7ffb5f, type: 3}
       propertyPath: fallSpeedLimit
@@ -17729,12 +17733,20 @@ PrefabInstance:
       value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 7937945343507949624, guid: c1904f8aa86f78a41a6870cede7ffb5f, type: 3}
+      propertyPath: timeToJumpApex
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 7937945343507949624, guid: c1904f8aa86f78a41a6870cede7ffb5f, type: 3}
       propertyPath: colliderOffset.x
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 7937945343507949624, guid: c1904f8aa86f78a41a6870cede7ffb5f, type: 3}
+      propertyPath: wallColliderOffset.x
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7937945343507949624, guid: c1904f8aa86f78a41a6870cede7ffb5f, type: 3}
       propertyPath: wallColliderOffset.y
-      value: 0
+      value: 0.6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

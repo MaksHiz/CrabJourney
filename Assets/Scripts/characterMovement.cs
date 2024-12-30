@@ -133,19 +133,19 @@ public class characterMovement : MonoBehaviour
         animator = GetComponent<Animator>();
     }
 
-    // private void OnDrawGizmos()
-    // {
-    //     if (onGround) { Gizmos.color = Color.green; } else { Gizmos.color = Color.red; }
-    //     Gizmos.DrawLine(transform.position + colliderOffset, transform.position + colliderOffset + Vector3.down * groundLength);
-    //     Gizmos.DrawLine(transform.position - colliderOffset, transform.position - colliderOffset + Vector3.down * groundLength);
+     private void OnDrawGizmos()
+     {
+         if (onGround) { Gizmos.color = Color.green; } else { Gizmos.color = Color.red; }
+         Gizmos.DrawLine(transform.position + colliderOffset, transform.position + colliderOffset + Vector3.down * groundLength);
+         Gizmos.DrawLine(transform.position - colliderOffset, transform.position - colliderOffset + Vector3.down * groundLength);
 
-    //     if (onWall) { Gizmos.color = Color.green; } else { Gizmos.color = Color.red; }
-    //     Gizmos.DrawLine(transform.position + wallColliderOffset, transform.position + wallColliderOffset + Vector3.left * wallLength);
-    //     Gizmos.DrawLine(transform.position - wallColliderOffset, transform.position - wallColliderOffset + Vector3.left * wallLength);
+         if (onWall) { Gizmos.color = Color.green; } else { Gizmos.color = Color.red; }
+         Gizmos.DrawLine(transform.position + wallColliderOffset, transform.position + wallColliderOffset + Vector3.left * wallLength);
+         Gizmos.DrawLine(transform.position - wallColliderOffset, transform.position - wallColliderOffset + Vector3.left * wallLength);
 
-    //     Gizmos.DrawLine(transform.position + wallColliderOffset, transform.position + wallColliderOffset + Vector3.right * wallLength);
-    //     Gizmos.DrawLine(transform.position - wallColliderOffset, transform.position - wallColliderOffset + Vector3.right * wallLength);
-    // }
+         Gizmos.DrawLine(transform.position + wallColliderOffset, transform.position + wallColliderOffset + Vector3.right * wallLength);
+         Gizmos.DrawLine(transform.position - wallColliderOffset, transform.position - wallColliderOffset + Vector3.right * wallLength);
+     }
 
     //Handling the BouncePad logic
     private void handleBounce()

@@ -9,6 +9,7 @@ public class DialogeIntro : MonoBehaviour
     public string[] lines;
     public float textSpeed;
     // Start is called before the first frame update
+    public float fadeDuration = 2f;
     void OnEnable(){
         StartCoroutine(TypeLine());
     }
@@ -26,6 +27,19 @@ public class DialogeIntro : MonoBehaviour
             yield return new WaitForSeconds(textSpeed);
 
         }
+        yield return StartCoroutine(FadeOut());
+    }
+
+    IEnumerator FadeOut(){
+        float startAlfa = textComponent.alpha;
+        float timeElapsed = 0f;
+        while(timeElapsed < fadeDuration){
+            timeElapsed += Time.deltaTime;
+            float alfa = Mathf.Lerp(startAlfa, 0f, timeElapsed / fadeDuration);
+            textComponent.alpha = alfa;
+            yield return null;
+        }
+        textComponent.alpha = 0f;
     }
 
 }

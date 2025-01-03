@@ -466,6 +466,8 @@ PlayableDirector:
     value: {fileID: 1088466466}
   - key: {fileID: -5035921964792631889, guid: bea483d439fdea04e94a844b0828f687, type: 2}
     value: {fileID: 1944097557}
+  - key: {fileID: -2855317992784988264, guid: bea483d439fdea04e94a844b0828f687, type: 2}
+    value: {fileID: 2138830001}
   m_ExposedReferences:
     m_References:
     - d7f2caffdbe8d3942b5a0f17e074402c: {fileID: 1963869902}
@@ -625,6 +627,7 @@ MonoBehaviour:
   - 'Even if that something is just a rusty tin can,  They make do, the best they
     can. '
   textSpeed: 0.085
+  fadeDuration: 3
 --- !u!1 &1402907191
 GameObject:
   m_ObjectHideFlags: 0
@@ -821,6 +824,7 @@ MonoBehaviour:
   - "Sometimes, when the perfect shell isn\u2019t found,  They adapt to whatever
     is lying around. "
   textSpeed: 0.085
+  fadeDuration: 3
 --- !u!1 &1683065088
 GameObject:
   m_ObjectHideFlags: 0
@@ -856,6 +860,7 @@ RectTransform:
   - {fileID: 1519087597}
   - {fileID: 1088466469}
   - {fileID: 1944097561}
+  - {fileID: 2138830005}
   m_Father: {fileID: 971994826}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -918,6 +923,7 @@ MonoBehaviour:
   - In the real world, hermit crabs line up to give each other the shells they grew
     out of.
   textSpeed: 0.09
+  fadeDuration: 3
 --- !u!1 &1944097557
 GameObject:
   m_ObjectHideFlags: 0
@@ -954,6 +960,7 @@ MonoBehaviour:
   - 'So, to avoid finding themselves in a pinch once more,  They set out on a journey,
     to find a new door. '
   textSpeed: 0.085
+  fadeDuration: 3
 --- !u!114 &1944097559
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1222,6 +1229,104 @@ MonoBehaviour:
   - Crustaceans like hermit crabs outgrow their shells,  As they age and grow, their
     old home no longer gels.
   textSpeed: 0.085
+  fadeDuration: 3
+--- !u!1 &2138830001
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2138830005}
+  - component: {fileID: 2138830004}
+  - component: {fileID: 2138830003}
+  - component: {fileID: 2138830002}
+  m_Layer: 5
+  m_Name: Title
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!95 &2138830002
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2138830001}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: e46922c58ce32a74fa25905f63bbb471, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &2138830003
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2138830001}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: fb928deb34eae3244a193f5563790a53, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 1
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &2138830004
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2138830001}
+  m_CullTransparentMesh: 1
+--- !u!224 &2138830005
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2138830001}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1683065089}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 5.8599, y: 5.5}
+  m_SizeDelta: {x: 338.7733, y: 218.8612}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

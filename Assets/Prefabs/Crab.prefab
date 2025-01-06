@@ -148,7 +148,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.7632, y: 0.7284, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 812505389870949233}
@@ -342,22 +342,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1dd9017aefa31b743b2004e92556bc6f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bounceFactor: 1
+  bounceFactor: 3
   onGround: 0
-  groundLength: 0.5
-  colliderOffset: {x: 0.3, y: 0, z: 0}
+  groundLength: 0.65
+  colliderOffset: {x: 0.4, y: 0, z: 0}
   groundLayer:
     serializedVersion: 2
     m_Bits: 64
-  onWallLeft: 0
-  onWallRight: 0
-  onWall: 0
-  wallLength: 0.5
-  wallColliderOffset: {x: 0, y: 0.2, z: 0}
-  wallLayer:
-    serializedVersion: 2
-    m_Bits: 512
-  maxGroundSpeed: 10
+  maxGroundSpeed: 5
   maxGroundAcceleration: 52
   maxGroundDecceleration: 52
   maxGroundTurnSpeed: 80
@@ -369,24 +361,37 @@ MonoBehaviour:
   maxWallDecceleration: 52
   maxWallTurnSpeed: 80
   maxWallSpeed: 10
+  onWallLeft: 0
+  onWallRight: 0
+  onWall: 0
+  wallLength: 0.8
+  wallColliderOffset: {x: 0, y: 0.6, z: 0}
+  wallLayer:
+    serializedVersion: 2
+    m_Bits: 512
+  strongWallJumpPushHorizontal: 5
+  wallJumpHeight: 5
+  wallWaitBuffer: 0.15
   wallJumpSpeedHorizontal: 10
   wallJumpSpeedVertical: 5
-  wallWaitBuffer: 0.15
-  jumpHeight: 1.95
-  timeToJumpApex: 0.2
+  jumpHeight: 3.05
+  timeToJumpApex: 0.25
   upwardMovementMultiplier: 1
   downwardMovementMultiplier: 2
   jumpCutOff: 1.5
-  fallSpeedLimit: 3
+  fallSpeedLimit: 1
   coyoteTime: 0.1
   jumpBuffer: 0.1
   pressingKeyHorizontal: 0
   pressingKeyWall: 0
   pressingJumpWall: 0
+  pressingOpposite: 0
   holdingWall: 0
+  pressingLeft: 0
+  pressingRight: 0
   velocity: {x: 0, y: 0}
   jumpSpeed: 0
-  gravMultiplier: 1
+  gravMultiplier: 0.5
 --- !u!1 &7368898113157230725
 GameObject:
   m_ObjectHideFlags: 0

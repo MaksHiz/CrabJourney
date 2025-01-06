@@ -133,7 +133,7 @@ public class characterMovement : MonoBehaviour
         animator = GetComponent<Animator>();
     }
 
-     private void OnDrawGizmos()
+    private void OnDrawGizmos()
      {
          if (onGround) { Gizmos.color = Color.green; } else { Gizmos.color = Color.red; }
          Gizmos.DrawLine(transform.position + colliderOffset, transform.position + colliderOffset + Vector3.down * groundLength);
@@ -145,7 +145,7 @@ public class characterMovement : MonoBehaviour
 
          Gizmos.DrawLine(transform.position + wallColliderOffset, transform.position + wallColliderOffset + Vector3.right * wallLength);
          Gizmos.DrawLine(transform.position - wallColliderOffset, transform.position - wallColliderOffset + Vector3.right * wallLength);
-     }
+    }
 
     //Handling the BouncePad logic
     private void handleBounce()

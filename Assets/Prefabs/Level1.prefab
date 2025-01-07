@@ -301,7 +301,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5883838267732243714}
   - component: {fileID: 8390247062645089845}
-  - component: {fileID: 8728500224407772874}
+  - component: {fileID: 7184486106284531869}
   m_Layer: 0
   m_Name: Layer-6
   m_TagString: Untagged
@@ -378,7 +378,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &8728500224407772874
+--- !u!114 &7184486106284531869
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -391,7 +391,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cam: {fileID: 0}
-  parallaxEffectX: 0.7
+  parallaxEffectX: 0.75
   parallaxEffectY: 1
 --- !u!1 &1695995451273128462
 GameObject:
@@ -655,7 +655,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7265160267009005842}
   - component: {fileID: 7359367058169840642}
-  - component: {fileID: 6434084351735590281}
+  - component: {fileID: 7596711397174284399}
   m_Layer: 0
   m_Name: Layer-7
   m_TagString: Untagged
@@ -732,7 +732,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &6434084351735590281
+--- !u!114 &7596711397174284399
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -841,7 +841,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4886267664394356358}
   - component: {fileID: 7259659000444090509}
-  - component: {fileID: 2996754604151664248}
+  - component: {fileID: 2253079985571573628}
   m_Layer: 0
   m_Name: Layer-2
   m_TagString: Untagged
@@ -918,7 +918,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &2996754604151664248
+--- !u!114 &2253079985571573628
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1195,7 +1195,7 @@ GameObject:
   m_Component:
   - component: {fileID: 244236031387007607}
   - component: {fileID: 3727846676622904136}
-  - component: {fileID: 2311221777230307817}
+  - component: {fileID: 3901701103075499267}
   m_Layer: 0
   m_Name: Layer-5
   m_TagString: Untagged
@@ -1272,7 +1272,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &2311221777230307817
+--- !u!114 &3901701103075499267
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1285,7 +1285,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cam: {fileID: 0}
-  parallaxEffectX: 0.7
+  parallaxEffectX: 0.75
   parallaxEffectY: 1
 --- !u!1 &5679733976537571821
 GameObject:
@@ -1633,7 +1633,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3537489018064526987}
   - component: {fileID: 5583128136397214302}
-  - component: {fileID: 4889993622371788017}
+  - component: {fileID: 6317465779906987192}
   m_Layer: 0
   m_Name: Layer-3
   m_TagString: Untagged
@@ -1710,7 +1710,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &4889993622371788017
+--- !u!114 &6317465779906987192
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1735,7 +1735,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6206480028901926179}
   - component: {fileID: 283632084468568948}
-  - component: {fileID: 1801501127125407334}
+  - component: {fileID: 9007931303370696364}
   m_Layer: 0
   m_Name: Layer-1
   m_TagString: Untagged
@@ -1812,7 +1812,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &1801501127125407334
+--- !u!114 &9007931303370696364
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1837,7 +1837,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5551501752480658142}
   - component: {fileID: 364561134913077879}
-  - component: {fileID: 1300947200386519681}
+  - component: {fileID: 8617373463018093763}
   m_Layer: 0
   m_Name: Layer-4
   m_TagString: Untagged
@@ -1914,7 +1914,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &1300947200386519681
+--- !u!114 &8617373463018093763
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2023,7 +2023,7 @@ GameObject:
   m_Component:
   - component: {fileID: 731826566569778371}
   - component: {fileID: 1535293637801228694}
-  - component: {fileID: 6404466139653440095}
+  - component: {fileID: 1065514843241243655}
   m_Layer: 0
   m_Name: Layer-0
   m_TagString: Untagged
@@ -2100,7 +2100,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &6404466139653440095
+--- !u!114 &1065514843241243655
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

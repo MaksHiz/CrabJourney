@@ -25017,14 +25017,6 @@ PrefabInstance:
       value: Crab
       objectReference: {fileID: 0}
     - target: {fileID: 5219312943049997202, guid: c1904f8aa86f78a41a6870cede7ffb5f, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5219312943049997202, guid: c1904f8aa86f78a41a6870cede7ffb5f, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5219312943049997202, guid: c1904f8aa86f78a41a6870cede7ffb5f, type: 3}
       propertyPath: m_LocalPosition.x
       value: -19.73
       objectReference: {fileID: 0}
@@ -25063,50 +25055,6 @@ PrefabInstance:
     - target: {fileID: 5219312943049997202, guid: c1904f8aa86f78a41a6870cede7ffb5f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7937945343507949624, guid: c1904f8aa86f78a41a6870cede7ffb5f, type: 3}
-      propertyPath: jumpHeight
-      value: 3.05
-      objectReference: {fileID: 0}
-    - target: {fileID: 7937945343507949624, guid: c1904f8aa86f78a41a6870cede7ffb5f, type: 3}
-      propertyPath: wallLength
-      value: 0.8
-      objectReference: {fileID: 0}
-    - target: {fileID: 7937945343507949624, guid: c1904f8aa86f78a41a6870cede7ffb5f, type: 3}
-      propertyPath: bounceFactor
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 7937945343507949624, guid: c1904f8aa86f78a41a6870cede7ffb5f, type: 3}
-      propertyPath: groundLength
-      value: 0.65
-      objectReference: {fileID: 0}
-    - target: {fileID: 7937945343507949624, guid: c1904f8aa86f78a41a6870cede7ffb5f, type: 3}
-      propertyPath: fallSpeedLimit
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7937945343507949624, guid: c1904f8aa86f78a41a6870cede7ffb5f, type: 3}
-      propertyPath: gravMultiplier
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 7937945343507949624, guid: c1904f8aa86f78a41a6870cede7ffb5f, type: 3}
-      propertyPath: maxGroundSpeed
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 7937945343507949624, guid: c1904f8aa86f78a41a6870cede7ffb5f, type: 3}
-      propertyPath: timeToJumpApex
-      value: 0.25
-      objectReference: {fileID: 0}
-    - target: {fileID: 7937945343507949624, guid: c1904f8aa86f78a41a6870cede7ffb5f, type: 3}
-      propertyPath: colliderOffset.x
-      value: 0.4
-      objectReference: {fileID: 0}
-    - target: {fileID: 7937945343507949624, guid: c1904f8aa86f78a41a6870cede7ffb5f, type: 3}
-      propertyPath: wallColliderOffset.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7937945343507949624, guid: c1904f8aa86f78a41a6870cede7ffb5f, type: 3}
-      propertyPath: wallColliderOffset.y
-      value: 0.6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

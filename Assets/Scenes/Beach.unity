@@ -15752,7 +15752,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 285372746}
-  scene: Cave1
+  scene: Level 1
 --- !u!61 &673746966
 BoxCollider2D:
   m_ObjectHideFlags: 0

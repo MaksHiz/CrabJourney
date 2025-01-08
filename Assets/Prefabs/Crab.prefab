@@ -342,9 +342,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1dd9017aefa31b743b2004e92556bc6f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bounceFactor: 3
+  bounceFactor: 2.5
   onGround: 0
-  groundLength: 0.65
+  groundLength: 0.66
   colliderOffset: {x: 0.4, y: 0, z: 0}
   groundLayer:
     serializedVersion: 2
@@ -353,14 +353,14 @@ MonoBehaviour:
   maxGroundAcceleration: 52
   maxGroundDecceleration: 52
   maxGroundTurnSpeed: 80
-  maxAirSpeed: 10
+  maxAirSpeed: 6
   maxAirAcceleration: 52
-  maxAirDeceleration: 52
+  maxAirDeceleration: 100
   maxAirTurnSpeed: 80
-  maxWallAcceleration: 52
+  maxWallAcceleration: 7.5
   maxWallDecceleration: 52
   maxWallTurnSpeed: 80
-  maxWallSpeed: 10
+  maxWallSpeed: 5
   onWallLeft: 0
   onWallRight: 0
   onWall: 0
@@ -369,17 +369,17 @@ MonoBehaviour:
   wallLayer:
     serializedVersion: 2
     m_Bits: 512
-  strongWallJumpPushHorizontal: 5
-  wallJumpHeight: 5
+  strongWallJumpPushHorizontal: 3
+  wallJumpHeight: 3
   wallWaitBuffer: 0.15
   wallJumpSpeedHorizontal: 10
   wallJumpSpeedVertical: 5
-  jumpHeight: 3.05
-  timeToJumpApex: 0.25
+  jumpHeight: 3.25
+  timeToJumpApex: 0.4
   upwardMovementMultiplier: 1
-  downwardMovementMultiplier: 2
+  downwardMovementMultiplier: 4
   jumpCutOff: 1.5
-  fallSpeedLimit: 1
+  fallSpeedLimit: 3
   coyoteTime: 0.1
   jumpBuffer: 0.1
   pressingKeyHorizontal: 0

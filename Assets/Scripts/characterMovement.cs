@@ -268,7 +268,7 @@ public class characterMovement : MonoBehaviour
 
         if (onWall && grabObjects.getGrabObject()==null)
         {
-            if (onWallLeft && pressingLeft || onWallRight && pressingRight)
+            if (onWallLeft || onWallRight)
             {
 
                 if (holdingWall == false)
@@ -280,7 +280,9 @@ public class characterMovement : MonoBehaviour
                 {
                     pressingOpposite = true;
                 }
-
+                if (pressingRight) { transform.rotation = Quaternion.Euler(0, 0, 0); }
+                if (pressingLeft) { transform.rotation = Quaternion.Euler(0, 180, 0); }
+                
                 holdingWall = true;
 
                 body.gravityScale = 0;

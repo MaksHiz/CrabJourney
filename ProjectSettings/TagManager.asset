@@ -83,14 +83,14 @@ TagManager:
   - name: Ground
     uniqueID: 2248591739
     locked: 0
+  - name: Wall
+    uniqueID: 3117344885
+    locked: 0
   - name: Player
     uniqueID: 3094839135
     locked: 0
   - name: PlayerWalksBehind
     uniqueID: 1575758671
-    locked: 0
-  - name: Wall
-    uniqueID: 3117344885
     locked: 0
   - name: ForegroundColor
     uniqueID: 870256687

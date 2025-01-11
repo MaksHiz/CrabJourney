@@ -240,6 +240,7 @@ public class characterMovement : MonoBehaviour
         {
             desiredJump = true;
             pressingJump = true;
+            AudioManager.Instance.PlaySFX("jump");
         }
         else if (Input.GetButtonUp("Jump"))
         {

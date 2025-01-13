@@ -10,6 +10,8 @@ TagManager:
   - ForceDisabler
   - PearlReseter
   - BouncePad
+  - CuttableTrash
+  - CollectableTrash
   layers:
   - Default
   - TransparentFX

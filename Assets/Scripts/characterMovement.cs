@@ -131,6 +131,7 @@ public class characterMovement : MonoBehaviour
     private void Start()
     {
         animator = GetComponent<Animator>();
+        animator.SetBool("onGround", true);
     }
 
     private void OnDrawGizmos()
@@ -157,6 +158,7 @@ public class characterMovement : MonoBehaviour
         }
         if (onGround && isFalling)
         {
+            animator.SetBool("onGround", true);
             isFalling = false;
             fallEndHeight = transform.position.y;
         }
@@ -228,13 +230,18 @@ public class characterMovement : MonoBehaviour
     }
     private void Update()
     {
-        handleBounce();
+        //handleBounce();
         updateHorizontal();
-        checkCollision();
-
+        checkCollision(); 
 
         horizontal = getHorizontal();
         vertical = Input.GetAxisRaw("Vertical");
+
+        if (!onGround) { animator.SetBool("onGround", false); }
+        else { animator.SetBool("onGround", true); }
+
+        if (onWall) { animator.SetBool("onWall", true); }
+        else { animator.SetBool("onWall", false); }
 
         if (Input.GetButtonDown("Jump"))
         {
@@ -521,6 +528,7 @@ public class characterMovement : MonoBehaviour
 
             Debug.Log("y wall");
             velocity.y = Mathf.MoveTowards(velocity.y, desiredVelocity.y, maxSpeedChange);
+            animator.SetFloat("yVelocity", Math.Abs(body.velocity.y));
         }
     }
 

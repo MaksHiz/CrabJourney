@@ -243,7 +243,8 @@ public class characterMovement : MonoBehaviour
         if (onWall) { animator.SetBool("onWall", true); }
         else { animator.SetBool("onWall", false); }
 
-        if (Input.GetButtonDown("Jump"))
+
+        if (Input.GetButtonDown("Jump") && (onGround || onWall))
         {
             desiredJump = true;
             pressingJump = true;
@@ -258,6 +259,8 @@ public class characterMovement : MonoBehaviour
         pressingKeyHorizontal = horizontal != 0 ? true : false;
 
         pressingJumpWall = false;
+        if(onWall)
+            animator.SetBool("facingWall", true);
         pressingOpposite = false;
 
         if (!(wallWaitCounter > wallWaitBuffer))
@@ -287,9 +290,11 @@ public class characterMovement : MonoBehaviour
                 if (onWallLeft && pressingRight || onWallRight && pressingLeft)
                 {
                     pressingOpposite = true;
+                    animator.SetBool("facingWall", false);
                 }
-                if (pressingRight) { transform.rotation = Quaternion.Euler(0, 0, 0); }
-                if (pressingLeft) { transform.rotation = Quaternion.Euler(0, 180, 0); }
+           
+                //if (pressingRight) { transform.rotation = Quaternion.Euler(0, 0, 0); }
+                //if (pressingLeft) { transform.rotation = Quaternion.Euler(0, 180, 0); }
                 
                 holdingWall = true;
 

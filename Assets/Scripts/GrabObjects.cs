@@ -78,7 +78,7 @@ public class GrabObjects : MonoBehaviour
             }
         }
     }
-
+    // DON'T REMOVE, NECESSARY FOR GRAB AND LEVER INTERACTION LOGIC
     private void HandleMovement()
     {
         if (Input.GetKey(KeyCode.A) || Input.GetAxis("Horizontal") < 0)
@@ -111,17 +111,21 @@ public class GrabObjects : MonoBehaviour
 
     private void HandleLever(GameObject leverObject)
     {
-        if (Input.GetKeyDown(KeyCode.E))
+        LeverMover levermover=leverObject.GetComponent<LeverMover>();
+        if (levermover.getActivated())
         {
-            // Get the Lever component from the object
-            LeverMover lever = leverObject.GetComponent<LeverMover>();
-            if (lever != null)
+            if (Input.GetKeyDown(KeyCode.E))
             {
-                lever.Interact(); // Trigger the interaction logic
-            }
-            else
-            {
-                Debug.LogWarning("No Lever component found on the Lever object.");
+                // Get the Lever component from the object
+                LeverMover lever = leverObject.GetComponent<LeverMover>();
+                if (lever != null)
+                {
+                    lever.Interact(); // Trigger the interaction logic
+                }
+                else
+                {
+                    Debug.LogWarning("No Lever component found on the Lever object.");
+                }
             }
         }
     }

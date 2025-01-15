@@ -15,11 +15,23 @@ public class PearlMovement : MonoBehaviour
     private Vector2 currPos;
     private bool isMoving = true;
     private float timer = 0f;
+    private bool isPuzzleSolved = false;
+    public void setIsPuzzleSolved(bool solved) { isPuzzleSolved = solved; }
     void Start()
     {
-       pearlrb=GetComponent<Rigidbody2D>();
-       currDirect = Vector2.left;
-       prevPos = transform.position;
+        isPuzzleSolved = GameSave.CurrentSave.PuzzleSolved;
+        if (!isPuzzleSolved)
+        {
+            pearlrb=GetComponent<Rigidbody2D>();
+            currDirect = Vector2.left;
+            prevPos = transform.position;
+        }
+        else
+        {
+            isMoving = false;
+            this.GetComponentInParent<GameObject>().SetActive(false);
+        }
+       
     }
     void Update()
     {

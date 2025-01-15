@@ -14,8 +14,19 @@ public class closeClam : MonoBehaviour
     private Rigidbody2D pearlRigidBody;
     private void Start()
     {
+        hasPearl = GameSave.CurrentSave.PuzzleSolved;
         boxColClam = clam.GetComponent<BoxCollider2D>();
-        pearlRigidBody= pearl.GetComponent<Rigidbody2D>();
+        if (hasPearl)
+        {
+            Sprite clamSprite=clam.GetComponent<Sprite>();
+            clamSprite = Resources.Load<Sprite>($"Sprites/Cave/skoljke3/skoljke3_6");
+            boxColClam.enabled = false;
+        }
+        else
+        {
+            pearlRigidBody= pearl.GetComponent<Rigidbody2D>();
+        }
+        
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -27,7 +38,8 @@ public class closeClam : MonoBehaviour
             pearlRigidBody.bodyType = RigidbodyType2D.Static;
             Animator clamAnimator = clam.GetComponent<Animator>();
             clamAnimator.Play("ClamClosing");
-            GameObject.Destroy(pearl);
+            pearl.SetActive(false);
+            GameSave.CurrentSave.GetPuzzleSolved(hasPearl);
             Debug.Log("Collided");
         }
         /*else

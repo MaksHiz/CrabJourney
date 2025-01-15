@@ -5,21 +5,33 @@ public class CuttableTrash : MonoBehaviour
 {
     public bool debug = false;
     private CollectableTrash[] _childTrash;
-
+    private bool isCutApart=false;
+    public int id=0;
     public string pickUppableTrashTag = "CollectableTrash";
 
     void Awake()
     {
-        _childTrash = this.transform.parent.gameObject.GetComponentsInChildren<CollectableTrash>();
-        if (debug) 
+        var element = GameSave.CurrentSave.TrashData[id];
+        isCutApart = element.Item3;
+        if (!isCutApart)
         {
-            Debug.Log(this.transform.parent.gameObject.name);
-            foreach (CollectableTrash child in _childTrash)
+            _childTrash = this.transform.parent.gameObject.GetComponentsInChildren<CollectableTrash>();
+            if (debug) 
             {
-                Debug.Log(child);
+                Debug.Log(this.transform.parent.gameObject.name);
+                foreach (CollectableTrash child in _childTrash)
+                {
+                    Debug.Log(child);
+                }
             }
+            SetAllInactive();
         }
-        SetAllInactive();
+        else
+        {
+            this.GetComponentInParent<GameObject>().SetActive(false);
+            SetAllActive();
+        }
+        
         // 
     }
 
@@ -28,6 +40,8 @@ public class CuttableTrash : MonoBehaviour
         if (debug) Debug.Log("Cutting this object");
         // play animation
         SetAllActive();
+        isCutApart = true;
+        GameSave.CurrentSave.GetIsCutApart(id, isCutApart);
         // foreach (CollectableTrash child in _childTrash)
         // {
         //     if (debug) Debug.Log("Spawning child object");

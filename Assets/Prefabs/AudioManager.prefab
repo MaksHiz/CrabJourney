@@ -51,7 +51,11 @@ MonoBehaviour:
   - {fileID: 8300000, guid: b2c9ade91858ae84c8fba3cb066d5be6, type: 3}
   sfxSounds:
   - {fileID: 8300000, guid: cdf3d0ce58bf0fd47baf7c84b4afefd6, type: 3}
+  - {fileID: 8300000, guid: 94aaa70ab2d9db948b0d05855d2b6591, type: 3}
   - {fileID: 8300000, guid: a7e9cf2af3b4e1b46b2435553a0e423f, type: 3}
+  - {fileID: 8300000, guid: 4a333eb525fb249499db112c6722ffc9, type: 3}
+  - {fileID: 8300000, guid: d1165f7835f6974459690848ea949029, type: 3}
+  - {fileID: 8300000, guid: ceb5e946fe58a8f4fa63a7f474f2b539, type: 3}
   musicSource: {fileID: 1817232423023612615}
   sfxSource: {fileID: 2277838911739990346}
 --- !u!1 &8188582326662991335

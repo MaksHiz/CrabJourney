@@ -132,6 +132,9 @@ public class characterMovement : MonoBehaviour
     {
         animator = GetComponent<Animator>();
         animator.SetBool("onGround", true);
+        DateTime currentTime = DateTime.Now;
+        int timeAsInt = (currentTime.Hour * 10000) + (currentTime.Minute * 100) + currentTime.Second;
+        UnityEngine.Random.InitState(timeAsInt+1); //just for a different random seed than the one used in collectable Trash
     }
 
     private void OnDrawGizmos()
@@ -248,7 +251,8 @@ public class characterMovement : MonoBehaviour
         {
             desiredJump = true;
             pressingJump = true;
-            AudioManager.Instance.PlaySFX("jump");
+            if (UnityEngine.Random.Range(1, 3) == 1) { AudioManager.Instance.PlaySFX("jump"); }
+            else { AudioManager.Instance.PlaySFX("jump2"); }
         }
         else if (Input.GetButtonUp("Jump"))
         {

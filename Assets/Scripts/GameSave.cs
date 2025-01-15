@@ -5,7 +5,7 @@ using UnityEngine;
 public class GameSave
 {
     public static int MAX_TRASH = 100;
-
+    [SerializeField] private GameObject crab;
     #region REGION: Properties
     // The three game saves, stores in an array.
     public static GameSave[] Saves { get; private set; }
@@ -122,4 +122,44 @@ public class GameSave
     // Checks if the index for the save is valid.
     private static bool _is_valid_index(int index) => index >= 0 && index < Saves.Length;
     #endregion
+    
+    //MaksH functions for simplifying GameSave logic
+
+    //  GET = local data goes into storage data (particularly used when closing the save
+    //  or when an action is performed that invokes changing the save)
+    //  SET = storage data goes into local data (particularly used when opening the save)
+
+    //Used when storing the trash count data in the game save
+    //probably should make the crab a don't destroy on load object
+    //to keep the trash count consistent through scenes before going for a save
+    public void GetTrashAmmount() {
+        GameObject obj = GameObject.Find("TrashPickupCollider");
+        TrashPickup trashPickup = obj.GetComponent<TrashPickup>();
+        TrashCount = trashPickup.pickedUpTrash;
+    }
+    //Used for setting the trash data for the very first time when loading in the save
+    public void SetTrashAmmount()
+    {
+        GameObject obj = GameObject.Find("TrashPickupCollider");
+        TrashPickup trashPickup = obj.GetComponent<TrashPickup>();
+        trashPickup.pickedUpTrash = TrashCount;
+    }
+    // Crab Position will be determined by the crab object that is attached to the GameSave object
+    // can be changed if necessary but needs to be communicated
+    public void GetCrabPosition() { CrabPosition = crab.transform.position; }
+    public void SetCrabPosition() { crab.transform.position = CrabPosition; }
+
+    //used for clam & pearl communication, not used in GameSave
+    public void GetPuzzleSolved(bool isSolved) { PuzzleSolved = isSolved; }
+
+    //used for cuttable trash communication, not used in GameSave
+    public void GetIsCutApart(int id, bool isCut) {
+        var element = TrashData[id];
+        element.Item3 = isCut;
+    }
+    //used for collectable trash communication, not used in GameSave
+    public void GetIsPickedUp(int id, bool isPickedUp) {
+        var element = TrashData[id];
+        element.Item2= isPickedUp;
+    }
 }

@@ -54,12 +54,46 @@ public class GameSave
     public GameSave(string data)
     {
         var parts = data.Split('|');
-        if (parts.Length < 3) throw new FormatException("Invalid save data.");
+        if (parts.Length < 6) throw new FormatException("Invalid save data.");
 
         LastPlayed = DateTime.Parse(parts[0]);
         PuzzleSolved = bool.Parse(parts[1]);
         TrashCount = int.Parse(parts[2]);
+
+        // Parse CrabPosition
+        var crabPositionParts = parts[3].Split(',');
+        if (crabPositionParts.Length != 3) throw new FormatException("Invalid CrabPosition data.");
+        CrabPosition = new Vector3(
+            float.Parse(crabPositionParts[0]),
+            float.Parse(crabPositionParts[1]),
+            float.Parse(crabPositionParts[2])
+        );
+
+        // Parse CrabPositionScene
+        CrabPositionScene = parts[4];
+
+        // Parse TrashData
+        TrashData = new List<(Vector3, bool, bool)>();
+        if (!string.IsNullOrEmpty(parts[5]))
+        {
+            var trashEntries = parts[5].Split(';');
+            foreach (var entry in trashEntries)
+            {
+                var trashParts = entry.Split(',');
+                if (trashParts.Length != 5) throw new FormatException("Invalid TrashData entry.");
+                TrashData.Add((
+                    new Vector3(
+                        float.Parse(trashParts[0]),
+                        float.Parse(trashParts[1]),
+                        float.Parse(trashParts[2])
+                    ),
+                    bool.Parse(trashParts[3]),
+                    bool.Parse(trashParts[4])
+                ));
+            }
+        }
     }
+
 
     // Creates a new GameSave object with the default values for all the fields.
     public GameSave()
@@ -67,13 +101,20 @@ public class GameSave
         LastPlayed = DateTime.Now;
         TrashCount = 0;
         PuzzleSolved = false;
+        TrashData = new List<(Vector3, bool, bool)>();
     }
     #endregion
 
     #region Public Methods
     // Generates a string from the object which can be saved into PlayerPrefs easily.
     public override string ToString()
-        => $"{LastPlayed:o}|{PuzzleSolved}|{TrashCount}";
+    {
+        // Serialize TrashData as a semicolon-separated string
+        string trashDataString = string.Join(";", TrashData.ConvertAll(td =>
+            $"{td.Item1.x},{td.Item1.y},{td.Item1.z},{td.Item2},{td.Item3}"));
+
+        return $"{LastPlayed:o}|{PuzzleSolved}|{TrashCount}|{CrabPosition.x},{CrabPosition.y},{CrabPosition.z}|{CrabPositionScene}|{trashDataString}";
+    }
 
     // Method which saves the current game.
     public static void SaveCurrentGame()
@@ -85,8 +126,12 @@ public class GameSave
         }
 
         CurrentSave.LastPlayed = DateTime.Now;
+        CurrentSave.GetTrashAmmount();
+        CurrentSave.GetCrabPosition();
+
         PlayerPrefs.SetString($"GameSave{CurrentSaveIndex}", CurrentSave.ToString());
         PlayerPrefs.Save();
+
 
         LastPlayedSaveIndex = CurrentSaveIndex;
         Debug.Log($"Saved slot {CurrentSaveIndex}.");

@@ -255,8 +255,6 @@ public class characterMovement : MonoBehaviour
         {
             desiredJump = true;
             pressingJump = true;
-            if (UnityEngine.Random.Range(1, 3) == 1) { AudioManager.Instance.PlaySFX("jump"); }
-            else { AudioManager.Instance.PlaySFX("jump2"); }
         }
         else if (Input.GetButtonUp("Jump"))
         {
@@ -477,6 +475,8 @@ public class characterMovement : MonoBehaviour
         // Debug.Log("Tried jumnping");
         if (onGround || (coyoteTimeCounter > 0.03f && coyoteTimeCounter < coyoteTime))
         {
+            if (UnityEngine.Random.Range(1, 3) == 1) { AudioManager.Instance.PlaySFX("jump"); }
+            else { AudioManager.Instance.PlaySFX("jump2"); }
             // Debug.Log("Jumnped");
             desiredJump = false;
             jumpBufferCounter = 0;

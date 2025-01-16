@@ -79,6 +79,9 @@ public class characterMovement : MonoBehaviour
     [SerializeField, Range(0f, 0.3f)] public float coyoteTime = 0.15f;
     [SerializeField, Range(0f, 0.3f)] public float jumpBuffer = 0.15f;
 
+    [Header("Hide")]
+    [SerializeField, Range(1f, 30f)] public float shellFallingMultiuplier = 10f;
+
 
     [Header("State")]
     private bool desiredJump;
@@ -104,6 +107,7 @@ public class characterMovement : MonoBehaviour
 
     private LastPressed lastPressed;
 
+    public bool inShell;
 
 
     [Header("Other")]
@@ -333,6 +337,18 @@ public class characterMovement : MonoBehaviour
         }
 
         holdingWall = false;
+        
+        setGravity();
+
+        if (vertical < 0)
+        {
+            inShell = true;
+            return;
+        }
+        else
+        {
+            inShell = false;
+        }
 
         if (horizontal < 0)
         {
@@ -342,8 +358,6 @@ public class characterMovement : MonoBehaviour
         {
             transform.rotation = Quaternion.Euler(0, 0, 0);
         }
-
-        setGravity();
 
         if (jumpBuffer > 0)
         {
@@ -383,7 +397,12 @@ public class characterMovement : MonoBehaviour
         }
         else //if (onGround)
         {
-            if (desiredJump)
+            if (inShell){
+                // sprite change
+                calculateGravity();
+                return;    
+            }
+            else if (desiredJump)
             {
                 Jump();
                 body.velocity = new Vector3(velocity.x, Mathf.Clamp(velocity.y, -fallSpeedLimit, 100));
@@ -409,7 +428,11 @@ public class characterMovement : MonoBehaviour
             }
             else
             {
-                if (pressingJump && currentlyJumping)
+                if (inShell)
+                {
+                    gravMultiplier = shellFallingMultiuplier;
+                }
+                else if (pressingJump && currentlyJumping)
                 {
                     gravMultiplier = upwardMovementMultiplier;
                 }
@@ -422,7 +445,11 @@ public class characterMovement : MonoBehaviour
         else if (body.velocity.y < -0.01f)
         {
 
-            if (onGround)
+            if (inShell)
+            {
+                gravMultiplier = shellFallingMultiuplier;
+            }
+            else if (onGround)
             {
                 gravMultiplier = defaultGravityScale;
             }

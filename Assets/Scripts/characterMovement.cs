@@ -474,11 +474,19 @@ public class characterMovement : MonoBehaviour
 
     private void Jump()
     {
+        // Debug.Log("Tried jumnping");
         if (onGround || (coyoteTimeCounter > 0.03f && coyoteTimeCounter < coyoteTime))
         {
+            // Debug.Log("Jumnped");
             desiredJump = false;
             jumpBufferCounter = 0;
             coyoteTimeCounter = 0;
+
+            // Debug.Log("" + Physics2D.gravity.y + " " + body.gravityScale + " " + jumpHeight);
+
+            gravMultiplier = defaultGravityScale;
+
+            setGravity();
 
             jumpSpeed = Mathf.Sqrt(-2f * Physics2D.gravity.y * body.gravityScale * jumpHeight);
 
@@ -491,6 +499,7 @@ public class characterMovement : MonoBehaviour
                 jumpSpeed += Mathf.Abs(body.velocity.y);
             }
 
+            // Debug.Log("+= " + jumpSpeed);
             velocity.y += jumpSpeed;
             currentlyJumping = true;
         }

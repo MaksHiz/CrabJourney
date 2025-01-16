@@ -267,7 +267,7 @@ public class characterMovement : MonoBehaviour
         pressingKeyHorizontal = horizontal != 0 ? true : false;
 
         pressingJumpWall = false;
-        if(onWall)
+        if(onWall && !inShell)
             animator.SetBool("facingWall", true);
         pressingOpposite = false;
 
@@ -285,7 +285,7 @@ public class characterMovement : MonoBehaviour
             coyoteTimeCounter = 0;
         }
 
-        if (onWall && grabObjects.getGrabObject()==null)
+        if (onWall && grabObjects.getGrabObject()==null && !inShell)
         {
             if (onWallLeft || onWallRight)
             {

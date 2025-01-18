@@ -133,6 +133,9 @@ public class MenuHandler : MonoBehaviour
     {
         _paused = !_paused;
 
+        if(_paused) Time.timeScale = 0f;
+        else Time.timeScale = 1f;
+
         PauseScreen.SetActive(_paused);
     }
 
@@ -148,7 +151,7 @@ public class MenuHandler : MonoBehaviour
         InGame = true;
         SwapScreens(_current_screen, PauseScreen);
         PauseScreen.SetActive(false);
-        SceneManager.LoadScene("StartSceneExample");
+        SceneManager.LoadScene(2);
     }
 
     // Process click on the save slot.
@@ -174,7 +177,7 @@ public class MenuHandler : MonoBehaviour
 
         _paused = false;
 
-        SceneManager.LoadScene("Intro");
+        SceneManager.LoadScene(5);
         _current_screen.SetActive(false);
         _current_screen = TitleMenu;
         _current_screen.SetActive(true);

@@ -76,6 +76,10 @@ public class MenuHandler : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.Escape))
             {
+                if (_current_screen != PauseScreen) 
+                {
+                    ReturnToPreviousMenu();
+                }
                 TogglePause();
             }
         }

@@ -6,6 +6,7 @@ public class CuttableTrash : MonoBehaviour
     public bool debug = false;
     private CollectableTrash[] _childTrash;
     private bool isCutApart=false;
+    // (id,isPickedUp,isCutApart,isPlaced,LeverName)
     public int id=0;
     public string pickUppableTrashTag = "CollectableTrash";
 
@@ -28,8 +29,8 @@ public class CuttableTrash : MonoBehaviour
         }
         else
         {
-            this.GetComponentInParent<GameObject>().SetActive(false);
-            SetAllActive();
+            //SetAllActive();
+            this.gameObject.SetActive(false);
         }
         
         // 

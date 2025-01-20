@@ -8,13 +8,20 @@ public class LeverMover : MonoBehaviour
     private bool isActivated = false; // Checks if the lever is functioning or the player still has to find it and place it down
     private GameObject leverMoverObj;
     [SerializeField] private List<RotateWall> walls;
-    // (pozicija,isPickedUp,isCutApart,isPlaced,LeverName,id)
-    private (int, bool, bool, bool,string, int) leverData;
-    private void Start()
+    // (id,isPickedUp,isCutApart,isPlaced,LeverName)
+    private (int, bool, bool, bool,string) leverData;
+    private void Awake()
     {
-        leverData=GameSave.CurrentSave.FindLeverDataByName(this.GetComponent<GameObject>().name);
+        leverData=GameSave.CurrentSave.FindLeverDataByName(this.gameObject.name);
         isActivated = leverData.Item4;
-        leverMoverObj = GameObject.Find("LeverMover"); // Find the LeverMover child and get its Animator component
+        foreach(Transform child in transform)
+        {
+            if (child.name == "LeverMover")
+            {
+                leverMoverObj = child.gameObject;
+                break;
+            }
+        } // Find the LeverMover child and get its Animator component
 
         if (isActivated)
         {
@@ -32,13 +39,9 @@ public class LeverMover : MonoBehaviour
     }
     private void Update()
     {
-        //Debug.Log(this+" has been activated?" + isActivated + "contains: "+leverMoverObj.transform.position);
-        if (isActivated)
+        if (!isActivated)
         {
-            leverMoverObj.SetActive(true);
-            
-            if (leverMoverObj != null)
-                leverAnimator = leverMoverObj.GetComponent<Animator>();
+            leverData = GameSave.CurrentSave.FindLeverDataByName(this.gameObject.name);
         }
     }
     public void setActivated(bool activated) { isActivated = activated;}
@@ -69,10 +72,15 @@ public class LeverMover : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            if (leverData.Item2 == true)
+            if (leverData.Item2 == true && isActivated!=true)
             {
                 isActivated = true;
-                GameSave.CurrentSave.GetIsPlaced(leverData.Item6,true);
+                //GameSave.CurrentSave.GetIsPickedUp(leverData.Item1,false);
+                GameSave.CurrentSave.GetIsPlaced(leverData.Item1,true);
+                leverMoverObj.SetActive(true);
+
+                if (leverMoverObj != null)
+                    leverAnimator = leverMoverObj.GetComponent<Animator>();
             }
         }
     }

@@ -16,8 +16,7 @@ public class PearlMovement : MonoBehaviour
     private bool isMoving = true;
     private float timer = 0f;
     private bool isPuzzleSolved = false;
-    public void setIsPuzzleSolved(bool solved) { isPuzzleSolved = solved; }
-    void Start()
+    void Awake()
     {
         isPuzzleSolved = GameSave.CurrentSave.PuzzleSolved;
         if (!isPuzzleSolved)
@@ -29,7 +28,7 @@ public class PearlMovement : MonoBehaviour
         else
         {
             isMoving = false;
-            this.GetComponentInParent<GameObject>().SetActive(false);
+            this.gameObject.SetActive(false);
         }
        
     }

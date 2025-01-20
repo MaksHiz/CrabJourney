@@ -106,8 +106,9 @@ public class GameSave
         TrashCount = 0;
         PuzzleSolved = false;
         TrashData = new List<(int, bool, bool, bool, string)>();
+        CrabPosition = new Vector3(0, 0, 0);
 
-        for (int i = 0; i < 100; i++) 
+        for (int i = 0; i < 100; i++)
         {
             TrashData.Add((i, false, false, false, ""));
         }
@@ -236,26 +237,40 @@ public class GameSave
     //used for getting info of levers being placed down, not used in GameSave
     public void GetIsPlaced(int id, bool isPlaced)
     {
-        var element = TrashData[id];
-        element.Item4 = isPlaced;
+        var existingTuple = GameSave.CurrentSave.TrashData[id];
+
+        GameSave.CurrentSave.TrashData[id] = (
+        existingTuple.Item1, // Keep the same ID
+        existingTuple.Item2,          // Update isPickedUp
+        existingTuple.Item3, // Keep the same value for isCutApart
+        isPlaced, // Keep the same value for isPlaced
+        existingTuple.Item5  // Keep the same lever name
+        );
     }
     //used for storing the levers name, not used in GameSave
     public void GetLeverName(int id, string lever_name)
     {
-        var element = TrashData[id];
-        element.Item5 = lever_name;
+        var existingTuple = GameSave.CurrentSave.TrashData[id];
+
+        GameSave.CurrentSave.TrashData[id] = (
+        existingTuple.Item1, // Keep the same ID
+        existingTuple.Item2,          // Update isPickedUp
+        existingTuple.Item3, // Keep the same value for isCutApart
+        existingTuple.Item4, // Keep the same value for isPlaced
+        lever_name  // Keep the same lever name
+        );
     }
     //used for finding the specific levers name we have to be searching for and giving data regarding if its picked up, placed or still at the same spot
-    public (int, bool, bool, bool, string, int) FindLeverDataByName(string lever_name)
+    public (int, bool, bool, bool, string) FindLeverDataByName(string lever_name)
     {
         for(int i = 0; i < TrashData.Count; i++)
         {
            var element = TrashData[i];
            if (element.Item5 == lever_name)
             {
-                return (TrashData[i].Item1, TrashData[i].Item2, TrashData[i].Item3, TrashData[i].Item4, TrashData[i].Item5, i);
+                return TrashData[i];
             }
         }
-        return (-1,false,false,false,"none",-1);
+        return (-1,false,false,false,"none");
     }
 }

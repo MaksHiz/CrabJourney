@@ -5,7 +5,6 @@ using UnityEngine;
 public class GameSave
 {
     public static int MAX_TRASH = 100;
-    [SerializeField] private GameObject crab;
     #region REGION: Properties
     // The three game saves, stores in an array.
     public static GameSave[] Saves { get; private set; }
@@ -36,10 +35,8 @@ public class GameSave
     public int TrashCount { get; set; }
     public float TrashPickedUpPercent { get { return TrashCount/(float)(MAX_TRASH); } }
 
-    // (pozicija,isPickedUp,isCutApart)
-    public List<(Vector3,bool,bool)> TrashData { get; set; }
-
-    // LEVER DATA
+    // (pozicija,isPickedUp,isCutApart,isPlaced,LeverName)
+    public List<(Vector3,bool,bool,bool,string)> TrashData { get; set; }
 
     #endregion
 
@@ -73,7 +70,8 @@ public class GameSave
         CrabPositionScene = parts[4];
 
         // Parse TrashData
-        TrashData = new List<(Vector3, bool, bool)>();
+        /* NEEDS FIX BECAUSE I CHANGED THE TRASH DATA FIELD
+        TrashData = new List<(Vector3, bool, bool,bool,string)>();
         if (!string.IsNullOrEmpty(parts[5]))
         {
             var trashEntries = parts[5].Split(';');
@@ -92,6 +90,7 @@ public class GameSave
                 ));
             }
         }
+        */
     }
 
 
@@ -101,7 +100,7 @@ public class GameSave
         LastPlayed = DateTime.Now;
         TrashCount = 0;
         PuzzleSolved = false;
-        TrashData = new List<(Vector3, bool, bool)>();
+        TrashData = new List<(Vector3, bool, bool,bool,string)>();
     }
     #endregion
 
@@ -191,8 +190,8 @@ public class GameSave
     }
     // Crab Position will be determined by the crab object that is attached to the GameSave object
     // can be changed if necessary but needs to be communicated
-    public void GetCrabPosition() { CrabPosition = crab.transform.position; }
-    public void SetCrabPosition() { crab.transform.position = CrabPosition; }
+    public void GetCrabPosition() { CrabPosition = GameObject.Find("Crab").transform.position; }
+    public void SetCrabPosition() { GameObject.Find("Crab").transform.position = CrabPosition; }
 
     //used for clam & pearl communication, not used in GameSave
     public void GetPuzzleSolved(bool isSolved) { PuzzleSolved = isSolved; }
@@ -206,5 +205,30 @@ public class GameSave
     public void GetIsPickedUp(int id, bool isPickedUp) {
         var element = TrashData[id];
         element.Item2= isPickedUp;
+    }
+    //used for getting info of levers being placed down, not used in GameSave
+    public void GetIsPlaced(int id, bool isPlaced)
+    {
+        var element = TrashData[id];
+        element.Item4 = isPlaced;
+    }
+    //used for storing the levers name, not used in GameSave
+    public void GetLeverName(int id, string lever_name)
+    {
+        var element = TrashData[id];
+        element.Item5 = lever_name;
+    }
+    //used for finding the specific levers name we have to be searching for and giving data regarding if its picked up, placed or still at the same spot
+    public (Vector3, bool, bool, bool, string, int) FindLeverDataByName(string lever_name)
+    {
+        for(int i = 0; i < TrashData.Count; i++)
+        {
+           var element = TrashData[i];
+           if (element.Item5 == lever_name)
+            {
+                return (TrashData[i].Item1, TrashData[i].Item2, TrashData[i].Item3, TrashData[i].Item4, TrashData[i].Item5, i);
+            }
+        }
+        return (Vector3.zero,false,false,false,"none",-1);
     }
 }

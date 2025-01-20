@@ -8,10 +8,13 @@ public class LeverMover : MonoBehaviour
     private bool isActivated = false; // Checks if the lever is functioning or the player still has to find it and place it down
     private GameObject leverMoverObj;
     [SerializeField] private List<RotateWall> walls;
+    // (pozicija,isPickedUp,isCutApart,isPlaced,LeverName,id)
+    private (Vector3, bool, bool, bool,string, int) leverData;
     private void Start()
     {
-        // Find the LeverMover child and get its Animator component
-        leverMoverObj = GameObject.Find("LeverMover");
+        leverData=GameSave.CurrentSave.FindLeverDataByName(this.GetComponent<GameObject>().name);
+        isActivated = leverData.Item4;
+        leverMoverObj = GameObject.Find("LeverMover"); // Find the LeverMover child and get its Animator component
 
         if (isActivated)
         {
@@ -29,7 +32,7 @@ public class LeverMover : MonoBehaviour
     }
     private void Update()
     {
-        Debug.Log(this+" has been activated?" + isActivated + "contains: "+leverMoverObj.transform.position);
+        //Debug.Log(this+" has been activated?" + isActivated + "contains: "+leverMoverObj.transform.position);
         if (isActivated)
         {
             leverMoverObj.SetActive(true);
@@ -61,4 +64,16 @@ public class LeverMover : MonoBehaviour
         }
 
     }
-}
+
+    public void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            if (leverData.Item2 == true)
+            {
+                isActivated = true;
+                GameSave.CurrentSave.GetIsPlaced(leverData.Item6,true);
+            }
+        }
+    }
+}   

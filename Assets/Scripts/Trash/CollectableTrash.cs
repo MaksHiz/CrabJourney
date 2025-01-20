@@ -39,9 +39,10 @@ public class CollectableTrash : MonoBehaviour
 
         if (leverName!="")
         {
-            GameObject lever = GameObject.Find(leverName);
-            LeverMover levermover = lever.GetComponent<LeverMover>();
-            levermover.setActivated(true);
+            GameSave.CurrentSave.GetLeverName(id,leverName);
+            //GameObject lever = GameObject.Find(leverName);
+            //LeverMover levermover = lever.GetComponent<LeverMover>();
+            //levermover.setActivated(true);
         }
         
         // play animation ?

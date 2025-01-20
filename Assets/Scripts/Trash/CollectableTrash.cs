@@ -17,9 +17,10 @@ public class CollectableTrash : MonoBehaviour
             int timeAsInt = (currentTime.Hour * 10000) + (currentTime.Minute * 100) + currentTime.Second;
             UnityEngine.Random.InitState(timeAsInt);
         }
-        
-        // save ovdje
-        // this.transform.gameObject.SetActive(false);
+        else
+        {
+            this.gameObject.SetActive(false);
+        }
     }
 
     public void Spawn()
@@ -30,7 +31,6 @@ public class CollectableTrash : MonoBehaviour
 
     public void PickedUp()
     {
-        this.transform.gameObject.SetActive(false);
         isPickedUp = true;
         GameSave.CurrentSave.GetIsPickedUp(id, isPickedUp);
         //Trash pickup sound
@@ -44,8 +44,9 @@ public class CollectableTrash : MonoBehaviour
             //LeverMover levermover = lever.GetComponent<LeverMover>();
             //levermover.setActivated(true);
         }
-        
+
         // play animation ?
+        this.transform.gameObject.SetActive(false);
     }
 
 }

@@ -9,8 +9,8 @@ public class GameSave
     // The three game saves, stores in an array.
     public static GameSave[] Saves { get; private set; }
 
-    // The save index of the current save; default is -1 when no save is chosen yet.
-    public static int CurrentSaveIndex { get; set; } = -1;
+    // The save index of the current save; default is 0 when no save is chosen yet.
+    public static int CurrentSaveIndex { get; set; } = 0;
 
     // Gets the current save from the Saves array.
     public static GameSave CurrentSave => _is_valid_index(CurrentSaveIndex) ? Saves[CurrentSaveIndex] : null;
@@ -35,8 +35,8 @@ public class GameSave
     public int TrashCount { get; set; }
     public float TrashPickedUpPercent { get { return TrashCount/(float)(MAX_TRASH); } }
 
-    // (pozicija,isPickedUp,isCutApart,isPlaced,LeverName)
-    public List<(Vector3,bool,bool,bool,string)> TrashData { get; set; }
+    // (id,isPickedUp,isCutApart,isPlaced,LeverName)
+    public List<(int,bool,bool,bool,string)> TrashData { get; set; }
 
     #endregion
 
@@ -70,8 +70,7 @@ public class GameSave
         CrabPositionScene = parts[4];
 
         // Parse TrashData
-        /* NEEDS FIX BECAUSE I CHANGED THE TRASH DATA FIELD
-        TrashData = new List<(Vector3, bool, bool,bool,string)>();
+        TrashData = new List<(int, bool, bool, bool, string)>();
         if (!string.IsNullOrEmpty(parts[5]))
         {
             var trashEntries = parts[5].Split(';');
@@ -79,18 +78,24 @@ public class GameSave
             {
                 var trashParts = entry.Split(',');
                 if (trashParts.Length != 5) throw new FormatException("Invalid TrashData entry.");
-                TrashData.Add((
-                    new Vector3(
-                        float.Parse(trashParts[0]),
-                        float.Parse(trashParts[1]),
-                        float.Parse(trashParts[2])
-                    ),
+
+                int index = int.Parse(trashParts[0]);
+
+                // Ensure TrashData has enough capacity
+                while (TrashData.Count <= index)
+                {
+                    TrashData.Add((0, false, false, false, ""));
+                }
+
+                TrashData[index] = (
+                    index,
+                    bool.Parse(trashParts[1]),
+                    bool.Parse(trashParts[2]),
                     bool.Parse(trashParts[3]),
-                    bool.Parse(trashParts[4])
-                ));
+                    trashParts[4]
+                );
             }
         }
-        */
     }
 
 
@@ -100,7 +105,12 @@ public class GameSave
         LastPlayed = DateTime.Now;
         TrashCount = 0;
         PuzzleSolved = false;
-        TrashData = new List<(Vector3, bool, bool,bool,string)>();
+        TrashData = new List<(int, bool, bool, bool, string)>();
+
+        for (int i = 0; i < 100; i++) 
+        {
+            TrashData.Add((i, false, false, false, ""));
+        }
     }
     #endregion
 
@@ -110,7 +120,7 @@ public class GameSave
     {
         // Serialize TrashData as a semicolon-separated string
         string trashDataString = string.Join(";", TrashData.ConvertAll(td =>
-            $"{td.Item1.x},{td.Item1.y},{td.Item1.z},{td.Item2},{td.Item3}"));
+            $"{td.Item1},{td.Item2},{td.Item3},{td.Item4}, {td.Item5}"));
 
         return $"{LastPlayed:o}|{PuzzleSolved}|{TrashCount}|{CrabPosition.x},{CrabPosition.y},{CrabPosition.z}|{CrabPositionScene}|{trashDataString}";
     }
@@ -197,14 +207,31 @@ public class GameSave
     public void GetPuzzleSolved(bool isSolved) { PuzzleSolved = isSolved; }
 
     //used for cuttable trash communication, not used in GameSave
-    public void GetIsCutApart(int id, bool isCut) {
-        var element = TrashData[id];
-        element.Item3 = isCut;
+    public void GetIsCutApart(int id, bool isCut)
+    {
+        // Get the existing tuple
+        var existingTuple = GameSave.CurrentSave.TrashData[id];
+
+        // Replace the tuple with a new one that updates Item3 (isCut)
+        GameSave.CurrentSave.TrashData[id] = (
+            existingTuple.Item1, // Keep the same ID
+            existingTuple.Item2, // Keep the same value for isPickedUp
+            isCut,               // Update isCutApart
+            existingTuple.Item4, // Keep the same value for isPlaced
+            existingTuple.Item5  // Keep the same lever name
+        );
     }
     //used for collectable trash communication, not used in GameSave
     public void GetIsPickedUp(int id, bool isPickedUp) {
-        var element = TrashData[id];
-        element.Item2= isPickedUp;
+        var existingTuple = GameSave.CurrentSave.TrashData[id];
+
+        GameSave.CurrentSave.TrashData[id] = (
+        existingTuple.Item1, // Keep the same ID
+        isPickedUp,          // Update isPickedUp
+        existingTuple.Item3, // Keep the same value for isCutApart
+        existingTuple.Item4, // Keep the same value for isPlaced
+        existingTuple.Item5  // Keep the same lever name
+        );
     }
     //used for getting info of levers being placed down, not used in GameSave
     public void GetIsPlaced(int id, bool isPlaced)
@@ -219,7 +246,7 @@ public class GameSave
         element.Item5 = lever_name;
     }
     //used for finding the specific levers name we have to be searching for and giving data regarding if its picked up, placed or still at the same spot
-    public (Vector3, bool, bool, bool, string, int) FindLeverDataByName(string lever_name)
+    public (int, bool, bool, bool, string, int) FindLeverDataByName(string lever_name)
     {
         for(int i = 0; i < TrashData.Count; i++)
         {
@@ -229,6 +256,6 @@ public class GameSave
                 return (TrashData[i].Item1, TrashData[i].Item2, TrashData[i].Item3, TrashData[i].Item4, TrashData[i].Item5, i);
             }
         }
-        return (Vector3.zero,false,false,false,"none",-1);
+        return (-1,false,false,false,"none",-1);
     }
 }

@@ -9,7 +9,7 @@ public class LeverMover : MonoBehaviour
     private GameObject leverMoverObj;
     [SerializeField] private List<RotateWall> walls;
     // (pozicija,isPickedUp,isCutApart,isPlaced,LeverName,id)
-    private (Vector3, bool, bool, bool,string, int) leverData;
+    private (int, bool, bool, bool,string, int) leverData;
     private void Start()
     {
         leverData=GameSave.CurrentSave.FindLeverDataByName(this.GetComponent<GameObject>().name);

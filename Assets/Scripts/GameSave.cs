@@ -122,6 +122,10 @@ public class GameSave
         {
             TrashData.Add((i, false, false, false, ""));
         }
+
+        TrashData[0] = (0, false, false, false, "RedLever");
+        TrashData[1] = (1, false, false, false, "GreenLever");
+        TrashData[2] = (2, false, false, false, "BlueLever");
     }
     #endregion
 

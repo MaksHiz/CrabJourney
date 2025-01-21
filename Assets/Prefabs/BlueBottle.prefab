@@ -100,7 +100,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   leverName: BlueLever
-  id: 0
+  id: 2
 --- !u!61 &1376302828395562027
 BoxCollider2D:
   m_ObjectHideFlags: 0

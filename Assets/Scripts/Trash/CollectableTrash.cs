@@ -7,6 +7,11 @@ public class CollectableTrash : MonoBehaviour
     private bool isPickedUp = false;
     public int id=0;
     
+    public string GetLeverName()
+    {
+        return leverName;
+    }
+
     void Awake()
     {
         var element = GameSave.CurrentSave.TrashData[id];

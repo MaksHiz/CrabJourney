@@ -15,7 +15,19 @@ public class TrashPickup : MonoBehaviour
     void Awake()
     {
         _closeByTrash = new List<GameObject>();
-        pickedUpTrash = 0;
+        if (GameSave.CurrentSave != null)
+        {
+            pickedUpTrash = GameSave.CurrentSave.TrashCount;
+        }
+        else
+        {
+            pickedUpTrash = 0;
+        }
+        
+    }
+    public void OnDestroy()
+    {
+        GameSave.CurrentSave.SetTrashAmmount();
     }
 
     public void Collect()
@@ -24,7 +36,11 @@ public class TrashPickup : MonoBehaviour
             if (closest != null)
             {
                 closest.GetComponent<CollectableTrash>().PickedUp();
-                PickupTrash(); // activate pickup -> +1 counter...
+                if (closest.GetComponent<CollectableTrash>().GetLeverName() == "")
+                {
+                    PickupTrash();
+                }
+                 // activate pickup -> +1 counter...
                 // closest.SetActive(false);
                 // Destroy(closest); 
             }
@@ -64,4 +80,5 @@ public class TrashPickup : MonoBehaviour
         pickedUpTrash++;
         //TODO animation
     }
+
 }

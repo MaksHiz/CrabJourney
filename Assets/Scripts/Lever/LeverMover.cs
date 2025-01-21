@@ -13,6 +13,7 @@ public class LeverMover : MonoBehaviour
     private void Awake()
     {
         leverData=GameSave.CurrentSave.FindLeverDataByName(this.gameObject.name);
+        Debug.Log("Lever Data:"+leverData);
         isActivated = leverData.Item4;
         foreach(Transform child in transform)
         {
@@ -22,7 +23,7 @@ public class LeverMover : MonoBehaviour
                 break;
             }
         } // Find the LeverMover child and get its Animator component
-
+        Debug.Log("LeverMoverObj:" + leverMoverObj);
         if (isActivated)
         {
             leverMoverObj.SetActive(true);

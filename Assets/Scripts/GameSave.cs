@@ -22,6 +22,7 @@ public class GameSave
     // All the game data that needs to be saved inside a game save.
     #region Fields
     // Last played timestamp.
+    public bool LoadCrabToPosition = false;
     public DateTime LastPlayed { get; set; }
 
     // Has the puzzle cave been solved yet in this save or not.
@@ -58,7 +59,12 @@ public class GameSave
         TrashCount = int.Parse(parts[2]);
 
         // Parse CrabPosition
-        var crabPositionParts = parts[3].Split(',');
+        var crabPositionParts = parts[3].Split(';');
+        foreach (var crab in crabPositionParts)
+        {
+            Debug.Log(crab);
+        }
+        // return $"{LastPlayed:o}|{PuzzleSolved}|{TrashCount}|{CrabPosition.x},{CrabPosition.y},{CrabPosition.z}|{CrabPositionScene}|{trashDataString}";
         if (crabPositionParts.Length != 3) throw new FormatException("Invalid CrabPosition data.");
         CrabPosition = new Vector3(
             float.Parse(crabPositionParts[0]),
@@ -68,6 +74,9 @@ public class GameSave
 
         // Parse CrabPositionScene
         CrabPositionScene = parts[4];
+
+        // change bool for positioning
+        LoadCrabToPosition = true;
 
         // Parse TrashData
         TrashData = new List<(int, bool, bool, bool, string)>();
@@ -102,6 +111,7 @@ public class GameSave
     // Creates a new GameSave object with the default values for all the fields.
     public GameSave()
     {
+        this.CrabPositionScene="Introduction";
         LastPlayed = DateTime.Now;
         TrashCount = 0;
         PuzzleSolved = false;
@@ -121,9 +131,9 @@ public class GameSave
     {
         // Serialize TrashData as a semicolon-separated string
         string trashDataString = string.Join(";", TrashData.ConvertAll(td =>
-            $"{td.Item1},{td.Item2},{td.Item3},{td.Item4}, {td.Item5}"));
+            $"{td.Item1},{td.Item2},{td.Item3},{td.Item4},{td.Item5}"));
 
-        return $"{LastPlayed:o}|{PuzzleSolved}|{TrashCount}|{CrabPosition.x},{CrabPosition.y},{CrabPosition.z}|{CrabPositionScene}|{trashDataString}";
+        return $"{LastPlayed:o}|{PuzzleSolved}|{TrashCount}|{CrabPosition.x};{CrabPosition.y};{CrabPosition.z}|{CrabPositionScene}|{trashDataString}";
     }
 
     // Method which saves the current game.
@@ -142,6 +152,7 @@ public class GameSave
         PlayerPrefs.SetString($"GameSave{CurrentSaveIndex}", CurrentSave.ToString());
         PlayerPrefs.Save();
 
+        _load_saves();
 
         LastPlayedSaveIndex = CurrentSaveIndex;
         Debug.Log($"Saved slot {CurrentSaveIndex}.");

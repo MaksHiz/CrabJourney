@@ -131,6 +131,15 @@ public class characterMovement : MonoBehaviour
         wallWaitCounter = wallWaitBuffer + 1f;
         grabObjects = GetComponent<GrabObjects>();
         BouncePad = GameObject.FindGameObjectWithTag("BouncePad");
+        if(GameSave.CurrentSave != null)
+        {
+                if (GameSave.CurrentSave.LoadCrabToPosition == true)
+                {
+                    this.gameObject.transform.position=GameSave.CurrentSave.CrabPosition;
+                    GameSave.CurrentSave.LoadCrabToPosition = false;
+                }
+        }
+        
     }
     private void Start()
     {

@@ -7,6 +7,7 @@ public class NextSceneIntro : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        GameSave.CurrentSave.CrabPositionScene="beach";
         SceneManager.LoadScene("Beach");
     }
 

@@ -155,7 +155,7 @@ public class MenuHandler : MonoBehaviour
         InGame = true;
         SwapScreens(_current_screen, PauseScreen);
         PauseScreen.SetActive(false);
-        SceneManager.LoadScene(2);
+        SceneManager.LoadScene(GameSave.CurrentSave.CrabPositionScene);
     }
 
     // Process click on the save slot.

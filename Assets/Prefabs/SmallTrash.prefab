@@ -99,6 +99,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64b6b562bfe0af94db78fed906f6425d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  leverName: 
+  id: 9
 --- !u!61 &6902237896664751315
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -194,19 +196,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4569921287269979890, guid: 68e33f018ba7a7b41a6e09f7a67f1d6c, type: 3}
       propertyPath: m_Color.a
-      value: 0.69411767
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4569921287269979890, guid: 68e33f018ba7a7b41a6e09f7a67f1d6c, type: 3}
       propertyPath: m_Color.b
-      value: 0.94716984
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4569921287269979890, guid: 68e33f018ba7a7b41a6e09f7a67f1d6c, type: 3}
       propertyPath: m_Color.g
-      value: 0.7404816
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4569921287269979890, guid: 68e33f018ba7a7b41a6e09f7a67f1d6c, type: 3}
       propertyPath: m_Color.r
-      value: 0.48430753
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6933422487208031095, guid: 68e33f018ba7a7b41a6e09f7a67f1d6c, type: 3}
       propertyPath: m_Intensity

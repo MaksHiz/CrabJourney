@@ -39,10 +39,12 @@ public class closeClam : MonoBehaviour
             pearl.transform.position = new Vector2((float)33.8300018,(float) -9.71000004);
             pearlRigidBody.bodyType = RigidbodyType2D.Static;
             Animator clamAnimator = clam.GetComponent<Animator>();
+            AudioManager.Instance.PlaySFX("Clam_Close");
             clamAnimator.Play("ClamClosing");
             GameSave.CurrentSave.GetPuzzleSolved(hasPearl);
             pearl.SetActive(false);
             Debug.Log("Collided");
+            AudioManager.Instance.PlaySFX("PuzzleSolve",1.5f);
         }
         /*else
         {

@@ -30,6 +30,7 @@ public class CageLogic : MonoBehaviour
                 GameSave.CurrentSave.GetIsCutApart(leverData.Item1,true);
                 collision.gameObject.GetComponentInChildren<TrashPickup>().pickedUpTrash -= neededTrashAmmount;
                 redBottle.SetActive(true);
+                AudioManager.Instance.PlaySFX("Cage_Open");
                 this.gameObject.GetComponent<SpriteRenderer>().sprite = emptyCage;
             }
             else

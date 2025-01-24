@@ -9,10 +9,10 @@ public class AudioManager : MonoBehaviour
 
     public AudioClip[] musicSounds, sfxSounds;
     public AudioSource musicSource, sfxSource;
-
+    private AudioClip whaleSound;
     private int musicIndex=0;
-
-
+    private float currentTime = 0f;
+    private float playWhaleTime = 5f;
     private void Awake()
     {
         Instance=this;
@@ -23,16 +23,26 @@ public class AudioManager : MonoBehaviour
         Debug.Log("Playing first song");
         Debug.Log(musicSounds[musicIndex]);
         PlayMusic(musicIndex);
+        whaleSound = Array.Find(sfxSounds, x => x.name == "Whale_Sound");
+        Debug.Log("WHALE SOUND: " + whaleSound);
     }
 
     private void Update()
     {
+        currentTime += Time.deltaTime;
         if (!musicSource.isPlaying)
         {
             musicIndex++;
             if (musicIndex >= musicSounds.Length)
                 musicIndex = 0;
             PlayMusic(musicIndex);
+        }
+        if (musicIndex == 0 && whaleSound != null && currentTime >= playWhaleTime)
+        {
+            Debug.Log("PLaying Whale Sound");
+            PlaySFX("Whale_Sound");
+            playWhaleTime = UnityEngine.Random.Range(20, 25);
+            currentTime = 0f;
         }
     }
 

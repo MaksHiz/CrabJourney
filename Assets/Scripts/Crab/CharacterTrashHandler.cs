@@ -33,6 +33,7 @@ public class CharacterTrashHandler : MonoBehaviour
         else if (Input.GetButton("TrashAction") && trashCut.HasCloseCuttableTrash()) // While the button is held down
         {
             if (!soundIsPlayed) { Debug.Log("Cutting Trash"); AudioManager.Instance.PlaySFX("looped_cutting"); soundIsPlayed = true; }
+            this.gameObject.GetComponent<Animator>().SetBool("isCutting", true);
             waitTimer += Time.deltaTime; // Increment the timer
             if (waitTimer >= cuttingTime)
             {
@@ -40,13 +41,18 @@ public class CharacterTrashHandler : MonoBehaviour
                 if (debug) Debug.Log("TrashAction True");
             }
         }
-        if (Input.GetButtonUp("TrashAction"))
+        else if (Input.GetButtonUp("TrashAction"))
         {
             desiredTrashAction = false;
             AudioManager.Instance.StopSFX();
             soundIsPlayed = false;
             waitTimer = 0f;
             if (debug) Debug.Log("TrashAction False");
+        }
+        else
+        {
+            if(this.gameObject.GetComponent<Animator>().GetBool("isCutting"))
+                this.gameObject.GetComponent<Animator>().SetBool("isCutting", false);
         }
     }
 

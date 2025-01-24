@@ -163,22 +163,6 @@ public class characterMovement : MonoBehaviour
          Gizmos.DrawLine(transform.position + wallColliderOffset, transform.position + wallColliderOffset + Vector3.right * wallLength);
          Gizmos.DrawLine(transform.position - wallColliderOffset, transform.position - wallColliderOffset + Vector3.right * wallLength);
     }
-
-    //Handling the BouncePad logic
-    private void handleBounce()
-    {
-        if (!onGround && body.velocity.y < 0f && !isFalling)
-        {
-            isFalling = true;
-            fallStartHeight = transform.position.y;
-        }
-        if (onGround && isFalling)
-        {
-            animator.SetBool("onGround", true);
-            isFalling = false;
-            fallEndHeight = transform.position.y;
-        }
-    }
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("BouncePad"))
@@ -246,7 +230,6 @@ public class characterMovement : MonoBehaviour
     }
     private void Update()
     {
-        //handleBounce();
         updateHorizontal();
         checkCollision(); 
 

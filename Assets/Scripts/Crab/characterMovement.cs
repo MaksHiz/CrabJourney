@@ -9,12 +9,8 @@ public class characterMovement : MonoBehaviour
     private Animator animator;
     private GrabObjects grabObjects;
 
-    //Bounce pad settings
-    private bool isFalling = false;
-    private float fallStartHeight;
-    private float fallEndHeight;
-    private GameObject BouncePad;
-    public float bounceFactor = 1f;
+    private bool loopedAudio=false;
+    
     [SerializeField]
 
     enum State
@@ -130,7 +126,6 @@ public class characterMovement : MonoBehaviour
         body = GetComponent<Rigidbody2D>();
         wallWaitCounter = wallWaitBuffer + 1f;
         grabObjects = GetComponent<GrabObjects>();
-        BouncePad = GameObject.FindGameObjectWithTag("BouncePad");
         if(GameSave.CurrentSave != null)
         {
                 if (GameSave.CurrentSave.LoadCrabToPosition == true)
@@ -163,15 +158,6 @@ public class characterMovement : MonoBehaviour
          Gizmos.DrawLine(transform.position + wallColliderOffset, transform.position + wallColliderOffset + Vector3.right * wallLength);
          Gizmos.DrawLine(transform.position - wallColliderOffset, transform.position - wallColliderOffset + Vector3.right * wallLength);
     }
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject.CompareTag("BouncePad"))
-        {
-            float heightFactor = Mathf.Abs(fallStartHeight - fallEndHeight);
-            body.AddForce(Vector2.up * heightFactor * bounceFactor, ForceMode2D.Impulse);
-        }
-    }
-
     private void checkCollision()
     {
         onGround = Physics2D.Raycast(transform.position + colliderOffset, Vector2.down, groundLength, groundLayer)
@@ -255,7 +241,16 @@ public class characterMovement : MonoBehaviour
 
         pressingKeyWall = vertical != 0 ? true : false;
         pressingKeyHorizontal = horizontal != 0 ? true : false;
-
+        if(onGround && horizontal!=0 && !loopedAudio)
+        {
+            loopedAudio = true;
+            AudioManager.Instance.PlayLoopedSound("Walk");
+        }
+        else if((onGround || onWall) && horizontal==0 && loopedAudio)
+        {
+            loopedAudio = false;
+            AudioManager.Instance.StopLoopedSound();
+        }
         pressingJumpWall = false;
         if(onWall && !inShell)
             animator.SetBool("facingWall", true);
@@ -277,6 +272,16 @@ public class characterMovement : MonoBehaviour
 
         if (onWall && grabObjects.getGrabObject()==null && !inShell)
         {
+            if(!loopedAudio && vertical != 0)
+            {
+                loopedAudio = true;
+                AudioManager.Instance.PlayLoopedSound("Climb");
+            }
+            else if(loopedAudio && (vertical == 0 || onGround ))
+            {
+                loopedAudio = false;
+                AudioManager.Instance.StopLoopedSound();
+            }
             if (onWallLeft || onWallRight)
             {
 

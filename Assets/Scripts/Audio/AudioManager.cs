@@ -7,8 +7,8 @@ public class AudioManager : MonoBehaviour
 {
     public static AudioManager Instance;
 
-    public AudioClip[] musicSounds, sfxSounds;
-    public AudioSource musicSource, sfxSource;
+    public AudioClip[] musicSounds, sfxSounds, loopingSounds;
+    public AudioSource musicSource, sfxSource, loopSoundSource;
     private AudioClip whaleSound;
     private int musicIndex=0;
     private float currentTime = 0f;
@@ -89,6 +89,13 @@ public class AudioManager : MonoBehaviour
             sfxSource.PlayDelayed(delay);
         }
     }
+    public void PlayLoopedSound(string name)
+    {
+        AudioClip playedLooped = Array.Find(loopingSounds, x => x.name == name);
+        loopSoundSource.clip = playedLooped;
+        loopSoundSource.enabled = true;
+        loopSoundSource.Play();
+    }
     public void StopSFX()
     {
         if (sfxSource.isPlaying) { sfxSource.Stop(); }
@@ -96,5 +103,9 @@ public class AudioManager : MonoBehaviour
     public void StopMusic()
     {
         if (musicSource.isPlaying) { musicSource.Stop(); }
+    }
+    public void StopLoopedSound()
+    {
+        loopSoundSource.enabled = false;
     }
 }

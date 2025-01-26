@@ -62,8 +62,8 @@ public class LeverMover : MonoBehaviour
 
         // Update the Animator parameter on the LeverMover child
         leverAnimator.SetBool("isRight", isRight);
-
-        AudioManager.Instance.PlaySFX("Wall_Movement",3f);
+        
+        //AudioManager.Instance.PlaySFX("Wall_Movement");
 
         foreach(RotateWall wall in walls)
         {

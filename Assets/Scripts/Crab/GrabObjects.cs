@@ -5,16 +5,16 @@ using UnityEngine;
 public class GrabObjects : MonoBehaviour
 {
     [SerializeField]
-    private Transform grabPoint; // Position to hold the grabbed object
+    private Transform grabPoint; 
     [SerializeField]
-    private Transform rayPoint; // Position from where the raycast originates
+    private Transform rayPoint; 
     [SerializeField]
-    private float rayDistance = 2f; // Raycast distance
+    private float rayDistance = 2f; 
 
-    private GameObject grabbedObject; // Currently grabbed object
-    private LayerMask grabLayerMask; // Mask for grabbable objects
-    private LayerMask leverLayerMask; // Mask for lever objects
-    private bool isFacingRight = true; // Current facing direction of the player
+    private GameObject grabbedObject; 
+    private LayerMask grabLayerMask; 
+    private LayerMask leverLayerMask; 
+    private bool isFacingRight = true; 
     
     public GameObject getGrabObject()
     {
@@ -23,34 +23,19 @@ public class GrabObjects : MonoBehaviour
 
     private void Start()
     {
-        grabLayerMask = LayerMask.GetMask("GrabObject"); // Mask for grabbable objects
-        leverLayerMask = LayerMask.GetMask("Lever"); // Mask for levers
+        grabLayerMask = LayerMask.GetMask("GrabObject");
+        leverLayerMask = LayerMask.GetMask("Lever");
     }
 
     private void Update()
     {
         HandleMovement();
-
-        // Determine ray direction based on facing direction
         Vector2 rayDirection = isFacingRight ? Vector2.right : Vector2.left;
 
-        /*if (isFacingRight)
-        {
-            transform.localScale = new Vector3(1, 1, 1);
-        }
-        else
-        {
-            transform.localScale = new Vector3(-1, 1, 1);
-        }*/
-
-        // Debug: Draw the ray in the scene view
         Debug.DrawRay(rayPoint.position, rayDirection * rayDistance, Color.green);
 
-        // Raycast to detect grabbable or interactable objects
         RaycastHit2D hitInfo = Physics2D.Raycast(rayPoint.position, rayDirection, rayDistance, grabLayerMask | leverLayerMask);
 
-        //Debug.Log(grabbedObject);
-        // Update the position of the grabbed object if holding one
         if (grabbedObject != null)
         {
             grabbedObject.transform.position = grabPoint.position;
@@ -102,6 +87,7 @@ public class GrabObjects : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.E))
         {
             // Grab the object
+            AudioManager.Instance.PlaySFX("Pearl_Pickup");
             grabbedObject = targetObject;
             grabbedObject.GetComponent<Rigidbody2D>().isKinematic = true; // Disable physics
             grabbedObject.transform.position = grabPoint.position; // Move to grab point
@@ -136,6 +122,7 @@ public class GrabObjects : MonoBehaviour
     {
         if (grabbedObject != null)
         {
+            AudioManager.Instance.PlaySFX("Pearl_Throw");
             grabbedObject.GetComponent<Rigidbody2D>().isKinematic = false; // Enable physics
             grabbedObject.GetComponent<Collider2D>().enabled = true; // Enable collider
             grabbedObject = null; // Clear reference

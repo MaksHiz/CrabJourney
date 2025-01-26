@@ -256,7 +256,11 @@ public class characterMovement : MonoBehaviour
             animator.SetBool("facingWall", true);
         pressingOpposite = false;
 
-        if (!(wallWaitCounter > wallWaitBuffer))
+        if (onGround)
+        {
+            wallWaitCounter = wallWaitBuffer + 1;
+        }
+        else if (!(wallWaitCounter > wallWaitBuffer))
         {
             wallWaitCounter += Time.deltaTime;
         }

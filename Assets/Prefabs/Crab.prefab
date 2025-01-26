@@ -277,7 +277,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.003528595, y: -0.0014801025}
+  m_Offset: {x: -0.022619247, y: -0.009613037}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -288,7 +288,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.2716637, y: 1.2588425}
+  m_Size: {x: 0.7729187, y: 1.2100372}
   m_EdgeRadius: 0
 --- !u!95 &206400015107187059
 Animator:
@@ -338,7 +338,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1dd9017aefa31b743b2004e92556bc6f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bounceFactor: 2.5
   onGround: 0
   groundLength: 0.66
   colliderOffset: {x: 0.4, y: 0, z: 0}
@@ -368,8 +367,8 @@ MonoBehaviour:
   strongWallJumpPushHorizontal: 3
   wallJumpHeight: 3
   wallWaitBuffer: 0.15
-  wallJumpSpeedHorizontal: 10
-  wallJumpSpeedVertical: 5
+  wallJumpSpeedHorizontal: 13
+  wallJumpSpeedVertical: 15
   jumpHeight: 3.25
   timeToJumpApex: 0.4
   upwardMovementMultiplier: 1

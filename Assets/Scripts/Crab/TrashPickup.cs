@@ -78,7 +78,7 @@ public class TrashPickup : MonoBehaviour
 
     private void PickupTrash(){
         pickedUpTrash++;
-        //TODO animation
+        this.gameObject.GetComponentInParent<Animator>().Play("Collecting");
     }
 
 }

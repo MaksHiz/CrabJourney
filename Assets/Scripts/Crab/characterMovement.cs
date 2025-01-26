@@ -10,6 +10,7 @@ public class characterMovement : MonoBehaviour
     private GrabObjects grabObjects;
 
     private bool loopedAudio=false;
+    private bool animateOnce = false;
     
     [SerializeField]
 
@@ -396,6 +397,11 @@ public class characterMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if (onGround && animateOnce)
+        {
+            this.gameObject.GetComponent<Animator>().SetBool("isJumping", false);
+            animateOnce = false;
+        }
         velocity = body.velocity;
 
         if (onWall && holdingWall)
@@ -487,6 +493,12 @@ public class characterMovement : MonoBehaviour
         {
             if (UnityEngine.Random.Range(1, 3) == 1) { AudioManager.Instance.PlaySFX("jump"); }
             else { AudioManager.Instance.PlaySFX("jump2"); }
+            if (!animateOnce)
+            {
+                this.gameObject.GetComponent<Animator>().SetBool("isJumping", true);
+                animateOnce = true;
+            }
+            
             Debug.Log("Jumnped");
             desiredJump = false;
             jumpBufferCounter = 0;

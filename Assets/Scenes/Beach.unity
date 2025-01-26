@@ -24152,11 +24152,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5219312943049997202, guid: c1904f8aa86f78a41a6870cede7ffb5f, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.22
+      value: 96.51
       objectReference: {fileID: 0}
     - target: {fileID: 5219312943049997202, guid: c1904f8aa86f78a41a6870cede7ffb5f, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.3
+      value: -3.22
       objectReference: {fileID: 0}
     - target: {fileID: 5219312943049997202, guid: c1904f8aa86f78a41a6870cede7ffb5f, type: 3}
       propertyPath: m_LocalPosition.z
@@ -36225,10 +36225,6 @@ PrefabInstance:
     - target: {fileID: 1130522506356676418, guid: 557616dad1cc27f47ba6b8dbee5e22e6, type: 3}
       propertyPath: m_Name
       value: Canvas - LevelChanger
-      objectReference: {fileID: 0}
-    - target: {fileID: 2908136543820587147, guid: 557616dad1cc27f47ba6b8dbee5e22e6, type: 3}
-      propertyPath: m_Enabled
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6266100225779633729, guid: 557616dad1cc27f47ba6b8dbee5e22e6, type: 3}
       propertyPath: m_Pivot.x

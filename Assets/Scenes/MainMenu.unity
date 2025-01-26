@@ -342,10 +342,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 382317031626082764, guid: 299fb0b21a0dcda4eabcbfa74c46cd6a, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -0.000030518
+      objectReference: {fileID: 0}
+    - target: {fileID: 382317031626082764, guid: 299fb0b21a0dcda4eabcbfa74c46cd6a, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 534320714122227996, guid: 299fb0b21a0dcda4eabcbfa74c46cd6a, type: 3}
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 519420031}
+    - target: {fileID: 972741687353948155, guid: 299fb0b21a0dcda4eabcbfa74c46cd6a, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1126112498177246841, guid: 299fb0b21a0dcda4eabcbfa74c46cd6a, type: 3}
       propertyPath: m_text
       value: Music Volume
@@ -370,6 +382,10 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2335358846842220334, guid: 299fb0b21a0dcda4eabcbfa74c46cd6a, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 6536bbaa088e5f842837cea5c20527a1, type: 3}
     - target: {fileID: 2829523479867537712, guid: 299fb0b21a0dcda4eabcbfa74c46cd6a, type: 3}
       propertyPath: m_AnchorMax.y
       value: 1
@@ -390,6 +406,10 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 519420031}
+    - target: {fileID: 3509825821353657259, guid: 299fb0b21a0dcda4eabcbfa74c46cd6a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3573644439120818803, guid: 299fb0b21a0dcda4eabcbfa74c46cd6a, type: 3}
       propertyPath: m_Camera
       value: 
@@ -446,6 +466,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4583864794167952622, guid: 299fb0b21a0dcda4eabcbfa74c46cd6a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4892690359640689646, guid: 299fb0b21a0dcda4eabcbfa74c46cd6a, type: 3}
       propertyPath: m_IsActive
       value: 1
@@ -462,6 +486,10 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 519420031}
+    - target: {fileID: 7152267699320084437, guid: 299fb0b21a0dcda4eabcbfa74c46cd6a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7203984893413583086, guid: 299fb0b21a0dcda4eabcbfa74c46cd6a, type: 3}
       propertyPath: m_AnchorMax.y
       value: 1
@@ -470,7 +498,15 @@ PrefabInstance:
       propertyPath: m_Name
       value: MenuHandler
       objectReference: {fileID: 0}
+    - target: {fileID: 7648257151256497210, guid: 299fb0b21a0dcda4eabcbfa74c46cd6a, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 6536bbaa088e5f842837cea5c20527a1, type: 3}
     - target: {fileID: 7915583096460855715, guid: 299fb0b21a0dcda4eabcbfa74c46cd6a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8007223693365564650, guid: 299fb0b21a0dcda4eabcbfa74c46cd6a, type: 3}
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}

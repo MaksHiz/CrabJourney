@@ -288,6 +288,15 @@ public class characterMovement : MonoBehaviour
             }
             if (onWallLeft || onWallRight)
             {
+                if (onWallLeft < 0)
+                {
+                    transform.rotation = Quaternion.Euler(0, 180, 0);
+                }
+                else if (onWallRight > 0)
+                {
+                    transform.rotation = Quaternion.Euler(0, 0, 0);
+                }
+
 
                 if (holdingWall == false)
                 {

@@ -62,6 +62,8 @@ public class MenuHandler : MonoBehaviour
         Instance = this;
         DontDestroyOnLoad(this);
 
+        if(!ShowSplash) Destroy(SplashScreen);
+
         EventSystem.SetActive(true);
 
         SplashScreen.SetActive(ShowSplash);
@@ -72,6 +74,8 @@ public class MenuHandler : MonoBehaviour
         UpdateTitleContinueText();
         UpdateSaveSlots();
         SetState(0);
+
+        SceneManager.sceneLoaded += OnSceneLoaded;
     }
 
     private void Update()
@@ -102,6 +106,26 @@ public class MenuHandler : MonoBehaviour
                 StartGame();
             }
         }
+    }
+
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        if (scene.name != "Introduction" && InGame)
+        {
+            InGameUIScreen.SetActive(true);  // Now safe to activate after the scene load
+        }
+
+        // If the scene is the Introduction scene, make sure InGameUIScreen is disabled
+        if (scene.name == "Introduction" && InGameUIScreen.activeInHierarchy)
+        {
+            InGameUIScreen.SetActive(false);
+        }
+    }
+
+    private void OnDestroy()
+    {
+        // Unsubscribe from the sceneLoaded event to prevent memory leaks
+        SceneManager.sceneLoaded -= OnSceneLoaded;
     }
     #endregion
 
@@ -175,19 +199,18 @@ public class MenuHandler : MonoBehaviour
     // Start the game.
     public void StartGame()
     {
-        InGame = true;
-
         Time.timeScale = 1f;
+
+        SceneManager.LoadScene(GameSave.CurrentSave.CrabPositionScene);
+
+        InGame = true;
 
         CursorScreen.SetActive(false);
 
         UpdateInGameUI(GameSave.CurrentSave.TrashCount);
-        InGameUIScreen.SetActive(true);
 
         SwapScreens(_current_screen, PauseScreen);
         PauseScreen.SetActive(false);
-
-        SceneManager.LoadScene(GameSave.CurrentSave.CrabPositionScene);
     }
 
     // Process click on the save slot.

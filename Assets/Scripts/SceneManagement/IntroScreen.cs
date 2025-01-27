@@ -6,6 +6,7 @@ using TMPro;
 public class DialogeIntro : MonoBehaviour
 {
     public TextMeshProUGUI textComponent;
+    [TextArea]
     public string[] lines;
     public float textSpeed;
     // Start is called before the first frame update

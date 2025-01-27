@@ -309,7 +309,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 800, y: 600}
@@ -442,8 +442,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 187, y: 28}
-  m_SizeDelta: {x: 1176.8938, y: 84.6148}
+  m_AnchoredPosition: {x: -0.725, y: 38}
+  m_SizeDelta: {x: 801.45, y: 50.9092}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1086081360
 MonoBehaviour:
@@ -492,14 +492,14 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 40
-  m_fontSizeBase: 40
+  m_fontSize: 28
+  m_fontSizeBase: 28
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 1
+  m_HorizontalAlignment: 2
   m_VerticalAlignment: 256
   m_textAlignment: 65535
   m_characterSpacing: 0
@@ -528,7 +528,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 85.7858, w: 0}
+  m_margin: {x: 0, y: 0, z: -5.003632, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -576,7 +576,7 @@ GameObject:
   - component: {fileID: 1088466467}
   - component: {fileID: 1088466470}
   m_Layer: 5
-  m_Name: ThirdSentance
+  m_Name: ThirdSentence
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -629,8 +629,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 50
-  m_fontSizeBase: 50
+  m_fontSize: 35
+  m_fontSizeBase: 35
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -695,8 +695,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 3.4001, y: -0.00049591}
-  m_SizeDelta: {x: 1415.6, y: 277.62}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 700, y: 250}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1088466470
 MonoBehaviour:
@@ -712,8 +712,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   textComponent: {fileID: 1088466467}
   lines:
-  - 'Even if that something is just a rusty tin can, They make do, the best they
-    can. '
+  - "Even if that something is just a rusty tin can, \n\nThey make do, the best they
+    can. "
   textSpeed: 0.085
   fadeDuration: 3
 --- !u!1 &1402907191
@@ -818,7 +818,7 @@ GameObject:
   - component: {fileID: 1519087598}
   - component: {fileID: 1519087600}
   m_Layer: 5
-  m_Name: SecondSentance
+  m_Name: SecondSentence
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -840,8 +840,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -39.040207, y: 0.00023651}
-  m_SizeDelta: {x: 1330.7194, y: 277.62}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 700, y: 250}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1519087598
 MonoBehaviour:
@@ -890,8 +890,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 50
-  m_fontSizeBase: 50
+  m_fontSize: 35
+  m_fontSizeBase: 35
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -954,7 +954,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   textComponent: {fileID: 1519087598}
   lines:
-  - "Sometimes, when the perfect shell isn\u2019t found,  They adapt to whatever
+  - "Sometimes, when the perfect shell isn\u2019t found,\n\nThey adapt to whatever
     is lying around. "
   textSpeed: 0.085
   fadeDuration: 3
@@ -1071,7 +1071,7 @@ GameObject:
   - component: {fileID: 1944097559}
   - component: {fileID: 1944097558}
   m_Layer: 5
-  m_Name: FourthSentance
+  m_Name: FourthSentence
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1091,8 +1091,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   textComponent: {fileID: 1944097559}
   lines:
-  - 'So, to avoid finding themselves in a pinch once more,  They set out on a journey,
-    to find a new door. '
+  - "So, to avoid finding themselves in a pinch once more, \n\nThey set out on a
+    journey, to find a new door. "
   textSpeed: 0.085
   fadeDuration: 3
 --- !u!114 &1944097559
@@ -1142,8 +1142,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 50
-  m_fontSizeBase: 50
+  m_fontSize: 35
+  m_fontSizeBase: 35
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -1208,8 +1208,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 3.4, y: 0}
-  m_SizeDelta: {x: 1415.6104, y: 277.624}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 700, y: 250}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1963869902
 GameObject:
@@ -1224,7 +1224,7 @@ GameObject:
   - component: {fileID: 1963869904}
   - component: {fileID: 1963869906}
   m_Layer: 5
-  m_Name: FirstSentance
+  m_Name: FirstSentence
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1246,8 +1246,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 3.4001007, y: -0.0015259}
-  m_SizeDelta: {x: 1415.6, y: 277.62}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 700, y: 250}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1963869904
 MonoBehaviour:
@@ -1296,8 +1296,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 50
-  m_fontSizeBase: 50
+  m_fontSize: 35
+  m_fontSizeBase: 35
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -1360,8 +1360,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   textComponent: {fileID: 1963869904}
   lines:
-  - Crustaceans like hermit crabs outgrow their shells, As they age and grow, their
-    old home no longer gels.
+  - 'Crustaceans like hermit crabs outgrow their shells,
+
+
+    As they age and grow,
+    their old home no longer gels.'
   textSpeed: 0.085
   fadeDuration: 3
 --- !u!1 &2138830001
@@ -1459,7 +1462,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -0.000030518, y: 23}
-  m_SizeDelta: {x: 972.8687, y: 606.364}
+  m_SizeDelta: {x: 354, y: 109.5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:

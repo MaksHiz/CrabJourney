@@ -357,6 +357,7 @@ public class characterMovement : MonoBehaviour
         else
         {
             inShell = false;
+            this.gameObject.GetComponent<Animator>().SetBool("inShell", false);
         }
 
         if (horizontal < 0)
@@ -412,6 +413,7 @@ public class characterMovement : MonoBehaviour
         else //if (onGround)
         {
             if (inShell){
+                this.gameObject.GetComponent<Animator>().SetBool("inShell", true);
                 // sprite change
                 calculateGravity();
                 return;    

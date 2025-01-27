@@ -140,6 +140,8 @@ public class MenuHandler : MonoBehaviour
     // Toggle the pause.
     public void TogglePause()
     {
+        if (SceneManager.GetActiveScene().name == "Introduction") return;
+
         _paused = !_paused;
 
         if (_paused)
@@ -169,6 +171,8 @@ public class MenuHandler : MonoBehaviour
     public void StartGame()
     {
         InGame = true;
+
+        Time.timeScale = 1f;
 
         CursorScreen.SetActive(false);
 
@@ -205,10 +209,10 @@ public class MenuHandler : MonoBehaviour
 
         _paused = false;
 
+        MenuHandler.Instance = null;
         SceneManager.LoadScene(5);
-        _current_screen.SetActive(false);
-        _current_screen = TitleMenu;
-        _current_screen.SetActive(true);
+
+        Destroy(gameObject);
     }
 
     // Close the application but save.

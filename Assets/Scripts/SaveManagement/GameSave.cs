@@ -204,8 +204,8 @@ public class GameSave
     //to keep the trash count consistent through scenes before going for a save
     public void SetTrashAmount()
     {
-        TrashPickup obj = GameObject.FindGameObjectWithTag("TrashPickupCollider").GetComponent<TrashPickup>();
-        TrashCount = obj.pickedUpTrash;
+        GameObject obj = GameObject.FindGameObjectWithTag("TrashPickupCollider");
+        if(obj != null) TrashCount = obj.GetComponent<TrashPickup>().pickedUpTrash;
     }
 
     public void SetTrashAmountFromInt(int trash_amount)

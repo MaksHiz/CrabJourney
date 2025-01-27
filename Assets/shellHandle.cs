@@ -1,0 +1,30 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class shellHandle : MonoBehaviour
+{
+    [SerializeField] Sprite normalShell;
+    [SerializeField] Sprite goldenShell;
+    void Awake()
+    {
+        Debug.Log("Percentage: "+GameSave.CurrentSave.TrashPickedUpPercent);
+        if (GameSave.CurrentSave.TrashPickedUpPercent >= 1)
+        {
+            Debug.Log("Golden shell activated");
+            this.gameObject.GetComponent<SpriteRenderer>().sprite = goldenShell;
+        }
+        else
+        {
+            this.gameObject.GetComponent<SpriteRenderer>().sprite = normalShell;
+        }
+    }
+    private void Update()
+    {
+        if (GameSave.CurrentSave.TrashPickedUpPercent == 100)
+        {
+            Debug.Log("Golden shell activated updated");
+            this.gameObject.GetComponent<SpriteRenderer>().sprite = goldenShell;
+        }
+    }
+}

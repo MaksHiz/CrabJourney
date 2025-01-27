@@ -142,8 +142,19 @@ public class MenuHandler : MonoBehaviour
     {
         _paused = !_paused;
 
-        if(_paused) Time.timeScale = 0f;
-        else Time.timeScale = 1f;
+        if (_paused)
+        {
+            Time.timeScale = 0f;
+            CursorScreen.SetActive(true);
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = false;
+        }
+        else
+        {
+            Time.timeScale = 1f;
+            CursorScreen.SetActive(false);
+            Cursor.lockState = CursorLockMode.Locked;
+        }
 
         PauseScreen.SetActive(_paused);
     }
@@ -158,6 +169,9 @@ public class MenuHandler : MonoBehaviour
     public void StartGame()
     {
         InGame = true;
+
+        CursorScreen.SetActive(false);
+
         UpdateInGameUI(GameSave.CurrentSave.TrashCount);
         InGameUIScreen.SetActive(true);
 

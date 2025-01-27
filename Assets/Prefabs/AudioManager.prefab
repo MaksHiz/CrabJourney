@@ -55,8 +55,10 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 4a333eb525fb249499db112c6722ffc9, type: 3}
   - {fileID: 8300000, guid: d1165f7835f6974459690848ea949029, type: 3}
   - {fileID: 8300000, guid: ceb5e946fe58a8f4fa63a7f474f2b539, type: 3}
+  - {fileID: 8300000, guid: f8ebd65fa5de9f84f975d1ee54f4c359, type: 3}
+  - {fileID: 8300000, guid: 16f9cd937e6654748a7397b9582b181e, type: 3}
   loopingSounds:
-  - {fileID: 8300000, guid: b80b48fca4f35874791124d7b31b24a4, type: 3}
+  - {fileID: 8300000, guid: da241ed920208ca46a0cd5a904a6b678, type: 3}
   - {fileID: 8300000, guid: c5406af2beb31cd4980ea9b4e33d319c, type: 3}
   musicSource: {fileID: 1817232423023612615}
   sfxSource: {fileID: 2277838911739990346}

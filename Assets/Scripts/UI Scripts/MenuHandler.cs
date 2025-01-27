@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -18,6 +19,7 @@ public class MenuHandler : MonoBehaviour
     public GameObject SplashScreen;
     public GameObject CursorScreen;
     public GameObject PauseScreen;
+    public GameObject InGameUIScreen;
 
     [Header("Title Menu")]
     public GameObject TitleMenu;
@@ -27,6 +29,9 @@ public class MenuHandler : MonoBehaviour
     public GameObject[] SaveSlots;
     public GameObject[] SaveSlotInformationTexts;
 
+    [Header("InGameUIScreen")]
+    public GameObject TrashAmountText;
+    
     [Header("EventSystem")]
     public GameObject EventSystem;
     #endregion
@@ -153,8 +158,12 @@ public class MenuHandler : MonoBehaviour
     public void StartGame()
     {
         InGame = true;
+        UpdateInGameUI(GameSave.CurrentSave.TrashCount);
+        InGameUIScreen.SetActive(true);
+
         SwapScreens(_current_screen, PauseScreen);
         PauseScreen.SetActive(false);
+
         SceneManager.LoadScene(GameSave.CurrentSave.CrabPositionScene);
     }
 
@@ -178,6 +187,7 @@ public class MenuHandler : MonoBehaviour
         UpdateTitleContinueText();
 
         InGame = false;
+        InGameUIScreen.SetActive(false);
 
         _paused = false;
 
@@ -192,6 +202,12 @@ public class MenuHandler : MonoBehaviour
     {
         GameSave.SaveCurrentGame();
         Application.Quit();
+    }
+
+    // Method which updates the InGameUI screen.
+    public void UpdateInGameUI(int pickedUpTrash) 
+    {
+        TrashAmountText.GetComponent<TMP_Text>().text = pickedUpTrash.ToString("0");
     }
     #endregion
 

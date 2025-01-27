@@ -150,7 +150,7 @@ public class GameSave
         }
 
         CurrentSave.LastPlayed = DateTime.Now;
-        CurrentSave.GetTrashAmmount();
+        CurrentSave.SetTrashAmount();
         CurrentSave.GetCrabPosition();
 
         PlayerPrefs.SetString($"GameSave{CurrentSaveIndex}", CurrentSave.ToString());
@@ -192,7 +192,7 @@ public class GameSave
     // Checks if the index for the save is valid.
     private static bool _is_valid_index(int index) => index >= 0 && index < Saves.Length;
     #endregion
-    
+
     //MaksH functions for simplifying GameSave logic
 
     //  GET = local data goes into storage data (particularly used when closing the save
@@ -202,13 +202,18 @@ public class GameSave
     //Used when storing the trash count data in the game save
     //probably should make the crab a don't destroy on load object
     //to keep the trash count consistent through scenes before going for a save
-    public void GetTrashAmmount() {
-        GameObject obj = GameObject.Find("TrashPickupCollider");
-        TrashPickup trashPickup = obj.GetComponent<TrashPickup>();
-        TrashCount = trashPickup.pickedUpTrash;
+    public void SetTrashAmount()
+    {
+        TrashPickup obj = GameObject.FindGameObjectWithTag("TrashPickupCollider").GetComponent<TrashPickup>();
+        TrashCount = obj.pickedUpTrash;
+    }
+
+    public void SetTrashAmountFromInt(int trash_amount)
+    {
+        TrashCount = trash_amount;
     }
     //Used for setting the trash data for the very first time when loading in the save
-    public void SetTrashAmmount()
+    public void GetTrashAmount()
     {
         GameObject obj = GameObject.Find("TrashPickupCollider");
         TrashPickup trashPickup = obj.GetComponent<TrashPickup>();

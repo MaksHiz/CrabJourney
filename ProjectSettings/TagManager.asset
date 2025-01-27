@@ -12,6 +12,7 @@ TagManager:
   - BouncePad
   - CuttableTrash
   - CollectableTrash
+  - TrashPickupCollider
   layers:
   - Default
   - TransparentFX

@@ -27,7 +27,7 @@ public class TrashPickup : MonoBehaviour
     }
     public void OnDestroy()
     {
-        GameSave.CurrentSave.SetTrashAmmount();
+        GameSave.CurrentSave.SetTrashAmountFromInt(pickedUpTrash);
     }
 
     public void Collect()
@@ -79,6 +79,7 @@ public class TrashPickup : MonoBehaviour
     private void PickupTrash(){
         pickedUpTrash++;
         this.gameObject.GetComponentInParent<Animator>().Play("Collecting");
+        MenuHandler.Instance.UpdateInGameUI(pickedUpTrash);
     }
 
 }

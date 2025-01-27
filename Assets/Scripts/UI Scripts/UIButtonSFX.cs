@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class UIButtonSFX : MonoBehaviour, IPointerEnterHandler, IPointerClickHandler
+public class UIButtonSFX : MonoBehaviour, IPointerEnterHandler
 {
     private AudioManager aud;
     private void Awake()
@@ -11,11 +11,7 @@ public class UIButtonSFX : MonoBehaviour, IPointerEnterHandler, IPointerClickHan
 
     public void OnPointerEnter(PointerEventData eventData)
     {
+        if(aud == null) aud = FindObjectOfType<AudioManager>();
         aud.PlaySFX("Button Hover");
-    }
-
-    public void OnPointerClick(PointerEventData eventData)
-    {
-        aud.PlaySFX("Button Click");
     }
 }

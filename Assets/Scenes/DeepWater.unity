@@ -9449,7 +9449,7 @@ PrefabInstance:
       objectReference: {fileID: 277552785}
     - target: {fileID: 1317322341434430716, guid: 83eb035f3a795754bba1bea4399c80fa, type: 3}
       propertyPath: sfxSounds.Array.size
-      value: 7
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 1317322341434430716, guid: 83eb035f3a795754bba1bea4399c80fa, type: 3}
       propertyPath: musicSounds.Array.size
@@ -9462,7 +9462,11 @@ PrefabInstance:
     - target: {fileID: 1317322341434430716, guid: 83eb035f3a795754bba1bea4399c80fa, type: 3}
       propertyPath: sfxSounds.Array.data[7]
       value: 
-      objectReference: {fileID: 8300000, guid: c5406af2beb31cd4980ea9b4e33d319c, type: 3}
+      objectReference: {fileID: 8300000, guid: 16f9cd937e6654748a7397b9582b181e, type: 3}
+    - target: {fileID: 1317322341434430716, guid: 83eb035f3a795754bba1bea4399c80fa, type: 3}
+      propertyPath: sfxSounds.Array.data[8]
+      value: 
+      objectReference: {fileID: 8300000, guid: f8ebd65fa5de9f84f975d1ee54f4c359, type: 3}
     - target: {fileID: 1317322341434430716, guid: 83eb035f3a795754bba1bea4399c80fa, type: 3}
       propertyPath: loopingSounds.Array.size
       value: 2

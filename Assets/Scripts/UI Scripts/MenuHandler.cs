@@ -76,6 +76,11 @@ public class MenuHandler : MonoBehaviour
 
     private void Update()
     {
+        if (Input.GetMouseButtonDown(0) && (_paused || !InGame)) 
+        {
+            var aud = FindObjectOfType<AudioManager>();
+            if(aud != null) aud.PlaySFX("Button Click");
+        }
         // If we're in game, we can pause by pressing the ESCAPE button.
         if (InGame)
         {

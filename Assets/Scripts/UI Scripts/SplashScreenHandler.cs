@@ -10,8 +10,8 @@ public class SplashScreenHandler : MonoBehaviour
     public TextMeshProUGUI quoteText;    // Quote text
 
     [Header("Animation Settings")]
-    public float fadeDuration = 1.0f;    // Time for fade-in/out
-    public float displayDuration = 1.0f; // Hold time after fade-in
+    public float fadeDuration = 1f;    // Time for fade-in/out (fixed seconds)
+    public float displayDuration = 1f; // Hold time after fade-in (fixed seconds)
 
     [Header("Quotes Settings")]
     public string[] quotes;             // Array of quotes to randomize
@@ -22,7 +22,7 @@ public class SplashScreenHandler : MonoBehaviour
 
     private void Awake()
     {
-        if (GameSettings.IsFullscreen) Debug.Log("Fullscreen"); 
+        if (GameSettings.IsFullscreen) Debug.Log("Fullscreen");
     }
 
     void Start()
@@ -68,35 +68,34 @@ public class SplashScreenHandler : MonoBehaviour
 
         if (stage == 0) // Fade-in stage
         {
-            float alpha = Mathf.Clamp01(timer / fadeDuration);
+            float alpha = Mathf.Clamp01(timer / fadeDuration); // Linear fade-in
             SetAlpha(logoImage, alpha);
             SetAlpha(quoteText, alpha);
 
-            if (timer >= fadeDuration)
+            if (timer >= fadeDuration) // Ensure the fade-in completes after exactly fadeDuration
             {
-                stage = 1;
-                timer = 0;
+                stage = 1; // Transition to hold stage
+                timer = 0; // Reset timer
             }
         }
         else if (stage == 1) // Hold stage
         {
-            if (timer >= displayDuration)
+            if (timer >= displayDuration) // Hold the quote for exactly displayDuration
             {
-                stage = 2;
-                timer = 0;
+                stage = 2; // Transition to fade-out stage
+                timer = 0; // Reset timer
             }
         }
         else if (stage == 2) // Fade-out stage
         {
-            float alpha = Mathf.Clamp01(1 - (timer / fadeDuration));
+            float alpha = Mathf.Clamp01(1 - (timer / fadeDuration)); // Linear fade-out
             SetAlpha(backgroundImage, alpha);
             SetAlpha(logoImage, alpha);
             SetAlpha(quoteText, alpha);
 
-            if (timer >= fadeDuration)
+            if (timer >= fadeDuration) // Ensure the fade-out completes after exactly fadeDuration
             {
-                // End the splash screen (e.g., load next scene or deactivate)
-                LoadNextScene();
+                LoadNextScene(); // End the splash screen
             }
         }
     }

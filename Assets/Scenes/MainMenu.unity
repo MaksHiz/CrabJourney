@@ -353,25 +353,13 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 519420031}
-    - target: {fileID: 1156034494282683960, guid: 299fb0b21a0dcda4eabcbfa74c46cd6a, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 1
+    - target: {fileID: 2895476886105136952, guid: 299fb0b21a0dcda4eabcbfa74c46cd6a, type: 3}
+      propertyPath: fadeDuration
+      value: 2
       objectReference: {fileID: 0}
-    - target: {fileID: 2133636523389694107, guid: 299fb0b21a0dcda4eabcbfa74c46cd6a, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2252606531078213736, guid: 299fb0b21a0dcda4eabcbfa74c46cd6a, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3168302597660055853, guid: 299fb0b21a0dcda4eabcbfa74c46cd6a, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3394361716526619060, guid: 299fb0b21a0dcda4eabcbfa74c46cd6a, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 1
+    - target: {fileID: 2895476886105136952, guid: 299fb0b21a0dcda4eabcbfa74c46cd6a, type: 3}
+      propertyPath: displayDuration
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3403863787475148867, guid: 299fb0b21a0dcda4eabcbfa74c46cd6a, type: 3}
       propertyPath: m_Camera
@@ -385,10 +373,6 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 519420031}
-    - target: {fileID: 3769645070502238620, guid: 299fb0b21a0dcda4eabcbfa74c46cd6a, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 3851682935465876404, guid: 299fb0b21a0dcda4eabcbfa74c46cd6a, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -437,10 +421,6 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 519420031}
-    - target: {fileID: 7203984893413583086, guid: 299fb0b21a0dcda4eabcbfa74c46cd6a, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 7332485557578683570, guid: 299fb0b21a0dcda4eabcbfa74c46cd6a, type: 3}
       propertyPath: m_Name
       value: MenuHandler

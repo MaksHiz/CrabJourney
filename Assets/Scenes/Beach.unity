@@ -22798,6 +22798,8 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 4a333eb525fb249499db112c6722ffc9, type: 3}
   - {fileID: 8300000, guid: d1165f7835f6974459690848ea949029, type: 3}
   - {fileID: 8300000, guid: ceb5e946fe58a8f4fa63a7f474f2b539, type: 3}
+  - {fileID: 8300000, guid: 16f9cd937e6654748a7397b9582b181e, type: 3}
+  - {fileID: 8300000, guid: f8ebd65fa5de9f84f975d1ee54f4c359, type: 3}
   loopingSounds: []
   musicSource: {fileID: 601348049}
   sfxSource: {fileID: 1277206232}

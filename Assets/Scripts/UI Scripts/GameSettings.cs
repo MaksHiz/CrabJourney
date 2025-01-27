@@ -13,24 +13,55 @@ public static class GameSettings
 
     #region REGION: Public Properties
     // Master Volume Setting; when used, should be divided by 100f to get a float value between 0 and 1.
+    private static readonly float MusicVolumeScale = 0.25f;
+    private static readonly float SoundEffectsVolumeScale = 1.0f;
+
+
     public static int MasterVolume
     {
         get => GetPref("MasterVolume", 100);
-        set => SetPref("MasterVolume", value, 0, 100);
+        set 
+        {
+            SetPref("MasterVolume", value, 0, 100);
+            AudioManager aud = GameObject.FindObjectOfType<AudioManager>();
+            if (aud != null) 
+            {
+                aud.musicSource.volume = (MasterVolume / 100f) * (MusicVolume / 100f) * MusicVolumeScale;
+                aud.loopSoundSource.volume = (MasterVolume / 100f) * (SoundEffectVolume / 100f) * SoundEffectsVolumeScale;
+                aud.sfxSource.volume = (MasterVolume / 100f) * (SoundEffectVolume / 100f) * SoundEffectsVolumeScale;
+            }
+        }
     }
 
     // Music Volume Setting; when used, should be divided by 100f to get a float value between 0 and 1.
     public static int MusicVolume
     {
         get => GetPref("MusicVolume", 100);
-        set => SetPref("MusicVolume", value, 0, 100);
+        set
+        {
+            SetPref("MusicVolume", value, 0, 100);
+            AudioManager aud = GameObject.FindObjectOfType<AudioManager>();
+            if (aud != null)
+            {
+                aud.musicSource.volume = (MasterVolume / 100f) * (MusicVolume / 100f) * MusicVolumeScale;
+            }
+        }
     }
 
     // Sound Effect Volume Setting; when used, should be divided by 100f to get a float value between 0 and 1.
     public static int SoundEffectVolume
     {
         get => GetPref("SoundEffectVolume", 100);
-        set => SetPref("SoundEffectVolume", value, 0, 100);
+        set
+        {
+            SetPref("SoundEffectVolume", value, 0, 100);
+            AudioManager aud = GameObject.FindObjectOfType<AudioManager>();
+            if (aud != null)
+            {
+                aud.loopSoundSource.volume = (MasterVolume / 100f) * (SoundEffectVolume / 100f) * SoundEffectsVolumeScale;
+                aud.sfxSource.volume = (MasterVolume / 100f) * (SoundEffectVolume / 100f) * SoundEffectsVolumeScale;
+            }
+        }
     }
 
     // Fullscreen Setting.

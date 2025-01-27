@@ -16,6 +16,8 @@ public class AudioManager : MonoBehaviour
     private void Awake()
     {
         Instance=this;
+
+        GameSettings.MasterVolume = GameSettings.MasterVolume;
     }
 
     private void Start()

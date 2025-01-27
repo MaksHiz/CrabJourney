@@ -21,6 +21,9 @@ public class CharacterTrashHandler : MonoBehaviour
     {
         trashCut = trashCutCollider.GetComponent<TrashCut>();
         trashPickup = trashPickupCollider.GetComponent<TrashPickup>();
+        DateTime currentTime = DateTime.Now;
+        int timeAsInt = (currentTime.Hour * 10000) + (currentTime.Minute * 100) + currentTime.Second;
+        UnityEngine.Random.InitState(timeAsInt);
     }
 
     private void Update()
@@ -41,18 +44,21 @@ public class CharacterTrashHandler : MonoBehaviour
                 if (debug) Debug.Log("TrashAction True");
             }
         }
-        else if (Input.GetButtonUp("TrashAction"))
+        else if (Input.GetButtonUp("TrashAction") && trashCut.HasCloseCuttableTrash())
         {
             desiredTrashAction = false;
-            AudioManager.Instance.StopSFX();
-            soundIsPlayed = false;
             waitTimer = 0f;
             if (debug) Debug.Log("TrashAction False");
         }
         else
         {
-            if(this.gameObject.GetComponent<Animator>().GetBool("isCutting"))
+            if (this.gameObject.GetComponent<Animator>().GetBool("isCutting"))
+            {
+                soundIsPlayed = false;
                 this.gameObject.GetComponent<Animator>().SetBool("isCutting", false);
+                AudioManager.Instance.StopSFX();
+            }
+                
         }
     }
 
@@ -67,6 +73,8 @@ public class CharacterTrashHandler : MonoBehaviour
             if (trashPickup.HasCloseTrash())
             {
                 if (debug) Debug.Log("Attempting Collection");
+                if (UnityEngine.Random.Range(1,3)==1)  { AudioManager.Instance.PlaySFX("trash_pickup1"); }
+                else { AudioManager.Instance.PlaySFX("trash_pickup2"); }
                 trashPickup.Collect();
             }
             else if (trashCut.HasCloseCuttableTrash())

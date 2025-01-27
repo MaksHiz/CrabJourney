@@ -4384,13 +4384,25 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1184254637}
     m_Modifications:
+    - target: {fileID: 912168866027125721, guid: 09eba88182d7ddc42b3c385d5df8c098, type: 3}
+      propertyPath: m_SortingLayer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 912168866027125721, guid: 09eba88182d7ddc42b3c385d5df8c098, type: 3}
+      propertyPath: m_SortingOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 912168866027125721, guid: 09eba88182d7ddc42b3c385d5df8c098, type: 3}
+      propertyPath: m_SortingLayerID
+      value: 1101400495
+      objectReference: {fileID: 0}
     - target: {fileID: 4269576489886378469, guid: 09eba88182d7ddc42b3c385d5df8c098, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -34.562546
+      value: 16.25
       objectReference: {fileID: 0}
     - target: {fileID: 4269576489886378469, guid: 09eba88182d7ddc42b3c385d5df8c098, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 11.549122
+      value: -6.73
       objectReference: {fileID: 0}
     - target: {fileID: 4269576489886378469, guid: 09eba88182d7ddc42b3c385d5df8c098, type: 3}
       propertyPath: m_LocalPosition.z
@@ -47740,11 +47752,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5219312943049997202, guid: c1904f8aa86f78a41a6870cede7ffb5f, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 21.83
+      value: -20.22
       objectReference: {fileID: 0}
     - target: {fileID: 5219312943049997202, guid: c1904f8aa86f78a41a6870cede7ffb5f, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 34.68
+      value: 76.23
       objectReference: {fileID: 0}
     - target: {fileID: 5219312943049997202, guid: c1904f8aa86f78a41a6870cede7ffb5f, type: 3}
       propertyPath: m_LocalPosition.z
@@ -94475,7 +94487,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   debug: 0
-  id: 95
+  id: 88
   pickUppableTrashTag: CollectableTrash
 --- !u!4 &5321877248806500114
 Transform:

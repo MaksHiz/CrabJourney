@@ -24,6 +24,7 @@ public class CharacterTrashHandler : MonoBehaviour
         DateTime currentTime = DateTime.Now;
         int timeAsInt = (currentTime.Hour * 10000) + (currentTime.Minute * 100) + currentTime.Second;
         UnityEngine.Random.InitState(timeAsInt);
+        desiredTrashAction = false;
     }
 
     private void Update()

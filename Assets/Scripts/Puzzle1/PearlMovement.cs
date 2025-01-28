@@ -15,7 +15,6 @@ public class PearlMovement : MonoBehaviour
     private Vector2 prevPos;
     private Vector2 currPos;
     private bool isMoving = true;
-    private bool playingAudio = false;
     private float timer = 0f;
     private bool isPuzzleSolved = false;
     private int forceBehaviour = 0;
@@ -55,7 +54,6 @@ public class PearlMovement : MonoBehaviour
                 {
                     transform.position = startPos;
                     currDirect = Vector2.left;
-                    playingAudio = false;
                 }
                 prevPos = currPos;
                 timer = 0f;

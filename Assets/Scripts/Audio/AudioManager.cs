@@ -26,7 +26,7 @@ public class AudioManager : MonoBehaviour
         Debug.Log(musicSounds[musicIndex]);
         PlayMusic(musicIndex);
         whaleSound = Array.Find(sfxSounds, x => x.name == "Whale_Sound");
-        Debug.Log("WHALE SOUND: " + whaleSound);
+        //(Debug.Log("WHALE SOUND: " + whaleSound);
     }
 
     private void Update()
@@ -41,7 +41,7 @@ public class AudioManager : MonoBehaviour
         }
         if (musicIndex == 0 && whaleSound != null && currentTime >= playWhaleTime)
         {
-            Debug.Log("PLaying Whale Sound");
+            //Debug.Log("PLaying Whale Sound");
             PlaySFX("Whale_Sound");
             playWhaleTime = UnityEngine.Random.Range(20, 25);
             currentTime = 0f;
@@ -95,9 +95,17 @@ public class AudioManager : MonoBehaviour
     public void PlayLoopedSound(string name)
     {
         AudioClip playedLooped = Array.Find(loopingSounds, x => x.name == name);
-        loopSoundSource.clip = playedLooped;
-        loopSoundSource.enabled = true;
-        loopSoundSource.Play();
+        if(playedLooped == null)
+        {
+            Debug.Log("No looped sound found");
+        }
+        else
+        {
+            loopSoundSource.clip = playedLooped;
+            loopSoundSource.enabled = true;
+            loopSoundSource.Play();
+        }
+        
     }
     public void StopSFX()
     {

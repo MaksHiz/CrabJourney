@@ -50,7 +50,7 @@ public class LeverMover : MonoBehaviour
     public GameObject getLeverObject() { return leverMoverObj; }
     public void Interact()
     {
-        AudioManager.Instance.PlaySFX("Lever_Interact");
+        
         if (leverAnimator == null)
         {
             Debug.LogWarning("Animator not set up correctly!");
@@ -63,6 +63,7 @@ public class LeverMover : MonoBehaviour
         // Update the Animator parameter on the LeverMover child
         leverAnimator.SetBool("isRight", isRight);
         
+        AudioManager.Instance.PlaySFX("Lever_Interact");
         //AudioManager.Instance.PlaySFX("Wall_Movement");
 
         foreach(RotateWall wall in walls)

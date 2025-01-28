@@ -247,7 +247,9 @@ public class characterMovement : MonoBehaviour
             loopedAudio = true;
             AudioManager.Instance.PlayLoopedSound("Walk");
         }
-        else if((onGround || onWall) && horizontal==0 && loopedAudio)
+        else if((onGround || onWall) && horizontal==0 && loopedAudio
+         || (!onWall && AudioManager.Instance.loopSoundSource.clip != null 
+            && AudioManager.Instance.loopSoundSource.clip.name == "Climb"))
         {
             loopedAudio = false;
             AudioManager.Instance.StopLoopedSound();
@@ -308,6 +310,8 @@ public class characterMovement : MonoBehaviour
                 {
                     pressingOpposite = true;
                     animator.SetBool("facingWall", false);
+
+                    vertical = 0;
                 }
            
                 //if (pressingRight) { transform.rotation = Quaternion.Euler(0, 0, 0); }
@@ -407,6 +411,8 @@ public class characterMovement : MonoBehaviour
 
         if (onWall && holdingWall)
         {
+            this.gameObject.GetComponent<Animator>().SetBool("isJumping", false);
+            animateOnce = false;
             moveWall();
             body.velocity = new Vector3(velocity.x, Mathf.Clamp(velocity.y, -fallSpeedLimit, 100));
         }
@@ -416,7 +422,8 @@ public class characterMovement : MonoBehaviour
                 this.gameObject.GetComponent<Animator>().SetBool("inShell", true);
                 // sprite change
                 calculateGravity();
-                return;    
+                // Debug.Log("velocities " + velocity.x + " " + velocity.y + " " + desiredVelocity.x + " " + desiredVelocity.y);
+                // return;    
             }
             else if (desiredJump)
             {
@@ -572,6 +579,7 @@ public class characterMovement : MonoBehaviour
         if (pressingJumpWall && !currentlyJumping)
         {
             currentlyJumping = true;
+            Debug.Log("wall moving vel" + velocity.x + " to " + desiredVelocity.x);
             velocity.x = desiredVelocity.x;
             // Debug.Break();
             Debug.Log("y wall jump");
@@ -615,6 +623,8 @@ public class characterMovement : MonoBehaviour
 
     private void moveHorizontal()
     {
+        // Debug.Log("Moving horizontal");
+
         acceleration = onGround ? maxGroundAcceleration : maxAirAcceleration;
         deceleration = onGround ? maxGroundDecceleration : maxAirDeceleration;
         turnSpeed = onGround ? maxGroundTurnSpeed : maxAirTurnSpeed;
@@ -637,7 +647,28 @@ public class characterMovement : MonoBehaviour
 
         // Debug.Log(desiredVelocity + " " + maxSpeedChange);
 
-        velocity.x = Mathf.MoveTowards(velocity.x, desiredVelocity.x, maxSpeedChange);
+        // if (inShell && onGround)
+        // {
+        //     velocity.x = 0;
+        // }
+        // else
+        // {
+            
+        // }
+        
+        // Debug.Log("moving vel" + velocity.x + " towards " + desiredVelocity.x);
+
+        if(inShell)
+        {
+            if (onGround) velocity.x = 0;
+        }
+        else
+        {
+            velocity.x = Mathf.MoveTowards(velocity.x, desiredVelocity.x, maxSpeedChange);
+        }
+
+
+        // Debug.Log(desiredVelocity);
         body.velocity = new Vector3(velocity.x, Mathf.Clamp(velocity.y, -fallSpeedLimit, 100));
         if (onGround)
         {

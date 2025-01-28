@@ -45,14 +45,14 @@ public class CharacterTrashHandler : MonoBehaviour
                 if (debug) Debug.Log("TrashAction True");
             }
         }
-        else if (Input.GetButtonUp("TrashAction") && trashCut.HasCloseCuttableTrash())
+        else //if (Input.GetButtonUp("TrashAction") && trashCut.HasCloseCuttableTrash())
         {
             desiredTrashAction = false;
             waitTimer = 0f;
             if (debug) Debug.Log("TrashAction False");
-        }
-        else
-        {
+        // }
+        // else
+        // {
             if (this.gameObject.GetComponent<Animator>().GetBool("isCutting"))
             {
                 soundIsPlayed = false;

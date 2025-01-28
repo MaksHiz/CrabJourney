@@ -20678,7 +20678,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1317322341434430716, guid: 83eb035f3a795754bba1bea4399c80fa, type: 3}
       propertyPath: sfxSounds.Array.size
-      value: 8
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 1317322341434430716, guid: 83eb035f3a795754bba1bea4399c80fa, type: 3}
       propertyPath: musicSounds.Array.size
@@ -20692,6 +20692,10 @@ PrefabInstance:
       propertyPath: sfxSounds.Array.data[7]
       value: 
       objectReference: {fileID: 8300000, guid: 16f9cd937e6654748a7397b9582b181e, type: 3}
+    - target: {fileID: 1317322341434430716, guid: 83eb035f3a795754bba1bea4399c80fa, type: 3}
+      propertyPath: sfxSounds.Array.data[8]
+      value: 
+      objectReference: {fileID: 8300000, guid: 08552cfab30f7fc4a8f3d5b3d6be79c6, type: 3}
     - target: {fileID: 1317322341434430716, guid: 83eb035f3a795754bba1bea4399c80fa, type: 3}
       propertyPath: musicSounds.Array.data[0]
       value: 
@@ -35285,6 +35289,10 @@ PrefabInstance:
     - target: {fileID: 7568019977690146842, guid: 6998436bb2152ab4ea217a51bbef552b, type: 3}
       propertyPath: m_Name
       value: BeachBall
+      objectReference: {fileID: 0}
+    - target: {fileID: 7568019977690146842, guid: 6998436bb2152ab4ea217a51bbef552b, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

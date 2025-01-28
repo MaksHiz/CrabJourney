@@ -18,6 +18,8 @@ public class PearlMovement : MonoBehaviour
     private float timer = 0f;
     private bool isPuzzleSolved = false;
     private int forceBehaviour = 0;
+    [SerializeField] private AudioSource pearlSource;
+    [SerializeField] private AudioClip pearlSound;
     void Awake()
     {
         isPuzzleSolved = GameSave.CurrentSave.PuzzleSolved;
@@ -40,13 +42,13 @@ public class PearlMovement : MonoBehaviour
         if (isMoving) { 
             currPos= transform.position;
             timer += Time.deltaTime;
-            if (!AudioManager.Instance.sfxSource.isPlaying && Mathf.Abs(this.gameObject.GetComponent<Rigidbody2D>().velocity.x) > 1)
+            if (!pearlSource.isPlaying && Mathf.Abs(this.gameObject.GetComponent<Rigidbody2D>().velocity.x) > 1)
             {
-                AudioManager.Instance.PlaySFX("Pearl_Roll");
+                pearlSource.PlayOneShot(pearlSound);
             }
             if (Mathf.Abs(this.gameObject.GetComponent<Rigidbody2D>().velocity.x) < 1)
             {
-                AudioManager.Instance.StopSFX();
+                pearlSource.Stop();
             }
             if (timer >= 10f && internalForce!=0)
             {

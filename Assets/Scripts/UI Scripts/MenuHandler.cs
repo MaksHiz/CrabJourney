@@ -20,6 +20,7 @@ public class MenuHandler : MonoBehaviour
     public GameObject CursorScreen;
     public GameObject PauseScreen;
     public GameObject InGameUIScreen;
+    public GameObject EndScreen;
 
     [Header("Title Menu")]
     public GameObject TitleMenu;
@@ -88,7 +89,7 @@ public class MenuHandler : MonoBehaviour
         // If we're in game, we can pause by pressing the ESCAPE button.
         if (InGame)
         {
-            if (Input.GetKeyDown(KeyCode.Escape))
+            if (Input.GetKeyDown(KeyCode.Escape) && !EndScreen.activeInHierarchy)
             {
                 if (_current_screen != PauseScreen) 
                 {
@@ -130,6 +131,15 @@ public class MenuHandler : MonoBehaviour
     #endregion
 
     #region REGION: Public Methods
+    public void LoadEndScreen() 
+    {
+        EndScreen.SetActive(true);
+    }
+    public void UnloadEndScreen() 
+    {
+        EndScreen.SetActive(false);
+    }
+
     // Load a new menu specified as the parameter.
     public void LoadMenu(GameObject menu_to_load)
     {
@@ -177,14 +187,13 @@ public class MenuHandler : MonoBehaviour
         {
             Time.timeScale = 0f;
             CursorScreen.SetActive(true);
-            Cursor.lockState = CursorLockMode.None;
             Cursor.visible = false;
         }
         else
         {
             Time.timeScale = 1f;
             CursorScreen.SetActive(false);
-            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
         }
 
         PauseScreen.SetActive(_paused);

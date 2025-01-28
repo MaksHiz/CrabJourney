@@ -249,7 +249,9 @@ public class characterMovement : MonoBehaviour
         }
         else if((onGround || onWall) && horizontal==0 && loopedAudio
          || (!onWall && AudioManager.Instance.loopSoundSource.clip != null 
-            && AudioManager.Instance.loopSoundSource.clip.name == "Climb"))
+            && AudioManager.Instance.loopSoundSource.clip.name == "Climb")
+         || (!onGround && AudioManager.Instance.loopSoundSource.clip != null 
+            && AudioManager.Instance.loopSoundSource.clip.name == "Walk"))
         {
             loopedAudio = false;
             AudioManager.Instance.StopLoopedSound();
@@ -578,6 +580,14 @@ public class characterMovement : MonoBehaviour
 
         if (pressingJumpWall && !currentlyJumping)
         {
+            if (UnityEngine.Random.Range(1, 3) == 1) { AudioManager.Instance.PlaySFX("jump"); }
+            else { AudioManager.Instance.PlaySFX("jump2"); }
+            if (!animateOnce)
+            {
+                this.gameObject.GetComponent<Animator>().SetBool("isJumping", true);
+                animateOnce = true;
+            }
+
             currentlyJumping = true;
             Debug.Log("wall moving vel" + velocity.x + " to " + desiredVelocity.x);
             velocity.x = desiredVelocity.x;

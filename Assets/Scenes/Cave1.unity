@@ -3179,7 +3179,7 @@ Transform:
   m_GameObject: {fileID: 388128867}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 36.4494, y: -0.1267, z: 0}
+  m_LocalPosition: {x: 36.41, y: -0.1267, z: 0}
   m_LocalScale: {x: 2.7678673, y: 3.0403576, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -14090,7 +14090,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.042607546, y: 0.09941673}
+  m_Offset: {x: 0.8557377, y: 0.09941673}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -14101,7 +14101,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 2.248118, y: 2.3844995}
+  m_Size: {x: 3.8743782, y: 2.3844995}
   m_EdgeRadius: 0
 --- !u!212 &463217313
 SpriteRenderer:
@@ -30640,7 +30640,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1390852138
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -37042,6 +37042,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2086623980}
   - component: {fileID: 2086623981}
+  - component: {fileID: 2086623982}
   m_Layer: 0
   m_Name: BubbleTextCollider
   m_TagString: Untagged
@@ -37096,7 +37097,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.26153946, y: 0.030769587}
+  m_Offset: {x: 0.831892, y: 0.030769587}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -37107,8 +37108,23 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 2.6461487, y: 2.3076892}
+  m_Size: {x: 3.7868538, y: 2.3076892}
   m_EdgeRadius: 0
+--- !u!114 &2086623982
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2086623979}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 15065e2cc34298c4c8ffc094d16a89f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  canvasCounter: {fileID: 1390852137}
+  Cage: {fileID: 463217310}
+  myText: {fileID: 1795366773}
 --- !u!1001 &2107950564
 PrefabInstance:
   m_ObjectHideFlags: 0

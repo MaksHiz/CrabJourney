@@ -266,7 +266,6 @@ public class characterMovement : MonoBehaviour
         {
             loopedAudio = false;
             AudioManager.Instance.StopLoopedSound();
-            Debug.Log("Stopped 1");
         }
         pressingJumpWall = false;
         if(onWall && !inShell)

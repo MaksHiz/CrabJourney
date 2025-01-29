@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using Unity.VisualScripting;
 
 public class CounterBubble : MonoBehaviour
 {
@@ -13,9 +14,15 @@ public class CounterBubble : MonoBehaviour
         canvasCounter.SetActive(false);
     }
 
-    void onTriggerEnter2D(Collider Other){
-        if(Other.CompareTag("Player")){
+    void OnTriggerEnter2D(Collider2D col){
+        if(col.CompareTag("Player")){
             canvasCounter.SetActive(true);
+        }
+    }
+
+    void OnTriggerExit2D(Collider2D other){
+        if(other.CompareTag("Player")){
+            canvasCounter.SetActive(false);
         }
     }
 
@@ -23,6 +30,9 @@ public class CounterBubble : MonoBehaviour
         if(myText.text != Cage.GetComponent<CageLogic>().getTrashAmount().ToString()){
             myText.text = Cage.GetComponent<CageLogic>().getTrashAmount().ToString();
         }
+         if(Cage.GetComponent<CageLogic>().getTrashAmount() == 0){
+            canvasCounter.SetActive(false);
+         }
     }
 
 }

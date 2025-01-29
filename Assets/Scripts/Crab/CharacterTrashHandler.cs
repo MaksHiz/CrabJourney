@@ -49,7 +49,6 @@ public class CharacterTrashHandler : MonoBehaviour
         }
         else //if (Input.GetButtonUp("TrashAction") && trashCut.HasCloseCuttableTrash())
         {
-	    Debug.Log("If Three");
             desiredTrashAction = false;
             if (debug) Debug.Log("TrashAction False");
         // }

@@ -36,6 +36,7 @@ public class TrashPickup : MonoBehaviour
             if (closest != null)
             {
                 closest.GetComponent<CollectableTrash>().PickedUp();
+		this.gameObject.GetComponentInParent<Animator>().Play("Collecting");
                 if (closest.GetComponent<CollectableTrash>().GetLeverName() == "")
                 {
                     PickupTrash();
@@ -79,7 +80,6 @@ public class TrashPickup : MonoBehaviour
 
     private void PickupTrash(){
         pickedUpTrash++;
-        this.gameObject.GetComponentInParent<Animator>().Play("Collecting");
         MenuHandler.Instance.UpdateInGameUI(pickedUpTrash);
     }
 

@@ -18917,6 +18917,22 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+    - target: {fileID: 1981566772734248132, guid: 4a716e51ba072834fa218d11edef07e7, type: 3}
+      propertyPath: m_Size.x
+      value: 2.7941666
+      objectReference: {fileID: 0}
+    - target: {fileID: 1981566772734248132, guid: 4a716e51ba072834fa218d11edef07e7, type: 3}
+      propertyPath: m_Size.y
+      value: 2.112773
+      objectReference: {fileID: 0}
+    - target: {fileID: 1981566772734248132, guid: 4a716e51ba072834fa218d11edef07e7, type: 3}
+      propertyPath: m_Offset.x
+      value: -0.22858429
+      objectReference: {fileID: 0}
+    - target: {fileID: 1981566772734248132, guid: 4a716e51ba072834fa218d11edef07e7, type: 3}
+      propertyPath: m_Offset.y
+      value: 0.8626151
+      objectReference: {fileID: 0}
     - target: {fileID: 4424886687074706990, guid: 4a716e51ba072834fa218d11edef07e7, type: 3}
       propertyPath: m_Name
       value: BlueLever
@@ -19766,6 +19782,22 @@ PrefabInstance:
     - target: {fileID: 6385975754282316060, guid: 5d15933d3dc8a1d4b83bc6a8866dd863, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: -90.384
+      objectReference: {fileID: 0}
+    - target: {fileID: 7208076522892072906, guid: 5d15933d3dc8a1d4b83bc6a8866dd863, type: 3}
+      propertyPath: m_Size.x
+      value: 0.6988218
+      objectReference: {fileID: 0}
+    - target: {fileID: 7208076522892072906, guid: 5d15933d3dc8a1d4b83bc6a8866dd863, type: 3}
+      propertyPath: m_Size.y
+      value: 1.5403771
+      objectReference: {fileID: 0}
+    - target: {fileID: 7208076522892072906, guid: 5d15933d3dc8a1d4b83bc6a8866dd863, type: 3}
+      propertyPath: m_Offset.x
+      value: -0.028971568
+      objectReference: {fileID: 0}
+    - target: {fileID: 7208076522892072906, guid: 5d15933d3dc8a1d4b83bc6a8866dd863, type: 3}
+      propertyPath: m_Offset.y
+      value: -0.05421853
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -30176,6 +30208,22 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+    - target: {fileID: 1981566772734248132, guid: 4a716e51ba072834fa218d11edef07e7, type: 3}
+      propertyPath: m_Size.x
+      value: 2.7486954
+      objectReference: {fileID: 0}
+    - target: {fileID: 1981566772734248132, guid: 4a716e51ba072834fa218d11edef07e7, type: 3}
+      propertyPath: m_Size.y
+      value: 2.112773
+      objectReference: {fileID: 0}
+    - target: {fileID: 1981566772734248132, guid: 4a716e51ba072834fa218d11edef07e7, type: 3}
+      propertyPath: m_Offset.x
+      value: -0.2058487
+      objectReference: {fileID: 0}
+    - target: {fileID: 1981566772734248132, guid: 4a716e51ba072834fa218d11edef07e7, type: 3}
+      propertyPath: m_Offset.y
+      value: 0.8626151
+      objectReference: {fileID: 0}
     - target: {fileID: 4424886687074706990, guid: 4a716e51ba072834fa218d11edef07e7, type: 3}
       propertyPath: m_Name
       value: GreenLever
@@ -32153,6 +32201,22 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+    - target: {fileID: 1981566772734248132, guid: 4a716e51ba072834fa218d11edef07e7, type: 3}
+      propertyPath: m_Size.x
+      value: 2.7941666
+      objectReference: {fileID: 0}
+    - target: {fileID: 1981566772734248132, guid: 4a716e51ba072834fa218d11edef07e7, type: 3}
+      propertyPath: m_Size.y
+      value: 2.112773
+      objectReference: {fileID: 0}
+    - target: {fileID: 1981566772734248132, guid: 4a716e51ba072834fa218d11edef07e7, type: 3}
+      propertyPath: m_Offset.x
+      value: -0.22858429
+      objectReference: {fileID: 0}
+    - target: {fileID: 1981566772734248132, guid: 4a716e51ba072834fa218d11edef07e7, type: 3}
+      propertyPath: m_Offset.y
+      value: 0.8626151
+      objectReference: {fileID: 0}
     - target: {fileID: 4424886687074706990, guid: 4a716e51ba072834fa218d11edef07e7, type: 3}
       propertyPath: m_Name
       value: RedLever
@@ -32732,11 +32796,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5219312943049997202, guid: c1904f8aa86f78a41a6870cede7ffb5f, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 29.79
+      value: 69.01
       objectReference: {fileID: 0}
     - target: {fileID: 5219312943049997202, guid: c1904f8aa86f78a41a6870cede7ffb5f, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -10.09
+      value: -10.31
       objectReference: {fileID: 0}
     - target: {fileID: 5219312943049997202, guid: c1904f8aa86f78a41a6870cede7ffb5f, type: 3}
       propertyPath: m_LocalPosition.z

@@ -31,12 +31,14 @@ public class CharacterTrashHandler : MonoBehaviour
     {
         if (Input.GetButtonDown("TrashAction") && trashPickup.HasCloseTrash())
         {
+            Debug.Log("If One");
             desiredTrashAction = true;
             if (debug) Debug.Log("TrashAction True");
         }
         else if (Input.GetButton("TrashAction") && trashCut.HasCloseCuttableTrash()) // While the button is held down
         {
-            if (!soundIsPlayed) { Debug.Log("Cutting Trash"); AudioManager.Instance.PlaySFX("looped_cutting"); soundIsPlayed = true; }
+            Debug.Log("If Two");
+	    if (!soundIsPlayed) { Debug.Log("Cutting Trash"); AudioManager.Instance.PlaySFX("looped_cutting"); soundIsPlayed = true; }
             this.gameObject.GetComponent<Animator>().SetBool("isCutting", true);
             waitTimer += Time.deltaTime; // Increment the timer
             if (waitTimer >= cuttingTime)
@@ -47,14 +49,15 @@ public class CharacterTrashHandler : MonoBehaviour
         }
         else //if (Input.GetButtonUp("TrashAction") && trashCut.HasCloseCuttableTrash())
         {
+	    Debug.Log("If Three");
             desiredTrashAction = false;
-            waitTimer = 0f;
             if (debug) Debug.Log("TrashAction False");
         // }
         // else
         // {
             if (this.gameObject.GetComponent<Animator>().GetBool("isCutting"))
             {
+		waitTimer = 0f;
                 soundIsPlayed = false;
                 this.gameObject.GetComponent<Animator>().SetBool("isCutting", false);
                 AudioManager.Instance.StopSFX();

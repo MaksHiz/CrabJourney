@@ -4966,7 +4966,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 7168948319563152067}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 8579567482706028607}
+        m_TargetAssemblyTypeName: MenuHandler, Assembly-CSharp
+        m_MethodName: UnloadEndScreen
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &6498764411011375531
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11194,8 +11206,38 @@ MonoBehaviour:
   displayDuration: 2
   quotes:
   - '"A hermit crab a day keeps the microplastics away."'
+  - '"You cannot teach a crab to walk straight."  '
+  - '"The crab wasn''t doing well...It felt claw-ful."'
+  - '"Crab-e diem."'
+  - '"Crabs are omnivores"'
+  - '"Hermit crabs are not tehnically crabs"'
+  - '"What is today but yesterday''s tomorrow?" '
+  - '"Crabs are belived to have evolved before the T-Rex and triceratops."'
+  - '"Some crabs can detect magnetic fields"'
+  - '"As the sea-crab swimmeth always against the stream, so doth wit always against
+    wisdom." '
+  - '"We have the ability to approach our race like ants, or we have the abilitty
+    to approach out race like crabs." '
+  - '"Why was the crab always getting into trouble?...He had a crabby-tude!"'
+  - '"What do you call a crab that'' lost his home?...Sheltered!"'
+  - '"A man works all week to keep his pants off all weekend." '
+  - '"A group of crab is called a cast"'
   authors:
   - Donald Trump
+  - Aristophanes
+  - Petra
+  - Unknown
+  - A very smart person who knows their crabs
+  - Wikipedia.
+  - Mr. Krabs
+  - Me, I was there
+  - Nikola Tesla (probably)
+  - Pythagoras
+  - Kanye West
+  - Petra
+  - Unknown
+  - Mr. Krabs
+  - Google
 --- !u!1 &8080918561661483318
 GameObject:
   m_ObjectHideFlags: 0

@@ -266,6 +266,7 @@ public class characterMovement : MonoBehaviour
         {
             loopedAudio = false;
             AudioManager.Instance.StopLoopedSound();
+            Debug.Log("Stopped 1");
         }
         pressingJumpWall = false;
         if(onWall && !inShell)
@@ -292,15 +293,16 @@ public class characterMovement : MonoBehaviour
 
         if (onWall && grabObjects.getGrabObject()==null && !inShell)
         {
-            if(!loopedAudio && body.velocity.y != 0)
+            if(!loopedAudio && vertical != 0)
             {
                 loopedAudio = true;
                 AudioManager.Instance.PlayLoopedSound("Climb");
             }
-            else if(loopedAudio && (body.velocity.y != 0 || onGround ))
+            else if(loopedAudio && (vertical == 0 || onGround ))
             {
                 loopedAudio = false;
                 AudioManager.Instance.StopLoopedSound();
+                Debug.Log("Stopped 2");
             }
             if (onWallLeft || onWallRight)
             {
@@ -325,8 +327,9 @@ public class characterMovement : MonoBehaviour
                     animator.SetBool("facingWall", false);
 
                     vertical = 0;
-		    loopedAudio = false;
+		            loopedAudio = false;
             	    AudioManager.Instance.StopLoopedSound();	
+                    Debug.Log("Stopped 3");
                 }
            
                 //if (pressingRight) { transform.rotation = Quaternion.Euler(0, 0, 0); }
@@ -371,8 +374,9 @@ public class characterMovement : MonoBehaviour
         if (vertical < 0)
         {
             inShell = true;
-	    loopedAudio = false;
+	        loopedAudio = false;
             AudioManager.Instance.StopLoopedSound();
+            Debug.Log("Stopped 4");
             return;
         }
         else

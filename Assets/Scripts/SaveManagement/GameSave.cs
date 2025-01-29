@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class GameSave
 {
-    public static int MAX_TRASH = 100;
+    public static int MAX_TRASH = 3;
     public static int IsWin 
     { 
         get 

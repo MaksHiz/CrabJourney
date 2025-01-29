@@ -131,6 +131,19 @@ public class MenuHandler : MonoBehaviour
     #endregion
 
     #region REGION: Public Methods
+    public void GameEndButton() 
+    {
+        GameSave.SaveCurrentGame();
+        if (GameSave.CurrentSave.TrashCount < GameSave.MAX_TRASH) 
+        {
+            GameSave.IsWin = 1;
+        }
+        else if (GameSave.CurrentSave.TrashCount >= GameSave.MAX_TRASH)
+        {
+            GameSave.IsWin = 2;
+        }
+    }
+
     public void LoadEndScreen() 
     {
         EndScreen.SetActive(true);

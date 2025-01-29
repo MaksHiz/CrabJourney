@@ -46,7 +46,7 @@ public class GameSave
 
     // TRASH DATA
     public int TrashCount { get; set; }
-    public float TrashPickedUpPercent { get { return TrashCount/(float)(MAX_TRASH); } }
+    public float TrashPickedUpPercent { get { return Mathf.Clamp01(TrashCount/(float)(MAX_TRASH)); } }
 
     // (id,isPickedUp,isCutApart,isPlaced,LeverName)
     public List<(int,bool,bool,bool,string)> TrashData { get; set; }

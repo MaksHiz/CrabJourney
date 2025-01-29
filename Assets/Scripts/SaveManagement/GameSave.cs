@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class GameSave
 {
-    public static int MAX_TRASH = 3;
-    public static int IsWin 
+    public static int MAX_TRASH = 15;
+    public static int IsWin
     { 
         get 
         {
@@ -174,6 +174,22 @@ public class GameSave
         Debug.Log($"Saved slot {CurrentSaveIndex}.");
     }
     #endregion
+
+    public static void DeleteCurrentGameSave()
+    {
+        if (!_is_valid_index(CurrentSaveIndex))
+        {
+            Debug.LogError("Invalid save slot.");
+            return;
+        }
+
+        // Remove the save data from PlayerPrefs
+        PlayerPrefs.DeleteKey($"GameSave{CurrentSaveIndex}");
+        PlayerPrefs.Save();
+
+        // Reset the save slot
+        Saves[CurrentSaveIndex] = new GameSave();
+    }
 
     #region Private Methods
     // Loads saves from PlayerPrefs.

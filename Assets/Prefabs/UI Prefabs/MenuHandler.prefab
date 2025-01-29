@@ -11206,8 +11206,38 @@ MonoBehaviour:
   displayDuration: 2
   quotes:
   - '"A hermit crab a day keeps the microplastics away."'
+  - '"You cannot teach a crab to walk straight."  '
+  - '"The crab wasn''t doing well...It felt claw-ful."'
+  - '"Crab-e diem."'
+  - '"Crabs are omnivores"'
+  - '"Hermit crabs are not tehnically crabs"'
+  - '"What is today but yesterday''s tomorrow?" '
+  - '"Crabs are belived to have evolved before the T-Rex and triceratops."'
+  - '"Some crabs can detect magnetic fields"'
+  - '"As the sea-crab swimmeth always against the stream, so doth wit always against
+    wisdom." '
+  - '"We have the ability to approach our race like ants, or we have the abilitty
+    to approach out race like crabs." '
+  - '"Why was the crab always getting into trouble?...He had a crabby-tude!"'
+  - '"What do you call a crab that'' lost his home?...Sheltered!"'
+  - '"A man works all week to keep his pants off all weekend." '
+  - '"A group of crab is called a cast"'
   authors:
   - Donald Trump
+  - Aristophanes
+  - Petra
+  - Unknown
+  - A very smart person who knows their crabs
+  - Wikipedia.
+  - Mr. Krabs
+  - Me, I was there
+  - Nikola Tesla (probably)
+  - Pythagoras
+  - Kanye West
+  - Petra
+  - Unknown
+  - Mr. Krabs
+  - Google
 --- !u!1 &8080918561661483318
 GameObject:
   m_ObjectHideFlags: 0

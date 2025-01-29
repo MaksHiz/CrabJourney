@@ -15,7 +15,7 @@ public class CounterBubble : MonoBehaviour
     }
 
     void OnTriggerEnter2D(Collider2D col){
-        if(col.CompareTag("Player")){
+        if(col.CompareTag("Player") && !(GameSave.CurrentSave.TrashData[0].Item2 || GameSave.CurrentSave.TrashData[0].Item3)){
             canvasCounter.SetActive(true);
         }
     }

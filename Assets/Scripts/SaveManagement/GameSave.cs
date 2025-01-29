@@ -5,6 +5,18 @@ using UnityEngine;
 public class GameSave
 {
     public static int MAX_TRASH = 100;
+    public static int IsWin 
+    { 
+        get 
+        {
+            return PlayerPrefs.GetInt("IsWin", 0);
+        }
+        set 
+        {
+            int check = PlayerPrefs.GetInt("IsWin", 0);
+            if(check < value) PlayerPrefs.SetInt("IsWin", Mathf.Clamp(value, 0, 1));
+        }
+    } // 1 is for win screen, 2 is for win gold screen.
     #region REGION: Properties
     // The three game saves, stores in an array.
     public static GameSave[] Saves { get; private set; }

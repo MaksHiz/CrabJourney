@@ -5853,7 +5853,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1329071468066532322
 RectTransform:
   m_ObjectHideFlags: 0
@@ -8372,12 +8372,12 @@ GameObject:
   - component: {fileID: 3886637737769291644}
   - component: {fileID: 886811582824675204}
   m_Layer: 5
-  m_Name: Background Gold
+  m_Name: Background Win
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &5702558996280403795
 RectTransform:
   m_ObjectHideFlags: 0
@@ -8425,7 +8425,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 987168885, guid: 53c4765c86c307d4e8831ab8f3887d9d, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 3abe3bf9a80a74e4986423194a6fde0a, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -8830,7 +8830,7 @@ GameObject:
   - component: {fileID: 5707288175640691996}
   - component: {fileID: 3814885855186442868}
   m_Layer: 5
-  m_Name: Background Win
+  m_Name: Background Win Gold
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8883,7 +8883,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 987168885, guid: 53c4765c86c307d4e8831ab8f3887d9d, type: 3}
+  m_Sprite: {fileID: 21300000, guid: e0ce01c36e373ef49b4bf3fe3211ef6e, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -8903,7 +8903,7 @@ Animator:
   m_GameObject: {fileID: 6517170933567151459}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 0ee3bdf199844b5459fd7451718d8646, type: 2}
+  m_Controller: {fileID: 9100000, guid: efef6dbe5caba8a45b302e813235a93f, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 2
   m_ApplyRootMotion: 0
@@ -13000,6 +13000,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 314196573364164805}
+  - component: {fileID: 3014901855278780312}
   m_Layer: 5
   m_Name: BackgroundHandler
   m_TagString: Untagged
@@ -13029,3 +13030,18 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &3014901855278780312
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9006472493229290160}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff36866c037c9fe4f993036ff02ab6e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  normal: {fileID: 4190241983371403793}
+  win: {fileID: 6165813121996733652}
+  gold_win: {fileID: 6517170933567151459}

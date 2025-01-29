@@ -23,7 +23,7 @@ public class EndScreenHandler : MonoBehaviour
         if (_crab == null) return;
         _endScreen.alpha = (_radius - Vector2.Distance(new Vector2(transform.position.x, transform.position.y), new Vector2(_crab.transform.position.x, _crab.transform.position.y)))/_radius;
         Background.color = new Color(0,0,0,_endScreen.alpha*2);
-        if (_endScreen.alpha > CursorShowAlpha)
+        if (_endScreen.alpha > CursorShowAlpha && _endScreen.gameObject.activeInHierarchy)
         {
             MenuHandler.Instance.CursorScreen.SetActive(true);
             Cursor.lockState = CursorLockMode.None;

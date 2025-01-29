@@ -138,6 +138,7 @@ public class MenuHandler : MonoBehaviour
     public void UnloadEndScreen() 
     {
         EndScreen.SetActive(false);
+        CursorScreen.SetActive(false);
     }
 
     // Load a new menu specified as the parameter.
@@ -246,7 +247,6 @@ public class MenuHandler : MonoBehaviour
 
         _paused = false;
 
-        MenuHandler.Instance = null;
         SceneManager.LoadScene(5);
 
         Destroy(gameObject);

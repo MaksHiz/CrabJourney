@@ -144,6 +144,20 @@ public class MenuHandler : MonoBehaviour
         }
     }
 
+    public void BackToMainMenuAfterEnd() 
+    {
+        UpdateTitleContinueText();
+
+        InGame = false;
+        InGameUIScreen.SetActive(false);
+
+        _paused = false;
+
+        SceneManager.LoadScene(5);
+
+        Destroy(gameObject);
+    }
+
     public void LoadEndScreen() 
     {
         EndScreen.SetActive(true);

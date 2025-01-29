@@ -21,7 +21,7 @@ public class CreditsScroll : MonoBehaviour
         if (rectTransform.anchoredPosition.y >= endY)
         {
             scrollSpeed = 0f; // Stop movement
-            MenuHandler.Instance.BackToMainMenu();
+            MenuHandler.Instance.BackToMainMenuAfterEnd();
         }
     }
 }

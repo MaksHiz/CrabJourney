@@ -111,13 +111,13 @@ public class MenuHandler : MonoBehaviour
 
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        if (scene.name != "Introduction" && InGame)
+        if (scene.name != "Introduction"  && scene.name != "Outro" && InGame)
         {
             InGameUIScreen.SetActive(true);  // Now safe to activate after the scene load
         }
 
         // If the scene is the Introduction scene, make sure InGameUIScreen is disabled
-        if (scene.name == "Introduction" && InGameUIScreen.activeInHierarchy)
+        if ((scene.name == "Introduction" || scene.name == "Outro") && InGameUIScreen.activeInHierarchy)
         {
             InGameUIScreen.SetActive(false);
         }

@@ -134,6 +134,7 @@ GameObject:
   - component: {fileID: 4836967}
   - component: {fileID: 4836969}
   - component: {fileID: 4836968}
+  - component: {fileID: 4836970}
   m_Layer: 5
   m_Name: GoldenShell
   m_TagString: Untagged
@@ -173,7 +174,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -198,6 +199,27 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4836966}
   m_CullTransparentMesh: 1
+--- !u!95 &4836970
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4836966}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: ffc3a198d2fc64049b6c0d57b03ed046, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &171318929
 GameObject:
   m_ObjectHideFlags: 0
@@ -209,6 +231,7 @@ GameObject:
   - component: {fileID: 171318930}
   - component: {fileID: 171318932}
   - component: {fileID: 171318931}
+  - component: {fileID: 171318933}
   m_Layer: 5
   m_Name: SilverShell
   m_TagString: Untagged
@@ -273,6 +296,27 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 171318929}
   m_CullTransparentMesh: 1
+--- !u!95 &171318933
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 171318929}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 21bee967734f9a84e8cdc1401e4d8e6b, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &564506570
 GameObject:
   m_ObjectHideFlags: 0
@@ -308,8 +352,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -604}
-  m_SizeDelta: {x: 1839.8, y: 282.5691}
+  m_AnchoredPosition: {x: -0.0091343, y: -366.23}
+  m_SizeDelta: {x: 629.2571, y: 282.5691}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &564506572
 MonoBehaviour:
@@ -334,7 +378,28 @@ MonoBehaviour:
   m_text: "\nExecutive director:\r\nMaksimilijan\r\n\nLevel Design:\r\nPetra i Maksimilijan\r\n\nUI
     programming and design:\r\nVito i Mia\r\n\r\nCharacter movement and bugs:\r\nKarlo
     i Maksimilijan\r\n\r\nCharacter animations:\r\nMia i Maksimilijan\r\n\r\nAsset
-    sprites:\r\nPetra i Mia\r\n\r\nMarketing:\r\nMia i Vito\r\n\nAudio:\n\n\n\n\nThank
+    sprites:\r\nPetra i Mia\r\n\r\nMarketing:\r\nMia i Vito\r\n\nAudio:\nBeach_Theme1
+    \u2013 Filippo Game Audio: https://www.youtube.com/watch?v=Tu0kod4y0yI\r\nBeach_Theme2
+    \u2013 Filippo Game Audio: https://www.youtube.com/watch?v=Pgq4KJTDCno\r\nLevel1_Theme1
+    \u2013 Studio Eclectic: https://www.youtube.com/watch?v=AIyC6z-ZRoA\r\nLevel1_Theme2
+    \u2013 LuLu_Sound_Music: https://pixabay.com/music/cafe-at-the-moment-216213/\r\nCave1_Theme1
+    \u2013 Lesiakower: https://pixabay.com/music/video-games-waiting-time-175800/\r\nCave1_Theme2
+    - Crab_Audio: https://pixabay.com/music/upbeat-standby-mode-285439/\r\nDeepWater_Theme1
+    \u2013 \r\nSong: Sinking House\r\nComposer: Unwritten Stories\r\nWebsite: https://soundcloud.com/unwritten-stories\r\nLicense:
+    Creative Commons (BY-SA 3.0) https://creativecommons.org/licenses/by-sa/3.0/\r\nMusic
+    powered by BreakingCopyright: https://breakingcopyright.com/\r\nDeepWater_Theme2
+    - monotonous creation by gis_sweden -- https://freesound.org/s/785216/ -- License:
+    Creative Commons 0\r\nMain_Theme1 \u2013 Provided by ZapSplatTM\r\nMain_Theme2
+    - Ocean Soul_ver1.0 by sunbnu -- https://freesound.org/s/781718/ -- License:
+    Attribution NonCommercial 4.0\r\nCinematic_Punch - Cinematic Punch by mittenboy
+    -- https://freesound.org/s/710368/ -- License: Creative Commons 0\r\nWalk - Provided
+    by ZapSplatTM\r\nClimb - Provided by ZapSplatTM\r\nJump - Provided by ZapSplatTM\r\nJump_Into_Water
+    - Provided by ZapSplatTM\r\nTrash_Pickup2 - Provided by ZapSplatTM\r\nPearl_Pickup
+    \u2013 A Very Clear Pop Sound by 9voltfan -- https://freesound.org/s/784918/
+    -- License: Creative Commons 0\r\nTrash_Cut - Provided by ZapSplatTM\r\nClose_Clam
+    - Provided by ZapSplatTM\r\nCage_Open - Provided by ZapSplatTM\r\nPearl_Throw
+    - Provided by ZapSplatTM\r\nBeach_Ball Provided by ZapSplatTM\r\nPearl_Roll -
+    Provided by ZapSplatTM\r\nPuzzle_Solve - Provided by ZapSplatTM\n\n\n\n\nThank
     you for playing! \r\n\n\n\n\n\n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 440f225bea9c2ce4d931a5e1d266f566, type: 2}
@@ -425,7 +490,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scrollSpeed: 100
-  endY: 1000
+  endY: 4300
 --- !u!1001 &646708387
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -481,6 +546,10 @@ PrefabInstance:
     - target: {fileID: 7332485557578683570, guid: 299fb0b21a0dcda4eabcbfa74c46cd6a, type: 3}
       propertyPath: m_Name
       value: MenuHandler
+      objectReference: {fileID: 0}
+    - target: {fileID: 7332485557578683570, guid: 299fb0b21a0dcda4eabcbfa74c46cd6a, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -709,6 +778,7 @@ GameObject:
   - component: {fileID: 1461116757}
   - component: {fileID: 1461116756}
   - component: {fileID: 1461116758}
+  - component: {fileID: 1461116759}
   m_Layer: 5
   m_Name: Panel
   m_TagString: Untagged
@@ -790,6 +860,26 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   WinScreen: {fileID: 171318929}
   GoldWinSprite: {fileID: 4836966}
+--- !u!320 &1461116759
+PlayableDirector:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1461116754}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_PlayableAsset: {fileID: 11400000, guid: 6cd63cb6bc8bafb4ab32f2fcbf0245db, type: 2}
+  m_InitialState: 1
+  m_WrapMode: 2
+  m_DirectorUpdateMode: 1
+  m_InitialTime: 0
+  m_SceneBindings: []
+  m_ExposedReferences:
+    m_References:
+    - c0d7028627bb2e045ac7d75ef070fcb1: {fileID: 564506570}
+    - 4c9c5e2dc9f75564cb5042139ee784d4: {fileID: 4836966}
+    - 5405bf4cb4a303e4a8c0f70be29aad21: {fileID: 171318929}
 --- !u!1 &1586523560
 GameObject:
   m_ObjectHideFlags: 0
@@ -802,6 +892,7 @@ GameObject:
   - component: {fileID: 1586523563}
   - component: {fileID: 1586523562}
   - component: {fileID: 1586523561}
+  - component: {fileID: 1586523565}
   m_Layer: 5
   m_Name: OutroCanvas
   m_TagString: Untagged
@@ -892,6 +983,26 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!320 &1586523565
+PlayableDirector:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1586523560}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_PlayableAsset: {fileID: 11400000, guid: 38cc026ef202c6146aa8625843c72f5d, type: 2}
+  m_InitialState: 1
+  m_WrapMode: 2
+  m_DirectorUpdateMode: 1
+  m_InitialTime: 0
+  m_SceneBindings: []
+  m_ExposedReferences:
+    m_References:
+    - c528841c89e2bfd469a8ec952f81151f: {fileID: 564506570}
+    - dc1292f3c7de3134ab294b0829e54b11: {fileID: 4836966}
+    - 6c758034aebc88a4dac19637d1a29f3e: {fileID: 171318929}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

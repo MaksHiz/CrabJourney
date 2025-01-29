@@ -8,8 +8,7 @@ public class BubbleScript : MonoBehaviour
     public Vector3 offset;  
 
 
-     void Start(){
-        gameObject.SetActive(false);
+    void Start(){
     }
 
     // Update is called once per frame

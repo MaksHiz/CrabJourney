@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CageLogic : MonoBehaviour
 {
-    [SerializeField] private int neededTrashAmmount=20;
+    public int neededTrashAmmount=20;
     [SerializeField] private Sprite emptyCage;
     [SerializeField] private GameObject redBottle;
     //(id,isPickedUp,isCaged,isPlaced,leverName)

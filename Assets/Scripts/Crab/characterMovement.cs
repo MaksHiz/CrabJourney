@@ -257,8 +257,8 @@ public class characterMovement : MonoBehaviour
         {
             loopedAudio = true;
             AudioManager.Instance.PlayLoopedSound("Walk");
-        }
-        else if((onGround || onWall) && horizontal==0 && loopedAudio
+        } //
+        else if(((onGround && horizontal==0 && loopedAudio) || (onWall && vertical==0 && loopedAudio))
          || (!onWall && AudioManager.Instance.loopSoundSource.clip != null 
             && AudioManager.Instance.loopSoundSource.clip.name == "Climb")
          || (!onGround && AudioManager.Instance.loopSoundSource.clip != null 
@@ -266,6 +266,7 @@ public class characterMovement : MonoBehaviour
         {
             loopedAudio = false;
             AudioManager.Instance.StopLoopedSound();
+            Debug.Log("Stopped 1");
         }
         pressingJumpWall = false;
         if(onWall && !inShell)
@@ -301,6 +302,7 @@ public class characterMovement : MonoBehaviour
             {
                 loopedAudio = false;
                 AudioManager.Instance.StopLoopedSound();
+                Debug.Log("Stopped 2");
             }
             if (onWallLeft || onWallRight)
             {
@@ -325,6 +327,9 @@ public class characterMovement : MonoBehaviour
                     animator.SetBool("facingWall", false);
 
                     vertical = 0;
+		            loopedAudio = false;
+            	    AudioManager.Instance.StopLoopedSound();	
+                    Debug.Log("Stopped 3");
                 }
            
                 //if (pressingRight) { transform.rotation = Quaternion.Euler(0, 0, 0); }
@@ -369,6 +374,9 @@ public class characterMovement : MonoBehaviour
         if (vertical < 0)
         {
             inShell = true;
+	        loopedAudio = false;
+            AudioManager.Instance.StopLoopedSound();
+            Debug.Log("Stopped 4");
             return;
         }
         else

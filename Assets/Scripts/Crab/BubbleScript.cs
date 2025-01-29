@@ -6,11 +6,10 @@ public class BubbleScript : MonoBehaviour
 {
      public Transform target; // The object to follow (e.g., your character)
     public Vector3 offset;  
-    private SpriteRenderer spriteRenderer;
+
 
      void Start(){
-        spriteRenderer = GetComponent<SpriteRenderer>();
-        spriteRenderer.enabled = false;
+        gameObject.SetActive(false);
     }
 
     // Update is called once per frame

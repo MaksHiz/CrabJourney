@@ -21,6 +21,10 @@ public class CageLogic : MonoBehaviour
         }
     }
 
+    public int getTrashAmount(){
+        return(neededTrashAmmount);
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Player") && leverData.Item3!=true)

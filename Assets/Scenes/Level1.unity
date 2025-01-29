@@ -48896,11 +48896,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5219312943049997202, guid: c1904f8aa86f78a41a6870cede7ffb5f, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -19.89
+      value: -20.18
       objectReference: {fileID: 0}
     - target: {fileID: 5219312943049997202, guid: c1904f8aa86f78a41a6870cede7ffb5f, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 79.23
+      value: 75.66
       objectReference: {fileID: 0}
     - target: {fileID: 5219312943049997202, guid: c1904f8aa86f78a41a6870cede7ffb5f, type: 3}
       propertyPath: m_LocalPosition.z
@@ -57307,7 +57307,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 1742981185}
-  scene: Cave1
+  nextScene: Cave1
+  currentScene: Level1
 --- !u!212 &740569338
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -85140,7 +85141,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 291919537}
-  scene: Beach
+  nextScene: Beach
+  currentScene: Level1
 --- !u!61 &1806006345
 BoxCollider2D:
   m_ObjectHideFlags: 0

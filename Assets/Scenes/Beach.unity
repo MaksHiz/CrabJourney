@@ -24130,7 +24130,7 @@ GameObject:
   - component: {fileID: 673746966}
   - component: {fileID: 673746965}
   m_Layer: 0
-  m_Name: Square
+  m_Name: TransitionTrigger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -24149,7 +24149,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 285372746}
-  scene: Level 1
+  nextScene: Level1
+  currentScene: Beach
 --- !u!61 &673746966
 BoxCollider2D:
   m_ObjectHideFlags: 0

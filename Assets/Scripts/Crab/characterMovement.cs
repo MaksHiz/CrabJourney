@@ -54,7 +54,8 @@ public class characterMovement : MonoBehaviour
     public bool onWallRight;
     public bool onWall;
     [SerializeField] private float wallLength = 0.5f;
-    [SerializeField] private Vector3 wallColliderOffset = new Vector3(0f, 0.5f, 0f);
+    [SerializeField] private Vector3 wallColliderOffset1 = new Vector3(0f, 0.5f, 0f);
+    [SerializeField] private Vector3 wallColliderOffset2 = new Vector3(0f, 0.1f, 0f);
     [SerializeField] private LayerMask wallLayer;
 
     [Header("Wall Jump")]
@@ -153,22 +154,32 @@ public class characterMovement : MonoBehaviour
          Gizmos.DrawLine(transform.position - colliderOffset, transform.position - colliderOffset + Vector3.down * groundLength);
 
          if (onWall) { Gizmos.color = Color.green; } else { Gizmos.color = Color.red; }
-         Gizmos.DrawLine(transform.position + wallColliderOffset, transform.position + wallColliderOffset + Vector3.left * wallLength);
-         Gizmos.DrawLine(transform.position - wallColliderOffset, transform.position - wallColliderOffset + Vector3.left * wallLength);
+         Gizmos.DrawLine(transform.position + wallColliderOffset1, transform.position + wallColliderOffset1 + Vector3.left * wallLength);
+         Gizmos.DrawLine(transform.position - wallColliderOffset1, transform.position - wallColliderOffset1 + Vector3.left * wallLength);
 
-         Gizmos.DrawLine(transform.position + wallColliderOffset, transform.position + wallColliderOffset + Vector3.right * wallLength);
-         Gizmos.DrawLine(transform.position - wallColliderOffset, transform.position - wallColliderOffset + Vector3.right * wallLength);
+         Gizmos.DrawLine(transform.position + wallColliderOffset1, transform.position + wallColliderOffset1 + Vector3.right * wallLength);
+         Gizmos.DrawLine(transform.position - wallColliderOffset1, transform.position - wallColliderOffset1 + Vector3.right * wallLength);
+
+         Gizmos.DrawLine(transform.position + wallColliderOffset2, transform.position + wallColliderOffset2 + Vector3.left * wallLength);
+         Gizmos.DrawLine(transform.position - wallColliderOffset2, transform.position - wallColliderOffset2 + Vector3.left * wallLength);
+
+         Gizmos.DrawLine(transform.position + wallColliderOffset2, transform.position + wallColliderOffset2 + Vector3.right * wallLength);
+         Gizmos.DrawLine(transform.position - wallColliderOffset2, transform.position - wallColliderOffset2 + Vector3.right * wallLength);
     }
     private void checkCollision()
     {
         onGround = Physics2D.Raycast(transform.position + colliderOffset, Vector2.down, groundLength, groundLayer)
                 || Physics2D.Raycast(transform.position - colliderOffset, Vector2.down, groundLength, groundLayer);
 
-        onWallLeft = Physics2D.Raycast(transform.position + wallColliderOffset, Vector2.left, wallLength, wallLayer)
-                || Physics2D.Raycast(transform.position - wallColliderOffset, Vector2.left, wallLength, wallLayer);
+        onWallLeft = Physics2D.Raycast(transform.position + wallColliderOffset1, Vector2.left, wallLength, wallLayer)
+                || Physics2D.Raycast(transform.position - wallColliderOffset1, Vector2.left, wallLength, wallLayer)
+                || Physics2D.Raycast(transform.position + wallColliderOffset2, Vector2.left, wallLength, wallLayer)
+                || Physics2D.Raycast(transform.position - wallColliderOffset2, Vector2.left, wallLength, wallLayer);
 
-        onWallRight = Physics2D.Raycast(transform.position + wallColliderOffset, Vector2.right, wallLength, wallLayer)
-                || Physics2D.Raycast(transform.position - wallColliderOffset, Vector2.right, wallLength, wallLayer);
+        onWallRight = Physics2D.Raycast(transform.position + wallColliderOffset1, Vector2.right, wallLength, wallLayer)
+                || Physics2D.Raycast(transform.position - wallColliderOffset1, Vector2.right, wallLength, wallLayer)
+                || Physics2D.Raycast(transform.position + wallColliderOffset2, Vector2.right, wallLength, wallLayer)
+                || Physics2D.Raycast(transform.position - wallColliderOffset2, Vector2.right, wallLength, wallLayer);
 
         onWall = onWallLeft || onWallRight;
     }

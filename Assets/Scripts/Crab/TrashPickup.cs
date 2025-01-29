@@ -65,10 +65,11 @@ public class TrashPickup : MonoBehaviour
 
     private GameObject FindClosest(List<GameObject> _closeByTrash)
     {
-        List<GameObject> sortedByDist = _closeByTrash.OrderBy(o=>(
-            Mathf.Abs(o.transform.position.sqrMagnitude - transform.position.sqrMagnitude)
-            )).ToList();
-        return sortedByDist.Count >= 1 ? sortedByDist[0] : null;
+        // List<GameObject> sortedByDist = _closeByTrash.OrderBy(o=>(
+        //     Mathf.Abs(o.transform.position.sqrMagnitude - transform.position.sqrMagnitude)
+        //     )).ToList();
+        // return sortedByDist.Count >= 1 ? sortedByDist[0] : null;
+        return _closeByTrash[0];
     }
 
     public bool HasCloseTrash()

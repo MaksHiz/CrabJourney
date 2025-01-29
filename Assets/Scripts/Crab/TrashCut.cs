@@ -54,10 +54,11 @@ public class TrashCut : MonoBehaviour
 
     private GameObject FindClosest(List<GameObject> _currentyCuttable)
     {
-        List<GameObject> sortedByDist = _currentyCuttable.OrderBy(o=>(
-            Mathf.Abs(o.transform.position.sqrMagnitude - transform.position.sqrMagnitude)
-            )).ToList();
-        return sortedByDist.Count >= 1 ? sortedByDist[0] : null;
+        // List<GameObject> sortedByDist = _currentyCuttable.OrderBy(o=>(
+        //     Mathf.Abs(o.transform.position.sqrMagnitude - transform.position.sqrMagnitude)
+        //     )).ToList();
+        // return sortedByDist.Count >= 1 ? sortedByDist[0] : null;
+        return _currentyCuttable[0];
     }
 
     public bool HasCloseCuttableTrash()

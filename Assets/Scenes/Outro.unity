@@ -331,11 +331,11 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\nExecutive director:\r\nMaksimilijan\r\n\r\nLevel Design:\r\nPetra i
-    Maksimilijan\r\n\r\nUI programming and design:\r\nVito i Mia\r\n\r\nCharacter
-    movement and bugs:\r\nKarlo i Maksimilijan\r\n\r\nCharacter animations:\r\nMia
-    i Maksimilijan\r\n\r\nAsset sprites:\r\nPetra i Mia\r\n\r\nMarketing:\r\nMia
-    i Vito\r\n\n\n\nThank you for playing! \r\n\n"
+  m_text: "\nExecutive director:\r\nMaksimilijan\r\n\nLevel Design:\r\nPetra i Maksimilijan\r\n\nUI
+    programming and design:\r\nVito i Mia\r\n\r\nCharacter movement and bugs:\r\nKarlo
+    i Maksimilijan\r\n\r\nCharacter animations:\r\nMia i Maksimilijan\r\n\r\nAsset
+    sprites:\r\nPetra i Mia\r\n\r\nMarketing:\r\nMia i Vito\r\n\nAudio:\n\n\n\n\nThank
+    you for playing! \r\n\n\n\n\n\n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 440f225bea9c2ce4d931a5e1d266f566, type: 2}
   m_sharedMaterial: {fileID: -3729977065906929198, guid: 440f225bea9c2ce4d931a5e1d266f566, type: 2}

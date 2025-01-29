@@ -7,7 +7,12 @@ public class Follower : MonoBehaviour
     // Start is called before the first frame update
     public float followspeed = 1f;
     public Transform target;
-    public Vector3 offset = new Vector3(2f, 1f, 0f); 
+    public Vector3 offset = new Vector3(2f, 1f, 0f);
+
+    private void Start()
+    {
+        transform.position = target.position + offset;
+    }
 
     // Update is called once per frame
     void LateUpdate()

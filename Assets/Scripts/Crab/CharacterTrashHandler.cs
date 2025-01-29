@@ -64,12 +64,6 @@ public class CharacterTrashHandler : MonoBehaviour
             }
                 
         }
-    }
-
-
-    private void FixedUpdate()
-    {
-
         if (desiredTrashAction)
         {
             desiredTrashAction = false;
@@ -77,7 +71,7 @@ public class CharacterTrashHandler : MonoBehaviour
             if (trashPickup.HasCloseTrash())
             {
                 if (debug) Debug.Log("Attempting Collection");
-                if (UnityEngine.Random.Range(1,3)==1)  { AudioManager.Instance.PlaySFX("trash_pickup1"); }
+                if (UnityEngine.Random.Range(1, 3) == 1) { AudioManager.Instance.PlaySFX("trash_pickup1"); }
                 else { AudioManager.Instance.PlaySFX("trash_pickup2"); }
                 trashPickup.Collect();
             }
@@ -87,6 +81,11 @@ public class CharacterTrashHandler : MonoBehaviour
                 trashCut.Cut();
             }
         }
+    }
+
+
+    private void FixedUpdate()
+    {
 
     }
 }

@@ -36,6 +36,7 @@ public class CageLogic : MonoBehaviour
                 redBottle.SetActive(true);
                 AudioManager.Instance.PlaySFX("Cage_Open");
                 this.gameObject.GetComponent<SpriteRenderer>().sprite = emptyCage;
+                MenuHandler.Instance.UpdateInGameUI(collision.gameObject.GetComponentInChildren<TrashPickup>().pickedUpTrash);
             }
             else
             {

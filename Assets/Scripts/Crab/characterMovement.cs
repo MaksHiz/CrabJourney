@@ -640,7 +640,7 @@ public class characterMovement : MonoBehaviour
             velocity.y = Mathf.Clamp(velocity.y, -maxWallSpeed, maxWallSpeed);
             animator.SetFloat("yVelocity", Math.Abs(body.velocity.y));
             
-            velocity.x = (onWallLeft ? -1 : 1) * 0.1;
+            // velocity.x = (onWallLeft ? -1 : 1) * 0.1;
         }
     }
 

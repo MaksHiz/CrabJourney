@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class CreditsScroll : MonoBehaviour
 {
@@ -20,6 +21,7 @@ public class CreditsScroll : MonoBehaviour
         if (rectTransform.anchoredPosition.y >= endY)
         {
             scrollSpeed = 0f; // Stop movement
+            MenuHandler.Instance.BackToMainMenu();
         }
     }
 }

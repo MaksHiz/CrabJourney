@@ -165,6 +165,7 @@ public class MenuHandler : MonoBehaviour
     public void LoadEndScreen() 
     {
         EndScreen.SetActive(true);
+        CursorScreen.SetActive(true);
     }
     public void UnloadEndScreen() 
     {

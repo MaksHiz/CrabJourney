@@ -13488,7 +13488,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e4113620236b1cb449e9f49dbcbadf63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  followspeed: 2
+  followSpeedX: 1
+  followSpeedY: 3
   target: {fileID: 1771176875}
   offset: {x: 2, y: 1, z: 0}
 --- !u!81 &285240313
@@ -34864,7 +34865,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7332485557578683570, guid: 299fb0b21a0dcda4eabcbfa74c46cd6a, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

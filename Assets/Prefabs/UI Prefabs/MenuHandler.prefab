@@ -7004,7 +7004,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &8465558047924584221
 RectTransform:
   m_ObjectHideFlags: 0
@@ -10318,7 +10318,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &7269273415922380762
 RectTransform:
   m_ObjectHideFlags: 0
@@ -10416,6 +10416,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61f6e5aaeeb14f3429ba82f85edfda54, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  timer_text: {fileID: 4573340280637642763}
 --- !u!1 &7392190359283992771
 GameObject:
   m_ObjectHideFlags: 0
@@ -11236,6 +11237,7 @@ MonoBehaviour:
   - '"What do you call a crab that'' lost his home?...Sheltered!"'
   - '"A man works all week to keep his pants off all weekend." '
   - '"A group of crab is called a cast"'
+  - '"The best revenge is to not be like your enemy."'
   authors:
   - Donald Trump
   - Aristophanes
@@ -11252,6 +11254,7 @@ MonoBehaviour:
   - Unknown
   - Mr. Krabs
   - Google
+  - Beach Ball
 --- !u!1 &8080918561661483318
 GameObject:
   m_ObjectHideFlags: 0
@@ -12149,7 +12152,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 107, y: 74.7}
+  m_AnchoredPosition: {x: 121, y: 74.7}
   m_SizeDelta: {x: 56.2936, y: 12.359}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7501064431984519171

@@ -9,7 +9,7 @@ public class ChooseEndSprite : MonoBehaviour
 
     private void Awake()
     {
-        if (GameSave.CurrentSave.TrashCount >= GameSave.MAX_TRASH)
+        if (GameSave.CurrentSave.TrashCount < GameSave.MAX_TRASH)
         {
             WinScreen.SetActive(true);
             GoldWinSprite.SetActive(false);

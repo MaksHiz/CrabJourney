@@ -26,6 +26,7 @@ public class LeverMover : MonoBehaviour
         Debug.Log("LeverMoverObj:" + leverMoverObj);
         if (isActivated)
         {
+            //AudioManager.Instance.PlaySFX("Lever_Place");
             leverMoverObj.SetActive(true);
             if (leverMoverObj != null)
                 leverAnimator = leverMoverObj.GetComponent<Animator>();
@@ -82,6 +83,7 @@ public class LeverMover : MonoBehaviour
             if (leverData.Item2 == true && isActivated!=true)
             {
                 isActivated = true;
+                AudioManager.Instance.PlaySFX("Lever_Place");
                 //GameSave.CurrentSave.GetIsPickedUp(leverData.Item1,false);
                 GameSave.CurrentSave.GetIsPlaced(leverData.Item1,true);
                 leverMoverObj.SetActive(true);

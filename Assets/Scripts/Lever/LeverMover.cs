@@ -65,7 +65,7 @@ public class LeverMover : MonoBehaviour
         
         //HANDLE SOUND FOR MOVING WALLS AND LEVER PULLING
         AudioManager.Instance.PlaySFX("Lever_Interact");
-        AudioManager.Instance.PlaySFX("Wall_Movement",0.5f);
+        AudioManager.Instance.PlaySFX("Wall_Movement");
 
         foreach(RotateWall wall in walls)
         {

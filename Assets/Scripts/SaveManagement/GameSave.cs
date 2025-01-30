@@ -29,6 +29,7 @@ public class GameSave
 
     // The index of the last played save; automatically decided in the static constructor.
     public static int LastPlayedSaveIndex { get; private set; }
+
     #endregion
 
     // All the game data that needs to be saved inside a game save.
@@ -50,6 +51,8 @@ public class GameSave
 
     // (id,isPickedUp,isCutApart,isPlaced,LeverName)
     public List<(int,bool,bool,bool,string)> TrashData { get; set; }
+
+    public double TimeSpentPlaying { get; set; }
 
     #endregion
 
@@ -76,7 +79,7 @@ public class GameSave
         {
             Debug.Log(crab);
         }
-        // return $"{LastPlayed:o}|{PuzzleSolved}|{TrashCount}|{CrabPosition.x},{CrabPosition.y},{CrabPosition.z}|{CrabPositionScene}|{trashDataString}";
+        // return $"{LastPlayed:o}|{PuzzleSolved}|{TrashCount}|{CrabPosition.x},{CrabPosition.y},{CrabPosition.z}|{CrabPositionScene}|{trashDataString}|{TimeSpentPlaying}";
         if (crabPositionParts.Length != 3) throw new FormatException("Invalid CrabPosition data.");
         CrabPosition = new Vector3(
             float.Parse(crabPositionParts[0]),
@@ -117,6 +120,10 @@ public class GameSave
                 );
             }
         }
+        if (!string.IsNullOrEmpty(parts[6])) 
+        {
+            TimeSpentPlaying = double.Parse(parts[6]);
+        }
     }
 
 
@@ -138,6 +145,7 @@ public class GameSave
         TrashData[0] = (0, false, false, false, "RedLever");
         TrashData[1] = (1, false, false, false, "GreenLever");
         TrashData[2] = (2, false, false, false, "BlueLever");
+        TimeSpentPlaying = 0d;
     }
     #endregion
 
@@ -149,7 +157,7 @@ public class GameSave
         string trashDataString = string.Join(";", TrashData.ConvertAll(td =>
             $"{td.Item1},{td.Item2},{td.Item3},{td.Item4},{td.Item5}"));
 
-        return $"{LastPlayed:o}|{PuzzleSolved}|{TrashCount}|{CrabPosition.x};{CrabPosition.y};{CrabPosition.z}|{CrabPositionScene}|{trashDataString}";
+        return $"{LastPlayed:o}|{PuzzleSolved}|{TrashCount}|{CrabPosition.x};{CrabPosition.y};{CrabPosition.z}|{CrabPositionScene}|{trashDataString}|{TimeSpentPlaying}";
     }
 
     // Method which saves the current game.

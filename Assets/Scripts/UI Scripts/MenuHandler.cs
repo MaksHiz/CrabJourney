@@ -319,7 +319,7 @@ public class MenuHandler : MonoBehaviour
             {
                 string a = GameSave.Saves[i].PuzzleSolved ? "Yes" : "No";
                 SaveSlotInformationTexts[i].GetComponent<Text>().text =
-                    $"Last Played: {GameSave.Saves[i].LastPlayed.ToShortDateString()}" +
+                    $"Time Played: {GameSave.Saves[i].TimeSpentPlaying.ToString("0")}s" +
                     $"\n\n" +
                     $"Trash Picked Up: {(int)(GameSave.Saves[i].TrashPickedUpPercent * 100)}%" +
                     $"\n\n" +

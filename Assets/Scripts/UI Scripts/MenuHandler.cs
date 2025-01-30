@@ -157,7 +157,7 @@ public class MenuHandler : MonoBehaviour
 
         _paused = false;
 
-        SceneManager.LoadScene(5);
+        SceneManager.LoadScene("MainMenu");
 
         Destroy(gameObject);
     }
@@ -279,7 +279,7 @@ public class MenuHandler : MonoBehaviour
 
         _paused = false;
 
-        SceneManager.LoadScene(5);
+        SceneManager.LoadScene("MainMenu");
 
         Destroy(gameObject);
     }

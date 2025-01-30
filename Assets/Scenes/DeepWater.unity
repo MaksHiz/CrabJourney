@@ -29232,6 +29232,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   normalShell: {fileID: -811215643, guid: 3b5d6527cab8ba44f8f5da5bc4409e58, type: 3}
   goldenShell: {fileID: -374462851, guid: 3b5d6527cab8ba44f8f5da5bc4409e58, type: 3}
+  TrashPickupCollider: {fileID: 1771176876}
 --- !u!1 &932800779
 GameObject:
   m_ObjectHideFlags: 0
@@ -34963,6 +34964,11 @@ PrefabInstance:
 --- !u!4 &1771176875 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5219312943049997202, guid: c1904f8aa86f78a41a6870cede7ffb5f, type: 3}
+  m_PrefabInstance: {fileID: 1771176874}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1771176876 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5784555167065877214, guid: c1904f8aa86f78a41a6870cede7ffb5f, type: 3}
   m_PrefabInstance: {fileID: 1771176874}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &1777871578 stripped

@@ -1601,15 +1601,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1770775378525508822, guid: 2d1ca9b44aa10e34292f348c7fb7464e, type: 3}
       propertyPath: m_SortingLayer
-      value: 12
+      value: 14
       objectReference: {fileID: 0}
     - target: {fileID: 1770775378525508822, guid: 2d1ca9b44aa10e34292f348c7fb7464e, type: 3}
       propertyPath: m_SortingOrder
-      value: 5
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1770775378525508822, guid: 2d1ca9b44aa10e34292f348c7fb7464e, type: 3}
       propertyPath: m_SortingLayerID
-      value: -2046375557
+      value: -1200128161
       objectReference: {fileID: 0}
     - target: {fileID: 1770775378525508822, guid: 2d1ca9b44aa10e34292f348c7fb7464e, type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -22043,6 +22043,18 @@ PrefabInstance:
       value: Travka2  (2)
       objectReference: {fileID: 0}
     - target: {fileID: 3217427997037713025, guid: 70dceb437a4269c4285877501f661114, type: 3}
+      propertyPath: m_SortingLayer
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 3217427997037713025, guid: 70dceb437a4269c4285877501f661114, type: 3}
+      propertyPath: m_SortingOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3217427997037713025, guid: 70dceb437a4269c4285877501f661114, type: 3}
+      propertyPath: m_SortingLayerID
+      value: -1200128161
+      objectReference: {fileID: 0}
+    - target: {fileID: 3217427997037713025, guid: 70dceb437a4269c4285877501f661114, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
@@ -22272,6 +22284,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 336508827}
     m_Modifications:
+    - target: {fileID: 1964885507760664791, guid: fd67f91831f8317468f54f6d62fb5ab6, type: 3}
+      propertyPath: m_SortingLayer
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 1964885507760664791, guid: fd67f91831f8317468f54f6d62fb5ab6, type: 3}
+      propertyPath: m_SortingLayerID
+      value: -2046375557
+      objectReference: {fileID: 0}
     - target: {fileID: 1964885507760664791, guid: fd67f91831f8317468f54f6d62fb5ab6, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -22668,6 +22688,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2158820678996413926, guid: b759e07d4f3ac7b419d702f4ccb756fc, type: 3}
+      propertyPath: m_SortingLayer
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 2158820678996413926, guid: b759e07d4f3ac7b419d702f4ccb756fc, type: 3}
+      propertyPath: m_SortingLayerID
+      value: -1200128161
+      objectReference: {fileID: 0}
     - target: {fileID: 3543923025473045965, guid: b759e07d4f3ac7b419d702f4ccb756fc, type: 3}
       propertyPath: m_Name
       value: Kamen3 (4)
@@ -23316,6 +23344,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: 'Travka2 '
       objectReference: {fileID: 0}
+    - target: {fileID: 3217427997037713025, guid: 70dceb437a4269c4285877501f661114, type: 3}
+      propertyPath: m_SortingLayer
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 3217427997037713025, guid: 70dceb437a4269c4285877501f661114, type: 3}
+      propertyPath: m_SortingLayerID
+      value: -1200128161
+      objectReference: {fileID: 0}
     - target: {fileID: 9107103781268695596, guid: 70dceb437a4269c4285877501f661114, type: 3}
       propertyPath: m_LocalPosition.x
       value: -33.27444
@@ -23752,6 +23788,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2158820678996413926, guid: b759e07d4f3ac7b419d702f4ccb756fc, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3543923025473045965, guid: b759e07d4f3ac7b419d702f4ccb756fc, type: 3}
       propertyPath: m_Name
       value: Kamen3 (2)
@@ -25898,6 +25938,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Kamen (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 7188689907009425087, guid: b1bff1d5875be934f9f1f9116786a8b8, type: 3}
+      propertyPath: m_SortingLayer
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 7188689907009425087, guid: b1bff1d5875be934f9f1f9116786a8b8, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7188689907009425087, guid: b1bff1d5875be934f9f1f9116786a8b8, type: 3}
+      propertyPath: m_SortingLayerID
+      value: -1200128161
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -26742,6 +26794,18 @@ PrefabInstance:
     - target: {fileID: 1963582446836771283, guid: 70dceb437a4269c4285877501f661114, type: 3}
       propertyPath: m_Name
       value: Travka2  (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3217427997037713025, guid: 70dceb437a4269c4285877501f661114, type: 3}
+      propertyPath: m_SortingLayer
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 3217427997037713025, guid: 70dceb437a4269c4285877501f661114, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3217427997037713025, guid: 70dceb437a4269c4285877501f661114, type: 3}
+      propertyPath: m_SortingLayerID
+      value: -1200128161
       objectReference: {fileID: 0}
     - target: {fileID: 9107103781268695596, guid: 70dceb437a4269c4285877501f661114, type: 3}
       propertyPath: m_LocalPosition.x
@@ -27983,6 +28047,14 @@ PrefabInstance:
     - target: {fileID: 1100228843773806117, guid: 2d1ca9b44aa10e34292f348c7fb7464e, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1770775378525508822, guid: 2d1ca9b44aa10e34292f348c7fb7464e, type: 3}
+      propertyPath: m_SortingLayer
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 1770775378525508822, guid: 2d1ca9b44aa10e34292f348c7fb7464e, type: 3}
+      propertyPath: m_SortingLayerID
+      value: -1200128161
       objectReference: {fileID: 0}
     - target: {fileID: 1770775378525508822, guid: 2d1ca9b44aa10e34292f348c7fb7464e, type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -30039,11 +30111,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7188689907009425087, guid: b1bff1d5875be934f9f1f9116786a8b8, type: 3}
       propertyPath: m_SortingLayer
-      value: 12
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 7188689907009425087, guid: b1bff1d5875be934f9f1f9116786a8b8, type: 3}
+      propertyPath: m_SortingOrder
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7188689907009425087, guid: b1bff1d5875be934f9f1f9116786a8b8, type: 3}
       propertyPath: m_SortingLayerID
-      value: -2046375557
+      value: -1200128161
       objectReference: {fileID: 0}
     - target: {fileID: 7188689907009425087, guid: b1bff1d5875be934f9f1f9116786a8b8, type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -32097,6 +32173,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1818751999}
     m_Modifications:
+    - target: {fileID: 4395666624580894789, guid: c1904f8aa86f78a41a6870cede7ffb5f, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.02
+      objectReference: {fileID: 0}
     - target: {fileID: 4610811951954204065, guid: c1904f8aa86f78a41a6870cede7ffb5f, type: 3}
       propertyPath: m_Name
       value: Crab
@@ -32717,11 +32797,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3217427997037713025, guid: 70dceb437a4269c4285877501f661114, type: 3}
       propertyPath: m_SortingLayer
-      value: 12
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 3217427997037713025, guid: 70dceb437a4269c4285877501f661114, type: 3}
+      propertyPath: m_SortingOrder
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3217427997037713025, guid: 70dceb437a4269c4285877501f661114, type: 3}
       propertyPath: m_SortingLayerID
-      value: -2046375557
+      value: -1200128161
       objectReference: {fileID: 0}
     - target: {fileID: 3217427997037713025, guid: 70dceb437a4269c4285877501f661114, type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -35054,6 +35138,14 @@ PrefabInstance:
     - target: {fileID: 1963582446836771283, guid: 70dceb437a4269c4285877501f661114, type: 3}
       propertyPath: m_Name
       value: Travka2  (7)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3217427997037713025, guid: 70dceb437a4269c4285877501f661114, type: 3}
+      propertyPath: m_SortingLayer
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 3217427997037713025, guid: 70dceb437a4269c4285877501f661114, type: 3}
+      propertyPath: m_SortingLayerID
+      value: -1200128161
       objectReference: {fileID: 0}
     - target: {fileID: 3217427997037713025, guid: 70dceb437a4269c4285877501f661114, type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -44004,6 +44096,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1770775378525508822, guid: 2d1ca9b44aa10e34292f348c7fb7464e, type: 3}
+      propertyPath: m_SortingLayer
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 1770775378525508822, guid: 2d1ca9b44aa10e34292f348c7fb7464e, type: 3}
+      propertyPath: m_SortingOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1770775378525508822, guid: 2d1ca9b44aa10e34292f348c7fb7464e, type: 3}
+      propertyPath: m_SortingLayerID
+      value: -1200128161
+      objectReference: {fileID: 0}
     - target: {fileID: 6990891383899017590, guid: 2d1ca9b44aa10e34292f348c7fb7464e, type: 3}
       propertyPath: m_Name
       value: Travka
@@ -45095,6 +45199,18 @@ PrefabInstance:
       value: Vilica
       objectReference: {fileID: 0}
     - target: {fileID: 3496595561033036268, guid: ed908b24f6282e945ae6156bb84a0ebd, type: 3}
+      propertyPath: m_SortingLayer
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 3496595561033036268, guid: ed908b24f6282e945ae6156bb84a0ebd, type: 3}
+      propertyPath: m_SortingOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3496595561033036268, guid: ed908b24f6282e945ae6156bb84a0ebd, type: 3}
+      propertyPath: m_SortingLayerID
+      value: -1200128161
+      objectReference: {fileID: 0}
+    - target: {fileID: 3496595561033036268, guid: ed908b24f6282e945ae6156bb84a0ebd, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
@@ -45687,11 +45803,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3217427997037713025, guid: 70dceb437a4269c4285877501f661114, type: 3}
       propertyPath: m_SortingLayer
-      value: 12
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 3217427997037713025, guid: 70dceb437a4269c4285877501f661114, type: 3}
+      propertyPath: m_SortingOrder
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3217427997037713025, guid: 70dceb437a4269c4285877501f661114, type: 3}
       propertyPath: m_SortingLayerID
-      value: -2046375557
+      value: -1200128161
       objectReference: {fileID: 0}
     - target: {fileID: 3217427997037713025, guid: 70dceb437a4269c4285877501f661114, type: 3}
       propertyPath: m_Materials.Array.data[0]

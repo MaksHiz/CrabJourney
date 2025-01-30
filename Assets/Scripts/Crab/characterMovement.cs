@@ -6,7 +6,7 @@ public class characterMovement : MonoBehaviour
 {
     private Rigidbody2D body;
     //[SerializeField]
-    private Animator animator;
+    public Animator animator;
     private GrabObjects grabObjects;
 
     private bool loopedAudio=false;
@@ -140,7 +140,7 @@ public class characterMovement : MonoBehaviour
     }
     private void Start()
     {
-        animator = GetComponent<Animator>();
+        //animator = this.gameObject.GetComponentInChildren<Animator>();
         animator.SetBool("onGround", true);
         DateTime currentTime = DateTime.Now;
         int timeAsInt = (currentTime.Hour * 10000) + (currentTime.Minute * 100) + currentTime.Second;
@@ -381,7 +381,7 @@ public class characterMovement : MonoBehaviour
         else
         {
             inShell = false;
-            this.gameObject.GetComponent<Animator>().SetBool("inShell", false);
+           animator.SetBool("inShell", false);
         }
 
         if (horizontal < 0)
@@ -424,14 +424,14 @@ public class characterMovement : MonoBehaviour
     {
         if (onGround && animateOnce)
         {
-            this.gameObject.GetComponent<Animator>().SetBool("isJumping", false);
+           animator.SetBool("isJumping", false);
             animateOnce = false;
         }
         velocity = body.velocity;
 
         if (onWall && holdingWall)
         {
-            this.gameObject.GetComponent<Animator>().SetBool("isJumping", false);
+           animator.SetBool("isJumping", false);
             animateOnce = false;
             moveWall();
             body.velocity = new Vector3(velocity.x, Mathf.Clamp(velocity.y, -fallSpeedLimit, 100));
@@ -439,7 +439,7 @@ public class characterMovement : MonoBehaviour
         else //if (onGround)
         {
             if (inShell){
-                this.gameObject.GetComponent<Animator>().SetBool("inShell", true);
+                animator.SetBool("inShell", true);
                 // sprite change
                 calculateGravity();
                 // Debug.Log("velocities " + velocity.x + " " + velocity.y + " " + desiredVelocity.x + " " + desiredVelocity.y);
@@ -524,7 +524,7 @@ public class characterMovement : MonoBehaviour
             else { AudioManager.Instance.PlaySFX("jump2"); }
             if (!animateOnce)
             {
-                this.gameObject.GetComponent<Animator>().SetBool("isJumping", true);
+                animator.SetBool("isJumping", true);
                 animateOnce = true;
             }
             
@@ -602,7 +602,7 @@ public class characterMovement : MonoBehaviour
             else { AudioManager.Instance.PlaySFX("jump2"); }
             if (!animateOnce)
             {
-                this.gameObject.GetComponent<Animator>().SetBool("isJumping", true);
+                animator.SetBool("isJumping", true);
                 animateOnce = true;
             }
 

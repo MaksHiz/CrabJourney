@@ -17,6 +17,8 @@ public class CharacterTrashHandler : MonoBehaviour
 
     public bool desiredTrashAction;
 
+    public Animator animator;
+
     private void Awake()
     {
         trashCut = trashCutCollider.GetComponent<TrashCut>();
@@ -39,7 +41,7 @@ public class CharacterTrashHandler : MonoBehaviour
         {
             Debug.Log("If Two");
 	    if (!soundIsPlayed) { Debug.Log("Cutting Trash"); AudioManager.Instance.PlaySFX("looped_cutting"); soundIsPlayed = true; }
-            this.gameObject.GetComponent<Animator>().SetBool("isCutting", true);
+            animator.SetBool("isCutting", true);
             waitTimer += Time.deltaTime; // Increment the timer
             if (waitTimer >= cuttingTime)
             {
@@ -54,11 +56,11 @@ public class CharacterTrashHandler : MonoBehaviour
         // }
         // else
         // {
-            if (this.gameObject.GetComponent<Animator>().GetBool("isCutting"))
+            if (animator.GetBool("isCutting"))
             {
 		waitTimer = 0f;
                 soundIsPlayed = false;
-                this.gameObject.GetComponent<Animator>().SetBool("isCutting", false);
+                animator.SetBool("isCutting", false);
                 AudioManager.Instance.StopSFX();
             }
                 

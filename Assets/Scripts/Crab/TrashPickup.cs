@@ -12,6 +12,8 @@ public class TrashPickup : MonoBehaviour
 
     public string pickUppableTrashTag = "CollectableTrash";
 
+    public Animator animator;
+
     void Awake()
     {
         _closeByTrash = new List<GameObject>();
@@ -36,7 +38,7 @@ public class TrashPickup : MonoBehaviour
             if (closest != null)
             {
                 closest.GetComponent<CollectableTrash>().PickedUp();
-		this.gameObject.GetComponentInParent<Animator>().Play("Collecting");
+		        animator.Play("Collecting");
                 if (closest.GetComponent<CollectableTrash>().GetLeverName() == "")
                 {
                     PickupTrash();

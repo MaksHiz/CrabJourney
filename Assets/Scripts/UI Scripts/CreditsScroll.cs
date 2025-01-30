@@ -17,12 +17,12 @@ public class CreditsScroll : MonoBehaviour
         // Move text up
         rectTransform.anchoredPosition += Vector2.up * scrollSpeed * Time.deltaTime;
 
-        if (rectTransform.anchoredPosition.y >= 1000)
+        if (rectTransform.anchoredPosition.y >= 500)
         {
             scrollSpeed = 200f; // Stop movement
         }
 
-         if (rectTransform.anchoredPosition.y >= 2800)
+         if (rectTransform.anchoredPosition.y >= 2500)
         {
             scrollSpeed = 100f;
         }

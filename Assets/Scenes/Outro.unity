@@ -281,29 +281,9 @@ MonoBehaviour:
   m_text: "\nExecutive director:\r\nMaksimilijan\r\n\nLevel Design:\r\nPetra i Maksimilijan\r\n\nUI
     programming and design:\r\nVito i Mia\r\n\r\nCharacter movement and bugs:\r\nKarlo
     i Maksimilijan\r\n\r\nCharacter animations:\r\nMia i Maksimilijan\r\n\r\nAsset
-    sprites:\r\nPetra i Mia\r\n\r\nMarketing:\r\nMia i Vito\r\n\nAudio:\nBeach_Theme1
-    \u2013 Filippo Game Audio: https://www.youtube.com/watch?v=Tu0kod4y0yI\r\nBeach_Theme2
-    \u2013 Filippo Game Audio: https://www.youtube.com/watch?v=Pgq4KJTDCno\r\nLevel1_Theme1
-    \u2013 Studio Eclectic: https://www.youtube.com/watch?v=AIyC6z-ZRoA\r\nLevel1_Theme2
-    \u2013 LuLu_Sound_Music: https://pixabay.com/music/cafe-at-the-moment-216213/\r\nCave1_Theme1
-    \u2013 Lesiakower: https://pixabay.com/music/video-games-waiting-time-175800/\r\nCave1_Theme2
-    - Crab_Audio: https://pixabay.com/music/upbeat-standby-mode-285439/\r\nDeepWater_Theme1
-    \u2013 \r\nSong: Sinking House\r\nComposer: Unwritten Stories\r\nWebsite: https://soundcloud.com/unwritten-stories\r\nLicense:
-    Creative Commons (BY-SA 3.0) https://creativecommons.org/licenses/by-sa/3.0/\r\nMusic
-    powered by BreakingCopyright: https://breakingcopyright.com/\r\nDeepWater_Theme2
-    - monotonous creation by gis_sweden -- https://freesound.org/s/785216/ -- License:
-    Creative Commons 0\r\nMain_Theme1 \u2013 Provided by ZapSplatTM\r\nMain_Theme2
-    - Ocean Soul_ver1.0 by sunbnu -- https://freesound.org/s/781718/ -- License:
-    Attribution NonCommercial 4.0\r\nCinematic_Punch - Cinematic Punch by mittenboy
-    -- https://freesound.org/s/710368/ -- License: Creative Commons 0\r\nWalk - Provided
-    by ZapSplatTM\r\nClimb - Provided by ZapSplatTM\r\nJump - Provided by ZapSplatTM\r\nJump_Into_Water
-    - Provided by ZapSplatTM\r\nTrash_Pickup2 - Provided by ZapSplatTM\r\nPearl_Pickup
-    \u2013 A Very Clear Pop Sound by 9voltfan -- https://freesound.org/s/784918/
-    -- License: Creative Commons 0\r\nTrash_Cut - Provided by ZapSplatTM\r\nClose_Clam
-    - Provided by ZapSplatTM\r\nCage_Open - Provided by ZapSplatTM\r\nPearl_Throw
-    - Provided by ZapSplatTM\r\nBeach_Ball Provided by ZapSplatTM\r\nPearl_Roll -
-    Provided by ZapSplatTM\r\nPuzzle_Solve - Provided by ZapSplatTM\n\n\n\n\nThank
-    you for playing! \r\n\n\n\n\n\n"
+    sprites:\r\nPetra i Mia\r\n\r\nMarketing:\r\nMia i Vito\r\n\n\nFor asset attribution,
+    check out the README.md provided in the folder of the Crab Journey executable
+    file.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nThank you for playing! \r\n\n\n\n\n\n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 440f225bea9c2ce4d931a5e1d266f566, type: 2}
   m_sharedMaterial: {fileID: -3729977065906929198, guid: 440f225bea9c2ce4d931a5e1d266f566, type: 2}
@@ -393,7 +373,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scrollSpeed: 100
-  endY: 3500
+  endY: 1900
 --- !u!1 &582906076
 GameObject:
   m_ObjectHideFlags: 0
@@ -473,7 +453,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: b6de0cb2b7f719e48931fe862c576b34, type: 3}
+  m_Sprite: {fileID: 21300000, guid: f79504f06a5aecd4c92d409a50ecd739, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -539,9 +519,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4190241983371403793, guid: 299fb0b21a0dcda4eabcbfa74c46cd6a, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4892690359640689646, guid: 299fb0b21a0dcda4eabcbfa74c46cd6a, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6517170933567151459, guid: 299fb0b21a0dcda4eabcbfa74c46cd6a, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7332485557578683570, guid: 299fb0b21a0dcda4eabcbfa74c46cd6a, type: 3}
       propertyPath: m_Name

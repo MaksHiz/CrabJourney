@@ -14,7 +14,7 @@ public class GameSave
         set 
         {
             int check = PlayerPrefs.GetInt("IsWin", 0);
-            if(check < value) PlayerPrefs.SetInt("IsWin", Mathf.Clamp(value, 0, 1));
+            if(check < value) PlayerPrefs.SetInt("IsWin", Mathf.Clamp(value, 0, 2));
         }
     } // 1 is for win screen, 2 is for win gold screen.
     #region REGION: Properties

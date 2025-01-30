@@ -142,6 +142,9 @@ public class MenuHandler : MonoBehaviour
         {
             GameSave.IsWin = 2;
         }
+
+        InGame = false;
+
         SceneManager.LoadScene("Outro");
     }
 

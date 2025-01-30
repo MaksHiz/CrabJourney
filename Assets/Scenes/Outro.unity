@@ -490,7 +490,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scrollSpeed: 100
-  endY: 3000
+  endY: 3500
 --- !u!1001 &646708387
 PrefabInstance:
   m_ObjectHideFlags: 0

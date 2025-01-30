@@ -123,6 +123,8 @@ public class characterMovement : MonoBehaviour
     private float defaultGravityScale = 1f;
     public float gravMultiplier;
 
+    public double totalPlayTime;
+
     private void Awake()
     {
         body = GetComponent<Rigidbody2D>();
@@ -135,6 +137,12 @@ public class characterMovement : MonoBehaviour
                     this.gameObject.transform.position=GameSave.CurrentSave.CrabPosition;
                     GameSave.CurrentSave.LoadCrabToPosition = false;
                 }
+
+                totalPlayTime = -43534d;      // neki random load iz savea
+        }
+        else
+        {
+            totalPlayTime = 0d;
         }
         
     }
@@ -422,6 +430,7 @@ public class characterMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
+        updateTimer();
         if (onGround && animateOnce)
         {
            animator.SetBool("isJumping", false);
@@ -707,4 +716,7 @@ public class characterMovement : MonoBehaviour
         
     }
 
+    void updateTimer(){
+        totalPlayTime += Time.fixedDeltaTime;
+    }
 }

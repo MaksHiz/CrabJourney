@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -10,10 +11,12 @@ public class CageLogic : MonoBehaviour
     //(id,isPickedUp,isCaged,isPlaced,leverName)
     // 3rd one is usually isCutApart but it has a new function for checking what cage logic has to do
     private (int, bool, bool, bool, string) leverData;
+    private bool isCaged=false;
 
     private void Awake()
     {
         leverData = GameSave.CurrentSave.FindLeverDataByName("RedLever");
+        //Debug.Log(leverData.Item3);
         if (leverData.Item3 == true)
         {
             this.gameObject.GetComponent<SpriteRenderer>().sprite = emptyCage;
@@ -27,6 +30,7 @@ public class CageLogic : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        //Debug.Log("Colliding:" + leverData.Item3);
         if (collision.CompareTag("Player") && leverData.Item3!=true)
         {
             if (collision.gameObject.GetComponentInChildren<TrashPickup>().pickedUpTrash >= neededTrashAmmount)

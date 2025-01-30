@@ -37,7 +37,7 @@ public class PearlMovement : MonoBehaviour
         }
        
     }
-    void Update()
+    void FixedUpdate()
     {
         if (isMoving) { 
             currPos= transform.position;
@@ -60,7 +60,7 @@ public class PearlMovement : MonoBehaviour
                 prevPos = currPos;
                 timer = 0f;
             }
-            pearlrb.AddForce(currDirect * internalForce);
+            pearlrb.AddForce(currDirect * 2 * internalForce);
         }
     }
     private void OnTriggerEnter2D(Collider2D collider)

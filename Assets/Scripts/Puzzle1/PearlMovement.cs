@@ -17,7 +17,7 @@ public class PearlMovement : MonoBehaviour
     private bool isMoving = true;
     private float timer = 0f;
     private bool isPuzzleSolved = false;
-    private int forceBehaviour = 0;
+    private bool checkHiddenSwitch = true; //enables hidden direction switcher for the brave
     [SerializeField] private AudioSource pearlSource;
     [SerializeField] private AudioClip pearlSound;
     void Awake()
@@ -68,17 +68,24 @@ public class PearlMovement : MonoBehaviour
         if(collider.CompareTag("DirectionSwitcher") && isMoving)
         {
             Debug.Log("Switched direction");
-            if (forceBehaviour == 0)
+               
+            //currDirect = currDirect == Vector2.right ? Vector2.left : Vector2.right;
+            if (collider.gameObject.name == "DirectionSwitcher1")
             {
+                currDirect = Vector2.right;
                 internalForce = force + 0.5f;
-                forceBehaviour = 1;
+                checkHiddenSwitch = false;
             }
-            else
+            else if(collider.gameObject.name == "DirectionSwitcher2")
             {
-                internalForce = force - 0.5f;
-                forceBehaviour = 0;
+                currDirect = Vector2.left;
+                internalForce = force - 0.7f;
             }
-            currDirect = currDirect == Vector2.right ? Vector2.left : Vector2.right;
+            else if(collider.gameObject.name == "DirectionSwitcher3" && checkHiddenSwitch)
+            {
+                currDirect = Vector2.right;
+                internalForce = force - 0.9f;
+            }
         }
         else if (collider.CompareTag("ForceDisabler") && isMoving)
         {

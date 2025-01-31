@@ -9,8 +9,9 @@ public class GrabObjects : MonoBehaviour
     [SerializeField]
     private Transform rayPoint; 
     [SerializeField]
-    private float rayDistance = 2f; 
-
+    private float rayDistance = 2f;
+    [SerializeField]
+    private float throwForce = 5f;
     private GameObject grabbedObject; 
     private LayerMask grabLayerMask; 
     private LayerMask leverLayerMask; 
@@ -123,12 +124,21 @@ public class GrabObjects : MonoBehaviour
         if (grabbedObject != null)
         {
             AudioManager.Instance.PlaySFX("Pearl_Throw");
-            grabbedObject.GetComponent<Rigidbody2D>().isKinematic = false; // Enable physics
-            grabbedObject.GetComponent<Collider2D>().enabled = true; // Enable collider
+            Rigidbody2D rb = grabbedObject.GetComponent<Rigidbody2D>();
+            rb.isKinematic = false;
+            grabbedObject.GetComponent<Collider2D>().enabled = true;
+            rb.bodyType = RigidbodyType2D.Dynamic;
             grabbedObject = null; // Clear reference
+
+            // Delay force application to ensure physics updates
+            StartCoroutine(ApplyForceDelayed(rb));
         }
     }
-
+    private IEnumerator ApplyForceDelayed(Rigidbody2D rb)
+    {
+        yield return new WaitForFixedUpdate(); // Wait for physics update
+        rb.AddForce(isFacingRight ? Vector2.right * throwForce : Vector2.left * throwForce, ForceMode2D.Impulse);
+    }
     private void FlipDirection(bool facingRight)
     {
         isFacingRight = facingRight;

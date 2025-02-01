@@ -86,6 +86,7 @@ public class LeverMover : MonoBehaviour
                 AudioManager.Instance.PlaySFX("Lever_Place");
                 //GameSave.CurrentSave.GetIsPickedUp(leverData.Item1,false);
                 GameSave.CurrentSave.GetIsPlaced(leverData.Item1,true);
+                MenuHandler.Instance.InGameUIScreen.GetComponent<InGameUIHandler>().UpdateFromSave();
                 leverMoverObj.SetActive(true);
 
                 if (leverMoverObj != null)

@@ -36,6 +36,19 @@ public class CollectableTrash : MonoBehaviour
         if (leverName!="")
         {
             GameSave.CurrentSave.GetLeverName(id,leverName);
+            /*switch (id) 
+            {
+                case 0:
+                    MenuHandler.Instance.InGameUIScreen.GetComponent<InGameUIHandler>().Collect("red");
+                    break;
+                case 1:
+                    MenuHandler.Instance.InGameUIScreen.GetComponent<InGameUIHandler>().Collect("green");
+                    break;
+                case 3:
+                    MenuHandler.Instance.InGameUIScreen.GetComponent<InGameUIHandler>().Collect("blue");
+                    break;
+            }*/
+            MenuHandler.Instance.InGameUIScreen.GetComponent<InGameUIHandler>().UpdateFromSave();
             //GameObject lever = GameObject.Find(leverName);
             //LeverMover levermover = lever.GetComponent<LeverMover>();
             //levermover.setActivated(true);

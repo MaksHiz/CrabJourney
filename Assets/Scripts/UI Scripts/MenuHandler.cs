@@ -250,6 +250,7 @@ public class MenuHandler : MonoBehaviour
         CursorScreen.SetActive(false);
 
         UpdateInGameUI(GameSave.CurrentSave.TrashCount);
+        InGameUIScreen.GetComponent<InGameUIHandler>().UpdateFromSave();
 
         SwapScreens(_current_screen, PauseScreen);
         PauseScreen.SetActive(false);

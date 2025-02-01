@@ -50,12 +50,28 @@ public class characterMovement : MonoBehaviour
     [SerializeField, Range(0f, 100f)] public float maxWallTurnSpeed = 80f;
     [SerializeField, Range(0f, 30f)] public float maxWallSpeed = 10f;
 
+    [SerializeField, Range(0f, 30f)] public float topOfWallPush = 5f;
+
     public bool onWallLeft;
     public bool onWallRight;
     public bool onWall;
+
+    public bool middleWallLeft;
+    public bool middleWallRight;
+    public bool middleWall;
+
+    public bool aboveWallLeft;
+    public bool aboveWallRight;
+    public bool aboveWall;
+
+    public bool wasOnWall;
+
+
     [SerializeField] private float wallLength = 0.5f;
     [SerializeField] private Vector3 wallColliderOffset1 = new Vector3(0f, 0.5f, 0f);
     [SerializeField] private Vector3 wallColliderOffset2 = new Vector3(0f, 0.1f, 0f);
+    [SerializeField] private Vector3 wallColliderOffset3 = new Vector3(0f, 0.8f, 0f);
+    // [SerializeField] private Vector3 wallColliderOffset4 = new Vector3(0f, 0.54f, 0f);
     [SerializeField] private LayerMask wallLayer;
 
     [Header("Wall Jump")]
@@ -153,7 +169,7 @@ public class characterMovement : MonoBehaviour
          Gizmos.DrawLine(transform.position + colliderOffset, transform.position + colliderOffset + Vector3.down * groundLength);
          Gizmos.DrawLine(transform.position - colliderOffset, transform.position - colliderOffset + Vector3.down * groundLength);
 
-         if (onWall) { Gizmos.color = Color.green; } else { Gizmos.color = Color.red; }
+         if (middleWall) { Gizmos.color = Color.green; } else { Gizmos.color = Color.red; }
          Gizmos.DrawLine(transform.position + wallColliderOffset1, transform.position + wallColliderOffset1 + Vector3.left * wallLength);
          Gizmos.DrawLine(transform.position - wallColliderOffset1, transform.position - wallColliderOffset1 + Vector3.left * wallLength);
 
@@ -165,23 +181,44 @@ public class characterMovement : MonoBehaviour
 
          Gizmos.DrawLine(transform.position + wallColliderOffset2, transform.position + wallColliderOffset2 + Vector3.right * wallLength);
          Gizmos.DrawLine(transform.position - wallColliderOffset2, transform.position - wallColliderOffset2 + Vector3.right * wallLength);
-    }
+
+         if (aboveWall) { Gizmos.color = Color.green; } else { Gizmos.color = Color.red; }
+
+         Gizmos.DrawLine(transform.position - wallColliderOffset3, transform.position - wallColliderOffset3 + Vector3.left * wallLength);
+
+         Gizmos.DrawLine(transform.position - wallColliderOffset3, transform.position - wallColliderOffset3 + Vector3.right * wallLength);
+
+        //  Gizmos.DrawLine(transform.position - wallColliderOffset4, transform.position - wallColliderOffset4 + Vector3.left * wallLength);
+
+        //  Gizmos.DrawLine(transform.position - wallColliderOffset4, transform.position - wallColliderOffset4 + Vector3.right * wallLength);
+    } 
     private void checkCollision()
     {
         onGround = Physics2D.Raycast(transform.position + colliderOffset, Vector2.down, groundLength, groundLayer)
                 || Physics2D.Raycast(transform.position - colliderOffset, Vector2.down, groundLength, groundLayer);
 
-        onWallLeft = Physics2D.Raycast(transform.position + wallColliderOffset1, Vector2.left, wallLength, wallLayer)
+        middleWallLeft = Physics2D.Raycast(transform.position + wallColliderOffset1, Vector2.left, wallLength, wallLayer)
                 || Physics2D.Raycast(transform.position - wallColliderOffset1, Vector2.left, wallLength, wallLayer)
                 || Physics2D.Raycast(transform.position + wallColliderOffset2, Vector2.left, wallLength, wallLayer)
                 || Physics2D.Raycast(transform.position - wallColliderOffset2, Vector2.left, wallLength, wallLayer);
 
-        onWallRight = Physics2D.Raycast(transform.position + wallColliderOffset1, Vector2.right, wallLength, wallLayer)
+        middleWallRight = Physics2D.Raycast(transform.position + wallColliderOffset1, Vector2.right, wallLength, wallLayer)
                 || Physics2D.Raycast(transform.position - wallColliderOffset1, Vector2.right, wallLength, wallLayer)
                 || Physics2D.Raycast(transform.position + wallColliderOffset2, Vector2.right, wallLength, wallLayer)
                 || Physics2D.Raycast(transform.position - wallColliderOffset2, Vector2.right, wallLength, wallLayer);
 
-        onWall = onWallLeft || onWallRight;
+        middleWall = middleWallLeft || middleWallRight;
+
+        // onWall = onWallLeft || onWallRight;
+
+
+        aboveWallLeft = Physics2D.Raycast(transform.position - wallColliderOffset3, Vector2.left, wallLength, wallLayer);
+                // || Physics2D.Raycast(transform.position - wallColliderOffset4, Vector2.left, wallLength, wallLayer);
+
+        aboveWallRight = Physics2D.Raycast(transform.position - wallColliderOffset3, Vector2.right, wallLength, wallLayer);
+                // || Physics2D.Raycast(transform.position - wallColliderOffset4, Vector2.right, wallLength, wallLayer);
+
+        aboveWall = aboveWallLeft || aboveWallRight;
     }
 
     private void setGravity()
@@ -230,6 +267,29 @@ public class characterMovement : MonoBehaviour
     {
         updateHorizontal();
         checkCollision(); 
+
+        if (middleWall) 
+        {
+            wasOnWall = true;
+        }
+        if ((!middleWall && !aboveWall) || onGround)
+        {
+            wasOnWall = false;
+        }
+
+        Debug.Log("onWallLeft");
+        Debug.Log(middleWallLeft + " " + wasOnWall + " " +  aboveWallLeft);
+        Debug.Log(middleWallLeft + " " +  (wasOnWall?aboveWallLeft:false));
+
+        Debug.Log("onWallRight");
+        Debug.Log(middleWallRight + " " + wasOnWall + " " +  aboveWallRight);
+        Debug.Log(middleWallRight + " " +  (wasOnWall?aboveWallRight:false));
+
+        onWallLeft = middleWallLeft || (wasOnWall?aboveWallLeft:false);
+
+        onWallRight = middleWallRight || (wasOnWall?aboveWallRight:false);
+
+        onWall = onWallLeft || onWallRight;
 
         horizontal = getHorizontal();
         vertical = Input.GetAxisRaw("Vertical");
@@ -360,7 +420,14 @@ public class characterMovement : MonoBehaviour
                     return;
                 }
 
-                desiredVelocity = new Vector2(0f, vertical * maxWallSpeed);
+                if (!middleWall && aboveWall)
+                {
+                    desiredVelocity = new Vector2((onWallLeft?-1:1) * topOfWallPush, vertical * maxWallSpeed);
+                }
+                else
+                {
+                    desiredVelocity = new Vector2(0f, vertical * maxWallSpeed);
+                }
 
                 return;
             }
@@ -644,6 +711,10 @@ public class characterMovement : MonoBehaviour
             }
 
             Debug.Log("y wall");
+            if (desiredVelocity.x != 0) 
+            {
+                velocity.x = desiredVelocity.x;
+            }
             velocity.y = Mathf.MoveTowards(velocity.y, desiredVelocity.y, maxSpeedChange);
             velocity.y = Mathf.Clamp(velocity.y, -maxWallSpeed, maxWallSpeed);
             animator.SetFloat("yVelocity", Math.Abs(body.velocity.y));

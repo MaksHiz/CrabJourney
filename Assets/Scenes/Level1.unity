@@ -72050,14 +72050,14 @@ PrefabInstance:
     - target: {fileID: 2839520972169033214, guid: 1705463cb5b64064182192f48b6146d3, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: -1803388798, guid: 5b6892f6cca988c44b12f16868a9c9b2, type: 3}
+      objectReference: {fileID: -1320877580, guid: bd9b307dabb3ffb42b59813297ee9275, type: 3}
     - target: {fileID: 5611050831190765842, guid: 1705463cb5b64064182192f48b6146d3, type: 3}
       propertyPath: m_LocalPosition.x
       value: -18.46
       objectReference: {fileID: 0}
     - target: {fileID: 5611050831190765842, guid: 1705463cb5b64064182192f48b6146d3, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 75.58497
+      value: 75.413
       objectReference: {fileID: 0}
     - target: {fileID: 5611050831190765842, guid: 1705463cb5b64064182192f48b6146d3, type: 3}
       propertyPath: m_LocalPosition.z

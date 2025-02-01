@@ -32342,6 +32342,14 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7937945343507949624, guid: c1904f8aa86f78a41a6870cede7ffb5f, type: 3}
+      propertyPath: sprite
+      value: 
+      objectReference: {fileID: 1791749657}
+    - target: {fileID: 7937945343507949624, guid: c1904f8aa86f78a41a6870cede7ffb5f, type: 3}
+      propertyPath: aboveWall
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7937945343507949624, guid: c1904f8aa86f78a41a6870cede7ffb5f, type: 3}
       propertyPath: jumpHeight
       value: 2.5
       objectReference: {fileID: 0}
@@ -32382,6 +32390,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c1904f8aa86f78a41a6870cede7ffb5f, type: 3}
+--- !u!212 &1791749657 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 2325352117346467252, guid: c1904f8aa86f78a41a6870cede7ffb5f, type: 3}
+  m_PrefabInstance: {fileID: 1791749656}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1792856277
 PrefabInstance:
   m_ObjectHideFlags: 0

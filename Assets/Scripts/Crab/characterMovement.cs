@@ -7,6 +7,7 @@ public class characterMovement : MonoBehaviour
     private Rigidbody2D body;
     //[SerializeField]
     public Animator animator;
+    public SpriteRenderer sprite;
     private GrabObjects grabObjects;
 
     private bool loopedAudio=false;
@@ -453,11 +454,13 @@ public class characterMovement : MonoBehaviour
 
         if (horizontal < 0)
         {
-            transform.rotation = Quaternion.Euler(0, 180, 0);
+	    transform.rotation = Quaternion.Euler(0, 180, 0);
+            //sprite.flipX=true;
         }
         else if (horizontal > 0)
         {
-            transform.rotation = Quaternion.Euler(0, 0, 0);
+           transform.rotation = Quaternion.Euler(0, 0, 0);
+            //sprite.flipX=false;
         }
 
         if (jumpBuffer > 0)

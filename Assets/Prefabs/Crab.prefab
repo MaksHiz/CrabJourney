@@ -476,14 +476,14 @@ MonoBehaviour:
   aboveWallRight: 0
   aboveWall: 0
   wasOnWall: 0
-  wallLength: 0.8
+  wallLength: 0.6
   wallColliderOffset1: {x: 0, y: 0.5, z: 0}
   wallColliderOffset2: {x: 0, y: 0.1, z: 0}
   wallColliderOffset3: {x: 0, y: 0.8, z: 0}
   wallLayer:
     serializedVersion: 2
     m_Bits: 512
-  strongWallJumpPushHorizontal: 5
+  strongWallJumpPushHorizontal: 3
   wallJumpHeight: 3
   wallWaitBuffer: 0.15
   wallJumpSpeedHorizontal: 13
@@ -493,7 +493,7 @@ MonoBehaviour:
   upwardMovementMultiplier: 1
   downwardMovementMultiplier: 4
   jumpCutOff: 1.5
-  fallSpeedLimit: 7
+  fallSpeedLimit: 3
   coyoteTime: 0.1
   jumpBuffer: 0.1
   shellFallingMultiuplier: 10

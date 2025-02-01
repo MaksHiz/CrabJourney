@@ -277,13 +277,13 @@ public class characterMovement : MonoBehaviour
             wasOnWall = false;
         }
 
-        Debug.Log("onWallLeft");
-        Debug.Log(middleWallLeft + " " + wasOnWall + " " +  aboveWallLeft);
-        Debug.Log(middleWallLeft + " " +  (wasOnWall?aboveWallLeft:false));
+        // Debug.Log("onWallLeft");
+        // Debug.Log(middleWallLeft + " " + wasOnWall + " " +  aboveWallLeft);
+        // Debug.Log(middleWallLeft + " " +  (wasOnWall?aboveWallLeft:false));
 
-        Debug.Log("onWallRight");
-        Debug.Log(middleWallRight + " " + wasOnWall + " " +  aboveWallRight);
-        Debug.Log(middleWallRight + " " +  (wasOnWall?aboveWallRight:false));
+        // Debug.Log("onWallRight");
+        // Debug.Log(middleWallRight + " " + wasOnWall + " " +  aboveWallRight);
+        // Debug.Log(middleWallRight + " " +  (wasOnWall?aboveWallRight:false));
 
         onWallLeft = middleWallLeft || (wasOnWall?aboveWallLeft:false);
 

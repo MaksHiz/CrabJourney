@@ -16,10 +16,16 @@ public class GrabObjects : MonoBehaviour
     private LayerMask grabLayerMask; 
     private LayerMask leverLayerMask; 
     private bool isFacingRight = true; 
+    private characterMovement characterMovement;
     
     public GameObject getGrabObject()
     {
         return grabbedObject;
+    }
+
+    private void Awake()
+    {
+        characterMovement = GetComponent<characterMovement>();
     }
 
     private void Start()
@@ -85,7 +91,7 @@ public class GrabObjects : MonoBehaviour
 
     private void HandleGrabbableObject(GameObject targetObject)
     {
-        if (Input.GetKeyDown(KeyCode.E))
+        if (Input.GetKeyDown(KeyCode.E) && !characterMovement.inShell)
         {
             // Grab the object
             AudioManager.Instance.PlaySFX("Pearl_Pickup");
@@ -101,7 +107,7 @@ public class GrabObjects : MonoBehaviour
         LeverMover levermover=leverObject.GetComponent<LeverMover>();
         if (levermover.getActivated())
         {
-            if (Input.GetKeyDown(KeyCode.E))
+            if (Input.GetKeyDown(KeyCode.E) && !characterMovement.inShell)
             {
                 // Get the Lever component from the object
                 LeverMover lever = leverObject.GetComponent<LeverMover>();
@@ -119,7 +125,7 @@ public class GrabObjects : MonoBehaviour
 
 
 
-    private void ReleaseGrabbedObject()
+    public void ReleaseGrabbedObject()
     {
         if (grabbedObject != null)
         {

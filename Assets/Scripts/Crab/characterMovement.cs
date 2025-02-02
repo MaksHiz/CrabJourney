@@ -493,6 +493,7 @@ public class characterMovement : MonoBehaviour
         if (vertical < 0)
         {
             inShell = true;
+            grabObjects.ReleaseGrabbedObject();
 	        loopedAudio = false;
             AudioManager.Instance.StopLoopedSound();
             Debug.Log("Stopped 4");

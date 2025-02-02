@@ -124,6 +124,11 @@ public class characterMovement : MonoBehaviour
 
     public bool inShell;
 
+    public bool lookingRight = true;
+
+    private float[] posXs;
+    private float[] colXs;
+
 
     [Header("Other")]
     private Vector2 desiredVelocity;
@@ -153,7 +158,23 @@ public class characterMovement : MonoBehaviour
                     GameSave.CurrentSave.LoadCrabToPosition = false;
                 }
         }
- 
+
+        posXs = new float[transform.childCount];
+        colXs = new float[transform.childCount];
+
+        for (int i=0; i<transform.childCount; i++)
+        {
+            Transform child = transform.GetChild(i);
+            posXs[i] = child.transform.localPosition.x;
+
+            BoxCollider2D collider = child.GetComponent<BoxCollider2D>();
+            if (collider != null)
+            {
+                // collider.offset = new Vector2(-collider.offset.x, collider.offset.y);
+                colXs[i] = collider.offset.x;
+            }
+            
+        } 
     }
     private void Start()
     {
@@ -264,6 +285,33 @@ public class characterMovement : MonoBehaviour
             else return 0;
         }
     }
+    public void rotateAll(bool changeDirection) // true = right, false = left
+    {
+        if ((lookingRight && !changeDirection) || (!lookingRight && changeDirection))
+            lookingRight = !lookingRight;
+            for (int i=0; i<transform.childCount; i++)
+            {
+                Transform child = transform.GetChild(i);
+
+                Debug.Log(child.name);
+                if (child.name != "Sprite")
+                {
+                    // Debug.Log("child poss");
+                    // Debug.Log((lookingRight?1:-1)*posXs[i] + " " + child.transform.localPosition.y);
+                    child.transform.localPosition = new Vector2((lookingRight?1:-1)*posXs[i], child.transform.localPosition.y);
+                    // Debug.Log((lookingRight?1:-1)*posXs[i] + " " + child.transform.localPosition.y);
+
+                    // child.transform.localPosition = new Vector2(-child.transform.localPosition.x, child.transform.localPosition.y);
+
+                    BoxCollider2D collider = child.GetComponent<BoxCollider2D>();
+                    if (collider != null)
+                    {
+                        collider.offset = new Vector2((lookingRight?1:-1)*colXs[i], collider.offset.y);
+                        // collider.offset = new Vector2(-collider.offset.x, collider.offset.y);
+                    }
+                }
+            }
+    }
     private void Update()
     {
         updateHorizontal();
@@ -368,11 +416,15 @@ public class characterMovement : MonoBehaviour
             {
                 if (onWallLeft)
                 {
-                    transform.rotation = Quaternion.Euler(0, 180, 0);
+                    // transform.rotation = Quaternion.Euler(0, 180, 0);
+                    rotateAll(false);
+                    sprite.flipX=true;
                 }
                 else if (onWallRight)
                 {
-                    transform.rotation = Quaternion.Euler(0, 0, 0);
+                    // transform.rotation = Quaternion.Euler(0, 0, 0);
+                    rotateAll(true);
+                    sprite.flipX=false;
                 }
 
 
@@ -454,13 +506,15 @@ public class characterMovement : MonoBehaviour
 
         if (horizontal < 0)
         {
-	    transform.rotation = Quaternion.Euler(0, 180, 0);
-            //sprite.flipX=true;
+	    // transform.rotation = Quaternion.Euler(0, 180, 0);
+            rotateAll(false);
+            sprite.flipX=true;
         }
         else if (horizontal > 0)
         {
-           transform.rotation = Quaternion.Euler(0, 0, 0);
-            //sprite.flipX=false;
+        //    transform.rotation = Quaternion.Euler(0, 0, 0);
+           rotateAll(true);
+            sprite.flipX=false;
         }
 
         if (jumpBuffer > 0)

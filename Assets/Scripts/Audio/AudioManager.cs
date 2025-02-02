@@ -7,6 +7,7 @@ public class AudioManager : MonoBehaviour
 {
     public static AudioManager Instance;
 
+    public float musicDelay=2.5f;
     public AudioClip[] musicSounds, sfxSounds, loopingSounds;
     public AudioSource musicSource, sfxSource, loopSoundSource;
     private AudioClip whaleSound;
@@ -58,7 +59,7 @@ public class AudioManager : MonoBehaviour
         else
         {
             musicSource.clip = playedMusic;
-            musicSource.PlayDelayed(2.5f);
+            musicSource.PlayDelayed(musicDelay);
         }
 
     }

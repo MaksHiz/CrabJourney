@@ -11,7 +11,7 @@ public class ShowTutorial : MonoBehaviour
         if (other.CompareTag("Player")){
             animator2.SetBool("Entering", true);
         }
-        Debug.Log("Omg");
+        // Debug.Log("Omg");
     }
     private void OnTriggerExit2D(Collider2D other){
         if (other.CompareTag("Player")){

@@ -45,7 +45,7 @@ public class closeClam : MonoBehaviour
             clamAnimator.Play("ClamClosing");
             GameSave.CurrentSave.GetPuzzleSolved(hasPearl);
             pearl.SetActive(false);
-            Debug.Log("Collided");
+            // Debug.Log("Collided");
             StartCoroutine(DelayAudio(1.5f));
             
         }

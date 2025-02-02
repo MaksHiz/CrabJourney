@@ -434,6 +434,7 @@ MonoBehaviour:
   rayPoint: {fileID: 4185909811813349996}
   rayDistance: 1
   throwForce: 10
+  animator: {fileID: 956632505693036727}
 --- !u!114 &7937945343507949624
 MonoBehaviour:
   m_ObjectHideFlags: 0

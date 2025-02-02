@@ -384,7 +384,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.0001277, y: 0.074337}
+  m_Offset: {x: -0.0034105778, y: -0.0023254156}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -395,8 +395,8 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.5013924, y: 0.966053}
-  m_EdgeRadius: 0.1
+  m_Size: {x: 0.720765, y: 1.0203063}
+  m_EdgeRadius: 0
 --- !u!95 &206400015107187059
 Animator:
   serializedVersion: 5
@@ -433,6 +433,8 @@ MonoBehaviour:
   grabPoint: {fileID: 3812800494761112242}
   rayPoint: {fileID: 4185909811813349996}
   rayDistance: 1
+  throwForce: 10
+  animator: {fileID: 956632505693036727}
 --- !u!114 &7937945343507949624
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -446,6 +448,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 956632505693036727}
+  sprite: {fileID: 2325352117346467252}
   onGround: 0
   groundLength: 0.66
   colliderOffset: {x: 0.35, y: 0, z: 0}
@@ -464,16 +467,25 @@ MonoBehaviour:
   maxWallDecceleration: 52
   maxWallTurnSpeed: 80
   maxWallSpeed: 5
+  topOfWallPush: 5
   onWallLeft: 0
   onWallRight: 0
   onWall: 0
-  wallLength: 0.8
+  middleWallLeft: 0
+  middleWallRight: 0
+  middleWall: 0
+  aboveWallLeft: 0
+  aboveWallRight: 0
+  aboveWall: 0
+  wasOnWall: 0
+  wallLength: 0.6
   wallColliderOffset1: {x: 0, y: 0.5, z: 0}
   wallColliderOffset2: {x: 0, y: 0.1, z: 0}
+  wallColliderOffset3: {x: 0, y: 0.8, z: 0}
   wallLayer:
     serializedVersion: 2
     m_Bits: 512
-  strongWallJumpPushHorizontal: 5
+  strongWallJumpPushHorizontal: 3
   wallJumpHeight: 3
   wallWaitBuffer: 0.15
   wallJumpSpeedHorizontal: 13
@@ -483,7 +495,7 @@ MonoBehaviour:
   upwardMovementMultiplier: 1
   downwardMovementMultiplier: 4
   jumpCutOff: 1.5
-  fallSpeedLimit: 7
+  fallSpeedLimit: 3
   coyoteTime: 0.1
   jumpBuffer: 0.1
   shellFallingMultiuplier: 10
@@ -495,6 +507,7 @@ MonoBehaviour:
   pressingLeft: 0
   pressingRight: 0
   inShell: 0
+  lookingRight: 1
   velocity: {x: 0, y: 0}
   jumpSpeed: 0
   gravMultiplier: 0.5

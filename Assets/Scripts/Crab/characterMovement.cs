@@ -7,6 +7,7 @@ public class characterMovement : MonoBehaviour
     private Rigidbody2D body;
     //[SerializeField]
     public Animator animator;
+    public SpriteRenderer sprite;
     private GrabObjects grabObjects;
 
     private bool loopedAudio=false;
@@ -50,12 +51,28 @@ public class characterMovement : MonoBehaviour
     [SerializeField, Range(0f, 100f)] public float maxWallTurnSpeed = 80f;
     [SerializeField, Range(0f, 30f)] public float maxWallSpeed = 10f;
 
+    [SerializeField, Range(0f, 30f)] public float topOfWallPush = 5f;
+
     public bool onWallLeft;
     public bool onWallRight;
     public bool onWall;
+
+    public bool middleWallLeft;
+    public bool middleWallRight;
+    public bool middleWall;
+
+    public bool aboveWallLeft;
+    public bool aboveWallRight;
+    public bool aboveWall;
+
+    public bool wasOnWall;
+
+
     [SerializeField] private float wallLength = 0.5f;
     [SerializeField] private Vector3 wallColliderOffset1 = new Vector3(0f, 0.5f, 0f);
     [SerializeField] private Vector3 wallColliderOffset2 = new Vector3(0f, 0.1f, 0f);
+    [SerializeField] private Vector3 wallColliderOffset3 = new Vector3(0f, 0.8f, 0f);
+    // [SerializeField] private Vector3 wallColliderOffset4 = new Vector3(0f, 0.54f, 0f);
     [SerializeField] private LayerMask wallLayer;
 
     [Header("Wall Jump")]
@@ -107,6 +124,11 @@ public class characterMovement : MonoBehaviour
 
     public bool inShell;
 
+    public bool lookingRight = true;
+
+    private float[] posXs;
+    private float[] colXs;
+
 
     [Header("Other")]
     private Vector2 desiredVelocity;
@@ -136,7 +158,23 @@ public class characterMovement : MonoBehaviour
                     GameSave.CurrentSave.LoadCrabToPosition = false;
                 }
         }
- 
+
+        posXs = new float[transform.childCount];
+        colXs = new float[transform.childCount];
+
+        for (int i=0; i<transform.childCount; i++)
+        {
+            Transform child = transform.GetChild(i);
+            posXs[i] = child.transform.localPosition.x;
+
+            BoxCollider2D collider = child.GetComponent<BoxCollider2D>();
+            if (collider != null)
+            {
+                // collider.offset = new Vector2(-collider.offset.x, collider.offset.y);
+                colXs[i] = collider.offset.x;
+            }
+            
+        } 
     }
     private void Start()
     {
@@ -153,7 +191,7 @@ public class characterMovement : MonoBehaviour
          Gizmos.DrawLine(transform.position + colliderOffset, transform.position + colliderOffset + Vector3.down * groundLength);
          Gizmos.DrawLine(transform.position - colliderOffset, transform.position - colliderOffset + Vector3.down * groundLength);
 
-         if (onWall) { Gizmos.color = Color.green; } else { Gizmos.color = Color.red; }
+         if (middleWall) { Gizmos.color = Color.green; } else { Gizmos.color = Color.red; }
          Gizmos.DrawLine(transform.position + wallColliderOffset1, transform.position + wallColliderOffset1 + Vector3.left * wallLength);
          Gizmos.DrawLine(transform.position - wallColliderOffset1, transform.position - wallColliderOffset1 + Vector3.left * wallLength);
 
@@ -165,23 +203,44 @@ public class characterMovement : MonoBehaviour
 
          Gizmos.DrawLine(transform.position + wallColliderOffset2, transform.position + wallColliderOffset2 + Vector3.right * wallLength);
          Gizmos.DrawLine(transform.position - wallColliderOffset2, transform.position - wallColliderOffset2 + Vector3.right * wallLength);
-    }
+
+         if (aboveWall) { Gizmos.color = Color.green; } else { Gizmos.color = Color.red; }
+
+         Gizmos.DrawLine(transform.position - wallColliderOffset3, transform.position - wallColliderOffset3 + Vector3.left * wallLength);
+
+         Gizmos.DrawLine(transform.position - wallColliderOffset3, transform.position - wallColliderOffset3 + Vector3.right * wallLength);
+
+        //  Gizmos.DrawLine(transform.position - wallColliderOffset4, transform.position - wallColliderOffset4 + Vector3.left * wallLength);
+
+        //  Gizmos.DrawLine(transform.position - wallColliderOffset4, transform.position - wallColliderOffset4 + Vector3.right * wallLength);
+    } 
     private void checkCollision()
     {
         onGround = Physics2D.Raycast(transform.position + colliderOffset, Vector2.down, groundLength, groundLayer)
                 || Physics2D.Raycast(transform.position - colliderOffset, Vector2.down, groundLength, groundLayer);
 
-        onWallLeft = Physics2D.Raycast(transform.position + wallColliderOffset1, Vector2.left, wallLength, wallLayer)
+        middleWallLeft = Physics2D.Raycast(transform.position + wallColliderOffset1, Vector2.left, wallLength, wallLayer)
                 || Physics2D.Raycast(transform.position - wallColliderOffset1, Vector2.left, wallLength, wallLayer)
                 || Physics2D.Raycast(transform.position + wallColliderOffset2, Vector2.left, wallLength, wallLayer)
                 || Physics2D.Raycast(transform.position - wallColliderOffset2, Vector2.left, wallLength, wallLayer);
 
-        onWallRight = Physics2D.Raycast(transform.position + wallColliderOffset1, Vector2.right, wallLength, wallLayer)
+        middleWallRight = Physics2D.Raycast(transform.position + wallColliderOffset1, Vector2.right, wallLength, wallLayer)
                 || Physics2D.Raycast(transform.position - wallColliderOffset1, Vector2.right, wallLength, wallLayer)
                 || Physics2D.Raycast(transform.position + wallColliderOffset2, Vector2.right, wallLength, wallLayer)
                 || Physics2D.Raycast(transform.position - wallColliderOffset2, Vector2.right, wallLength, wallLayer);
 
-        onWall = onWallLeft || onWallRight;
+        middleWall = middleWallLeft || middleWallRight;
+
+        // onWall = onWallLeft || onWallRight;
+
+
+        aboveWallLeft = Physics2D.Raycast(transform.position - wallColliderOffset3, Vector2.left, wallLength, wallLayer);
+                // || Physics2D.Raycast(transform.position - wallColliderOffset4, Vector2.left, wallLength, wallLayer);
+
+        aboveWallRight = Physics2D.Raycast(transform.position - wallColliderOffset3, Vector2.right, wallLength, wallLayer);
+                // || Physics2D.Raycast(transform.position - wallColliderOffset4, Vector2.right, wallLength, wallLayer);
+
+        aboveWall = aboveWallLeft || aboveWallRight;
     }
 
     private void setGravity()
@@ -226,10 +285,60 @@ public class characterMovement : MonoBehaviour
             else return 0;
         }
     }
+    public void rotateAll(bool changeDirection) // true = right, false = left
+    {
+        if ((lookingRight && !changeDirection) || (!lookingRight && changeDirection))
+            lookingRight = !lookingRight;
+            for (int i=0; i<transform.childCount; i++)
+            {
+                Transform child = transform.GetChild(i);
+
+                // Debug.Log(child.name);
+                if (child.name != "Sprite")
+                {
+                    // Debug.Log("child poss");
+                    // Debug.Log((lookingRight?1:-1)*posXs[i] + " " + child.transform.localPosition.y);
+                    child.transform.localPosition = new Vector2((lookingRight?1:-1)*posXs[i], child.transform.localPosition.y);
+                    // Debug.Log((lookingRight?1:-1)*posXs[i] + " " + child.transform.localPosition.y);
+
+                    // child.transform.localPosition = new Vector2(-child.transform.localPosition.x, child.transform.localPosition.y);
+
+                    BoxCollider2D collider = child.GetComponent<BoxCollider2D>();
+                    if (collider != null)
+                    {
+                        collider.offset = new Vector2((lookingRight?1:-1)*colXs[i], collider.offset.y);
+                        // collider.offset = new Vector2(-collider.offset.x, collider.offset.y);
+                    }
+                }
+            }
+    }
     private void Update()
     {
         updateHorizontal();
         checkCollision(); 
+
+        if (middleWall) 
+        {
+            wasOnWall = true;
+        }
+        if ((!middleWall && !aboveWall) || onGround)
+        {
+            wasOnWall = false;
+        }
+
+        // Debug.Log("onWallLeft");
+        // Debug.Log(middleWallLeft + " " + wasOnWall + " " +  aboveWallLeft);
+        // Debug.Log(middleWallLeft + " " +  (wasOnWall?aboveWallLeft:false));
+
+        // Debug.Log("onWallRight");
+        // Debug.Log(middleWallRight + " " + wasOnWall + " " +  aboveWallRight);
+        // Debug.Log(middleWallRight + " " +  (wasOnWall?aboveWallRight:false));
+
+        onWallLeft = middleWallLeft || (wasOnWall?aboveWallLeft:false);
+
+        onWallRight = middleWallRight || (wasOnWall?aboveWallRight:false);
+
+        onWall = onWallLeft || onWallRight;
 
         horizontal = getHorizontal();
         vertical = Input.GetAxisRaw("Vertical");
@@ -301,17 +410,21 @@ public class characterMovement : MonoBehaviour
             {
                 loopedAudio = false;
                 AudioManager.Instance.StopLoopedSound();
-                Debug.Log("Stopped 2");
+                // Debug.Log("Stopped 2");
             }
             if (onWallLeft || onWallRight)
             {
                 if (onWallLeft)
                 {
-                    transform.rotation = Quaternion.Euler(0, 180, 0);
+                    // transform.rotation = Quaternion.Euler(0, 180, 0);
+                    rotateAll(false);
+                    sprite.flipX=true;
                 }
                 else if (onWallRight)
                 {
-                    transform.rotation = Quaternion.Euler(0, 0, 0);
+                    // transform.rotation = Quaternion.Euler(0, 0, 0);
+                    rotateAll(true);
+                    sprite.flipX=false;
                 }
 
 
@@ -328,7 +441,7 @@ public class characterMovement : MonoBehaviour
                     vertical = 0;
 		            loopedAudio = false;
             	    AudioManager.Instance.StopLoopedSound();	
-                    Debug.Log("Stopped 3");
+                    // Debug.Log("Stopped 3");
                 }
            
                 //if (pressingRight) { transform.rotation = Quaternion.Euler(0, 0, 0); }
@@ -360,7 +473,14 @@ public class characterMovement : MonoBehaviour
                     return;
                 }
 
-                desiredVelocity = new Vector2(0f, vertical * maxWallSpeed);
+                if (!middleWall && aboveWall)
+                {
+                    desiredVelocity = new Vector2((onWallLeft?-1:1) * topOfWallPush, vertical * maxWallSpeed);
+                }
+                else
+                {
+                    desiredVelocity = new Vector2(0f, vertical * maxWallSpeed);
+                }
 
                 return;
             }
@@ -373,9 +493,10 @@ public class characterMovement : MonoBehaviour
         if (vertical < 0)
         {
             inShell = true;
+            grabObjects.ReleaseGrabbedObject();
 	        loopedAudio = false;
             AudioManager.Instance.StopLoopedSound();
-            Debug.Log("Stopped 4");
+            // Debug.Log("Stopped 4");
             return;
         }
         else
@@ -386,11 +507,15 @@ public class characterMovement : MonoBehaviour
 
         if (horizontal < 0)
         {
-            transform.rotation = Quaternion.Euler(0, 180, 0);
+	    // transform.rotation = Quaternion.Euler(0, 180, 0);
+            rotateAll(false);
+            sprite.flipX=true;
         }
         else if (horizontal > 0)
         {
-            transform.rotation = Quaternion.Euler(0, 0, 0);
+        //    transform.rotation = Quaternion.Euler(0, 0, 0);
+           rotateAll(true);
+            sprite.flipX=false;
         }
 
         if (jumpBuffer > 0)
@@ -518,7 +643,7 @@ public class characterMovement : MonoBehaviour
 
     private void Jump()
     {
-        Debug.Log("Tried jumnping");
+        // Debug.Log("Tried jumnping");
         if (onGround || (coyoteTimeCounter > 0.03f && coyoteTimeCounter < coyoteTime))
         {
             if (UnityEngine.Random.Range(1, 3) == 1) { AudioManager.Instance.PlaySFX("jump"); }
@@ -529,7 +654,7 @@ public class characterMovement : MonoBehaviour
                 animateOnce = true;
             }
             
-            Debug.Log("Jumnped");
+            // Debug.Log("Jumnped");
             desiredJump = false;
             jumpBufferCounter = 0;
             coyoteTimeCounter = 0;
@@ -552,8 +677,8 @@ public class characterMovement : MonoBehaviour
             }
 
             
-            Debug.Log(velocity.y + " += " + jumpSpeed);
-            Debug.Log("vel = " + velocity.y);
+            // Debug.Log(velocity.y + " += " + jumpSpeed);
+            // Debug.Log("vel = " + velocity.y);
             velocity.y += jumpSpeed;
             currentlyJumping = true;
         }
@@ -565,7 +690,7 @@ public class characterMovement : MonoBehaviour
     }
     private void StrongWallJump()
     {
-        Debug.Log("Strong jumnping");
+        // Debug.Log("Strong jumnping");
         desiredJump = false;
         jumpBufferCounter = 0;
         coyoteTimeCounter = 0;
@@ -586,8 +711,8 @@ public class characterMovement : MonoBehaviour
         }
 
         // Debug.Log("y strong");
-        Debug.Log(velocity.y + " += " + jumpSpeed);
-        Debug.Log("vel = " + velocity.y);
+        // Debug.Log(velocity.y + " += " + jumpSpeed);
+        // Debug.Log("vel = " + velocity.y);
         velocity.y += jumpSpeed;
     }
 
@@ -608,12 +733,12 @@ public class characterMovement : MonoBehaviour
             }
 
             currentlyJumping = true;
-            Debug.Log("wall moving vel" + velocity.x + " to " + desiredVelocity.x);
+            // Debug.Log("wall moving vel" + velocity.x + " to " + desiredVelocity.x);
             velocity.x = desiredVelocity.x;
             // Debug.Break();
-            Debug.Log("y wall jump");
+            // Debug.Log("y wall jump");
             // Debug.Log("= " + velocity.y);
-            Debug.Log(velocity.y + " => " + desiredVelocity.y);
+            // Debug.Log(velocity.y + " => " + desiredVelocity.y);
             velocity.y = desiredVelocity.y;
             if (pressingOpposite)
             {
@@ -643,7 +768,11 @@ public class characterMovement : MonoBehaviour
                 maxSpeedChange = deceleration * Time.deltaTime;
             }
 
-            Debug.Log("y wall");
+            // Debug.Log("y wall");
+            if (desiredVelocity.x != 0) 
+            {
+                velocity.x = desiredVelocity.x;
+            }
             velocity.y = Mathf.MoveTowards(velocity.y, desiredVelocity.y, maxSpeedChange);
             velocity.y = Mathf.Clamp(velocity.y, -maxWallSpeed, maxWallSpeed);
             animator.SetFloat("yVelocity", Math.Abs(body.velocity.y));

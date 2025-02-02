@@ -9,16 +9,25 @@ public class GrabObjects : MonoBehaviour
     [SerializeField]
     private Transform rayPoint; 
     [SerializeField]
-    private float rayDistance = 2f; 
-
+    private float rayDistance = 2f;
+    [SerializeField]
+    private float throwForce = 5f;
     private GameObject grabbedObject; 
     private LayerMask grabLayerMask; 
     private LayerMask leverLayerMask; 
     private bool isFacingRight = true; 
+    private characterMovement characterMovement;
+
+    public Animator animator;
     
     public GameObject getGrabObject()
     {
         return grabbedObject;
+    }
+
+    private void Awake()
+    {
+        characterMovement = GetComponent<characterMovement>();
     }
 
     private void Start()
@@ -84,7 +93,7 @@ public class GrabObjects : MonoBehaviour
 
     private void HandleGrabbableObject(GameObject targetObject)
     {
-        if (Input.GetKeyDown(KeyCode.E))
+        if (Input.GetKeyDown(KeyCode.E) && !characterMovement.inShell)
         {
             // Grab the object
             AudioManager.Instance.PlaySFX("Pearl_Pickup");
@@ -92,6 +101,8 @@ public class GrabObjects : MonoBehaviour
             grabbedObject.GetComponent<Rigidbody2D>().isKinematic = true; // Disable physics
             grabbedObject.transform.position = grabPoint.position; // Move to grab point
             grabbedObject.GetComponent<Collider2D>().enabled = false; // Disable collider
+
+            animator.SetBool("isHolding", true);
         }
     }
 
@@ -100,7 +111,7 @@ public class GrabObjects : MonoBehaviour
         LeverMover levermover=leverObject.GetComponent<LeverMover>();
         if (levermover.getActivated())
         {
-            if (Input.GetKeyDown(KeyCode.E))
+            if (Input.GetKeyDown(KeyCode.E) && !characterMovement.inShell)
             {
                 // Get the Lever component from the object
                 LeverMover lever = leverObject.GetComponent<LeverMover>();
@@ -118,17 +129,28 @@ public class GrabObjects : MonoBehaviour
 
 
 
-    private void ReleaseGrabbedObject()
+    public void ReleaseGrabbedObject()
     {
         if (grabbedObject != null)
         {
             AudioManager.Instance.PlaySFX("Pearl_Throw");
-            grabbedObject.GetComponent<Rigidbody2D>().isKinematic = false; // Enable physics
-            grabbedObject.GetComponent<Collider2D>().enabled = true; // Enable collider
+            Rigidbody2D rb = grabbedObject.GetComponent<Rigidbody2D>();
+            rb.isKinematic = false;
+            grabbedObject.GetComponent<Collider2D>().enabled = true;
+            rb.bodyType = RigidbodyType2D.Dynamic;
             grabbedObject = null; // Clear reference
+
+            // Delay force application to ensure physics updates
+            StartCoroutine(ApplyForceDelayed(rb));
+
+            animator.SetBool("isHolding", false);
         }
     }
-
+    private IEnumerator ApplyForceDelayed(Rigidbody2D rb)
+    {
+        yield return new WaitForFixedUpdate(); // Wait for physics update
+        rb.AddForce(isFacingRight ? Vector2.right * throwForce : Vector2.left * throwForce, ForceMode2D.Impulse);
+    }
     private void FlipDirection(bool facingRight)
     {
         isFacingRight = facingRight;

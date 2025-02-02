@@ -33,13 +33,13 @@ public class CharacterTrashHandler : MonoBehaviour
     {
         if (Input.GetButtonDown("TrashAction") && trashPickup.HasCloseTrash())
         {
-            Debug.Log("If One");
+            // Debug.Log("If One");
             desiredTrashAction = true;
             if (debug) Debug.Log("TrashAction True");
         }
         else if (Input.GetButton("TrashAction") && trashCut.HasCloseCuttableTrash()) // While the button is held down
         {
-            Debug.Log("If Two");
+            // Debug.Log("If Two");
 	    if (!soundIsPlayed) { Debug.Log("Cutting Trash"); AudioManager.Instance.PlaySFX("looped_cutting"); soundIsPlayed = true; }
             animator.SetBool("isCutting", true);
             waitTimer += Time.deltaTime; // Increment the timer

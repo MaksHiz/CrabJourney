@@ -15,9 +15,9 @@ public class PearlMovement : MonoBehaviour
     private Vector2 prevPos;
     private Vector2 currPos;
     private bool isMoving = true;
-    private float timer = 0f;
     private bool isPuzzleSolved = false;
-    private int forceBehaviour = 0;
+    private float timer=0f;
+    
     [SerializeField] private AudioSource pearlSource;
     [SerializeField] private AudioClip pearlSound;
     void Awake()
@@ -39,9 +39,9 @@ public class PearlMovement : MonoBehaviour
     }
     void FixedUpdate()
     {
-        if (isMoving) { 
+        timer+=Time.deltaTime;
+	if (isMoving) { 
             currPos= transform.position;
-            timer += Time.deltaTime;
             if (!pearlSource.isPlaying && Mathf.Abs(this.gameObject.GetComponent<Rigidbody2D>().velocity.x) > 1)
             {
                 pearlSource.PlayOneShot(pearlSound);
@@ -50,39 +50,41 @@ public class PearlMovement : MonoBehaviour
             {
                 pearlSource.Stop();
             }
-            if (timer >= 10f && internalForce!=0)
+            if (Input.GetButton("ResetPuzzle") && timer>3f)
             {
-                if (Mathf.Abs(prevPos.x-currPos.x)<1f && Mathf.Abs(prevPos.y - currPos.y) < 1f)
-                {
-                    transform.position = startPos;
-                    currDirect = Vector2.left;
-                }
-                prevPos = currPos;
-                timer = 0f;
+                transform.position = startPos;
+                currDirect = Vector2.left;
+	 	timer=0f;
             }
             pearlrb.AddForce(currDirect * 2 * internalForce);
+        }
+        else
+        {
+            pearlSource.Stop();
         }
     }
     private void OnTriggerEnter2D(Collider2D collider)
     {
         if(collider.CompareTag("DirectionSwitcher") && isMoving)
         {
-            Debug.Log("Switched direction");
-            if (forceBehaviour == 0)
+            // Debug.Log("Switched direction");
+               
+            //currDirect = currDirect == Vector2.right ? Vector2.left : Vector2.right;
+            if (collider.gameObject.name == "DirectionSwitcher1")
             {
-                internalForce = force + 0.5f;
-                forceBehaviour = 1;
+                currDirect = Vector2.right;
+                internalForce = 1.5f;
             }
-            else
+            else if(collider.gameObject.name == "DirectionSwitcher2")
             {
-                internalForce = force - 0.5f;
-                forceBehaviour = 0;
+                currDirect = Vector2.left;
+                internalForce = 0.3f;
             }
-            currDirect = currDirect == Vector2.right ? Vector2.left : Vector2.right;
+            
         }
         else if (collider.CompareTag("ForceDisabler") && isMoving)
         {
-            Debug.Log("Switched direction");
+            // Debug.Log("Switched direction");
             isMoving = false;
             force = 0;
             currDirect = Vector2.zero;

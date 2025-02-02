@@ -207,7 +207,7 @@ Animator:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 171318929}
-  m_Enabled: 0
+  m_Enabled: 1
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 21bee967734f9a84e8cdc1401e4d8e6b, type: 2}
   m_CullingMode: 0
@@ -278,10 +278,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\nExecutive director:\r\nMaksimilijan\r\n\nLevel Design:\r\nPetra i Maksimilijan\r\n\nUI
-    programming and design:\r\nVito i Mia\r\n\r\nCharacter movement and bugs:\r\nKarlo
-    i Maksimilijan\r\n\r\nCharacter animations:\r\nMia i Maksimilijan\r\n\r\nAsset
-    sprites:\r\nPetra i Mia\r\n\r\nMarketing:\r\nMia i Vito\r\n\n\nFor asset attribution,
+  m_text: "\nExecutive director:\r\nMaksimilijan\r\n\nLevel Design:\r\nPetra & Maksimilijan\r\n\nUI
+    programming & design:\r\nVito & Mia\r\n\r\nCharacter movement & bugs:\r\nKarlo
+    & Maksimilijan\r\n\r\nCharacter animations:\r\nMia & Maksimilijan\r\n\r\nAsset
+    sprites:\r\nPetra & Mia\r\n\r\nMarketing:\r\nMia & Vito\r\n\n\nFor asset attribution,
     check out the README.md provided in the folder of the Crab Journey executable
     file.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nThank you for playing! \r\n\n\n\n\n\n"
   m_isRightToLeft: 0
@@ -373,7 +373,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scrollSpeed: 100
-  endY: 1900
+  endY: 1155
 --- !u!1 &582906076
 GameObject:
   m_ObjectHideFlags: 0
@@ -392,7 +392,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &582906077
 RectTransform:
   m_ObjectHideFlags: 0
@@ -420,9 +420,9 @@ Animator:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 582906076}
-  m_Enabled: 0
+  m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 21bee967734f9a84e8cdc1401e4d8e6b, type: 2}
+  m_Controller: {fileID: 9100000, guid: 94571cbfbf32c4d48b65c8eb4309ede8, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -471,79 +471,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 582906076}
   m_CullTransparentMesh: 1
---- !u!1001 &646708387
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 3851682935465876404, guid: 299fb0b21a0dcda4eabcbfa74c46cd6a, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3851682935465876404, guid: 299fb0b21a0dcda4eabcbfa74c46cd6a, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3851682935465876404, guid: 299fb0b21a0dcda4eabcbfa74c46cd6a, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3851682935465876404, guid: 299fb0b21a0dcda4eabcbfa74c46cd6a, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3851682935465876404, guid: 299fb0b21a0dcda4eabcbfa74c46cd6a, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3851682935465876404, guid: 299fb0b21a0dcda4eabcbfa74c46cd6a, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3851682935465876404, guid: 299fb0b21a0dcda4eabcbfa74c46cd6a, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3851682935465876404, guid: 299fb0b21a0dcda4eabcbfa74c46cd6a, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3851682935465876404, guid: 299fb0b21a0dcda4eabcbfa74c46cd6a, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3851682935465876404, guid: 299fb0b21a0dcda4eabcbfa74c46cd6a, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4190241983371403793, guid: 299fb0b21a0dcda4eabcbfa74c46cd6a, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4892690359640689646, guid: 299fb0b21a0dcda4eabcbfa74c46cd6a, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6517170933567151459, guid: 299fb0b21a0dcda4eabcbfa74c46cd6a, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7332485557578683570, guid: 299fb0b21a0dcda4eabcbfa74c46cd6a, type: 3}
-      propertyPath: m_Name
-      value: MenuHandler
-      objectReference: {fileID: 0}
-    - target: {fileID: 7332485557578683570, guid: 299fb0b21a0dcda4eabcbfa74c46cd6a, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 299fb0b21a0dcda4eabcbfa74c46cd6a, type: 3}
 --- !u!1 &803597716
 GameObject:
   m_ObjectHideFlags: 0
@@ -689,6 +616,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1317322341434430716, guid: 83eb035f3a795754bba1bea4399c80fa, type: 3}
+      propertyPath: musicDelay
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1317322341434430716, guid: 83eb035f3a795754bba1bea4399c80fa, type: 3}
       propertyPath: sfxSounds.Array.size
       value: 0
@@ -1095,5 +1026,4 @@ SceneRoots:
   - {fileID: 803597719}
   - {fileID: 1586523564}
   - {fileID: 916537722}
-  - {fileID: 646708387}
   - {fileID: 1669475899}

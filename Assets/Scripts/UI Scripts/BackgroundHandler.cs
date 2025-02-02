@@ -15,6 +15,11 @@ public class BackgroundHandler : MonoBehaviour
         SceneManager.sceneLoaded += OnSceneLoaded;
     }
 
+    private void Start()
+    {
+        OnSceneLoaded(new Scene(), LoadSceneMode.Single);
+    }
+
     private void OnSceneLoaded(UnityEngine.SceneManagement.Scene arg0, LoadSceneMode arg1)
     {
         normal.SetActive(false);
@@ -24,12 +29,15 @@ public class BackgroundHandler : MonoBehaviour
         {
             case 0:
                 normal.SetActive(true);
+                Debug.Log("NORMAL! " + GameSave.IsWin);
                 break;
             case 1:
                 win.SetActive(true);
+                Debug.Log("WIN! " + GameSave.IsWin);
                 break;
             case 2:
                 gold_win.SetActive(true);
+                Debug.Log("GOLD WIN! " + GameSave.IsWin);
                 break;
         }
     }

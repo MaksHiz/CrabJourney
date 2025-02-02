@@ -1,3 +1,4 @@
+using System;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -89,7 +90,7 @@ public class MenuHandler : MonoBehaviour
         // If we're in game, we can pause by pressing the ESCAPE button.
         if (InGame)
         {
-            if (Input.GetKeyDown(KeyCode.Escape) && !EndScreen.activeInHierarchy)
+            if (Input.GetKeyDown(KeyCode.Escape) && !EndScreen.activeInHierarchy && (SceneManager.GetActiveScene().name != "Introduction" && SceneManager.GetActiveScene().name != "Outro"))
             {
                 if (_current_screen != PauseScreen) 
                 {
@@ -109,7 +110,7 @@ public class MenuHandler : MonoBehaviour
         }
     }
 
-    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    private void OnSceneLoaded(UnityEngine.SceneManagement.Scene scene, LoadSceneMode mode)
     {
         if (scene.name != "Introduction"  && scene.name != "Outro" && InGame)
         {
@@ -142,8 +143,6 @@ public class MenuHandler : MonoBehaviour
         {
             GameSave.IsWin = 2;
         }
-
-        InGame = false;
 
         SceneManager.LoadScene("Outro");
     }
@@ -250,6 +249,7 @@ public class MenuHandler : MonoBehaviour
         CursorScreen.SetActive(false);
 
         UpdateInGameUI(GameSave.CurrentSave.TrashCount);
+        InGameUIScreen.GetComponent<InGameUIHandler>().UpdateFromSave();
 
         SwapScreens(_current_screen, PauseScreen);
         PauseScreen.SetActive(false);

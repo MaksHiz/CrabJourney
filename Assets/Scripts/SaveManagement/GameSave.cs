@@ -77,7 +77,7 @@ public class GameSave
         var crabPositionParts = parts[3].Split(';');
         foreach (var crab in crabPositionParts)
         {
-            Debug.Log(crab);
+            // Debug.Log(crab);
         }
         // return $"{LastPlayed:o}|{PuzzleSolved}|{TrashCount}|{CrabPosition.x},{CrabPosition.y},{CrabPosition.z}|{CrabPositionScene}|{trashDataString}|{TimeSpentPlaying}";
         if (crabPositionParts.Length != 3) throw new FormatException("Invalid CrabPosition data.");

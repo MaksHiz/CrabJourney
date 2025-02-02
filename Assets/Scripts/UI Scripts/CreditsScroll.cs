@@ -1,3 +1,5 @@
+using System.Collections;
+using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -22,8 +24,13 @@ public class CreditsScroll : MonoBehaviour
         if (rectTransform.anchoredPosition.y >= endY)
         {
             scrollSpeed = 0f; // Stop movement
-            MenuHandler.Instance.BackToMainMenuAfterEnd();
+            StartCoroutine(Wait());
         }
+    }
+
+    IEnumerator Wait(){
+        yield return new WaitForSeconds(4f);
+        MenuHandler.Instance.BackToMainMenuAfterEnd();
     }
 }
 

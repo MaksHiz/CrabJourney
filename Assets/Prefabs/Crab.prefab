@@ -447,6 +447,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 956632505693036727}
+  sprite: {fileID: 0}
   onGround: 0
   groundLength: 0.66
   colliderOffset: {x: 0.35, y: 0, z: 0}

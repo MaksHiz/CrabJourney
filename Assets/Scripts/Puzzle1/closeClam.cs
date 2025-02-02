@@ -11,7 +11,9 @@ public class closeClam : MonoBehaviour
     [SerializeField] private Sprite finishedPuzzleSprite;
     private BoxCollider2D boxColClam;
     private Rigidbody2D pearlRigidBody;
-
+    [SerializeField] private AudioSource pearlSource;
+    [SerializeField] private AudioClip puzzleSolved;
+    [SerializeField] private AudioClip close;
     private void Awake()
     {
         hasPearl = GameSave.CurrentSave.PuzzleSolved;
@@ -39,18 +41,24 @@ public class closeClam : MonoBehaviour
             pearl.transform.position = new Vector2((float)33.8300018,(float) -9.71000004);
             pearlRigidBody.bodyType = RigidbodyType2D.Static;
             Animator clamAnimator = clam.GetComponent<Animator>();
-            AudioManager.Instance.PlaySFX("Clam_Close");
+            pearlSource.PlayOneShot(close);    
             clamAnimator.Play("ClamClosing");
             GameSave.CurrentSave.GetPuzzleSolved(hasPearl);
             pearl.SetActive(false);
             Debug.Log("Collided");
-            AudioManager.Instance.PlaySFX("PuzzleSolve",1.5f);
+            StartCoroutine(DelayAudio(1.5f));
+            
         }
         /*else
         {
             Debug.Log("Collided not with pearl");
         }*/
         
+    }
+    IEnumerator DelayAudio(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        pearlSource.PlayOneShot(puzzleSolved);
     }
 
 }

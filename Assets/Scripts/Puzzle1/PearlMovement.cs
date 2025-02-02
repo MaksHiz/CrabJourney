@@ -62,6 +62,10 @@ public class PearlMovement : MonoBehaviour
             }
             pearlrb.AddForce(currDirect * 2 * internalForce);
         }
+        else
+        {
+            pearlSource.Stop();
+        }
     }
     private void OnTriggerEnter2D(Collider2D collider)
     {
@@ -73,19 +77,15 @@ public class PearlMovement : MonoBehaviour
             if (collider.gameObject.name == "DirectionSwitcher1")
             {
                 currDirect = Vector2.right;
-                internalForce = force + 0.5f;
+                internalForce = 1.5f;
                 checkHiddenSwitch = false;
             }
             else if(collider.gameObject.name == "DirectionSwitcher2")
             {
                 currDirect = Vector2.left;
-                internalForce = force - 0.7f;
+                internalForce = 0.3f;
             }
-            else if(collider.gameObject.name == "DirectionSwitcher3" && checkHiddenSwitch)
-            {
-                currDirect = Vector2.right;
-                internalForce = force - 0.9f;
-            }
+            
         }
         else if (collider.CompareTag("ForceDisabler") && isMoving)
         {

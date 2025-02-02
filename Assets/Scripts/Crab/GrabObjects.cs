@@ -17,6 +17,8 @@ public class GrabObjects : MonoBehaviour
     private LayerMask leverLayerMask; 
     private bool isFacingRight = true; 
     private characterMovement characterMovement;
+
+    public Animator animator;
     
     public GameObject getGrabObject()
     {
@@ -99,6 +101,8 @@ public class GrabObjects : MonoBehaviour
             grabbedObject.GetComponent<Rigidbody2D>().isKinematic = true; // Disable physics
             grabbedObject.transform.position = grabPoint.position; // Move to grab point
             grabbedObject.GetComponent<Collider2D>().enabled = false; // Disable collider
+
+            animator.SetBool("isHolding", true);
         }
     }
 
@@ -138,6 +142,8 @@ public class GrabObjects : MonoBehaviour
 
             // Delay force application to ensure physics updates
             StartCoroutine(ApplyForceDelayed(rb));
+
+            animator.SetBool("isHolding", false);
         }
     }
     private IEnumerator ApplyForceDelayed(Rigidbody2D rb)

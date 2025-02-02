@@ -293,7 +293,7 @@ public class characterMovement : MonoBehaviour
             {
                 Transform child = transform.GetChild(i);
 
-                Debug.Log(child.name);
+                // Debug.Log(child.name);
                 if (child.name != "Sprite")
                 {
                     // Debug.Log("child poss");
@@ -410,7 +410,7 @@ public class characterMovement : MonoBehaviour
             {
                 loopedAudio = false;
                 AudioManager.Instance.StopLoopedSound();
-                Debug.Log("Stopped 2");
+                // Debug.Log("Stopped 2");
             }
             if (onWallLeft || onWallRight)
             {
@@ -441,7 +441,7 @@ public class characterMovement : MonoBehaviour
                     vertical = 0;
 		            loopedAudio = false;
             	    AudioManager.Instance.StopLoopedSound();	
-                    Debug.Log("Stopped 3");
+                    // Debug.Log("Stopped 3");
                 }
            
                 //if (pressingRight) { transform.rotation = Quaternion.Euler(0, 0, 0); }
@@ -496,7 +496,7 @@ public class characterMovement : MonoBehaviour
             grabObjects.ReleaseGrabbedObject();
 	        loopedAudio = false;
             AudioManager.Instance.StopLoopedSound();
-            Debug.Log("Stopped 4");
+            // Debug.Log("Stopped 4");
             return;
         }
         else
@@ -643,7 +643,7 @@ public class characterMovement : MonoBehaviour
 
     private void Jump()
     {
-        Debug.Log("Tried jumnping");
+        // Debug.Log("Tried jumnping");
         if (onGround || (coyoteTimeCounter > 0.03f && coyoteTimeCounter < coyoteTime))
         {
             if (UnityEngine.Random.Range(1, 3) == 1) { AudioManager.Instance.PlaySFX("jump"); }
@@ -654,7 +654,7 @@ public class characterMovement : MonoBehaviour
                 animateOnce = true;
             }
             
-            Debug.Log("Jumnped");
+            // Debug.Log("Jumnped");
             desiredJump = false;
             jumpBufferCounter = 0;
             coyoteTimeCounter = 0;
@@ -677,8 +677,8 @@ public class characterMovement : MonoBehaviour
             }
 
             
-            Debug.Log(velocity.y + " += " + jumpSpeed);
-            Debug.Log("vel = " + velocity.y);
+            // Debug.Log(velocity.y + " += " + jumpSpeed);
+            // Debug.Log("vel = " + velocity.y);
             velocity.y += jumpSpeed;
             currentlyJumping = true;
         }
@@ -690,7 +690,7 @@ public class characterMovement : MonoBehaviour
     }
     private void StrongWallJump()
     {
-        Debug.Log("Strong jumnping");
+        // Debug.Log("Strong jumnping");
         desiredJump = false;
         jumpBufferCounter = 0;
         coyoteTimeCounter = 0;
@@ -711,8 +711,8 @@ public class characterMovement : MonoBehaviour
         }
 
         // Debug.Log("y strong");
-        Debug.Log(velocity.y + " += " + jumpSpeed);
-        Debug.Log("vel = " + velocity.y);
+        // Debug.Log(velocity.y + " += " + jumpSpeed);
+        // Debug.Log("vel = " + velocity.y);
         velocity.y += jumpSpeed;
     }
 
@@ -733,12 +733,12 @@ public class characterMovement : MonoBehaviour
             }
 
             currentlyJumping = true;
-            Debug.Log("wall moving vel" + velocity.x + " to " + desiredVelocity.x);
+            // Debug.Log("wall moving vel" + velocity.x + " to " + desiredVelocity.x);
             velocity.x = desiredVelocity.x;
             // Debug.Break();
-            Debug.Log("y wall jump");
+            // Debug.Log("y wall jump");
             // Debug.Log("= " + velocity.y);
-            Debug.Log(velocity.y + " => " + desiredVelocity.y);
+            // Debug.Log(velocity.y + " => " + desiredVelocity.y);
             velocity.y = desiredVelocity.y;
             if (pressingOpposite)
             {
@@ -768,7 +768,7 @@ public class characterMovement : MonoBehaviour
                 maxSpeedChange = deceleration * Time.deltaTime;
             }
 
-            Debug.Log("y wall");
+            // Debug.Log("y wall");
             if (desiredVelocity.x != 0) 
             {
                 velocity.x = desiredVelocity.x;

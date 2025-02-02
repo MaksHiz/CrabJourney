@@ -19,11 +19,11 @@ public class CuttableTrash : MonoBehaviour
             _childTrash = this.transform.parent.gameObject.GetComponentsInChildren<CollectableTrash>();
             if (debug) 
             {
-                Debug.Log(this.transform.parent.gameObject.name);
-                foreach (CollectableTrash child in _childTrash)
-                {
-                    Debug.Log(child);
-                }
+                // Debug.Log(this.transform.parent.gameObject.name);
+                // foreach (CollectableTrash child in _childTrash)
+                // {
+                //     Debug.Log(child);
+                // }
             }
             SetAllInactive();
         }

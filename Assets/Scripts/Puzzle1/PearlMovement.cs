@@ -67,7 +67,7 @@ public class PearlMovement : MonoBehaviour
     {
         if(collider.CompareTag("DirectionSwitcher") && isMoving)
         {
-            Debug.Log("Switched direction");
+            // Debug.Log("Switched direction");
                
             //currDirect = currDirect == Vector2.right ? Vector2.left : Vector2.right;
             if (collider.gameObject.name == "DirectionSwitcher1")
@@ -84,7 +84,7 @@ public class PearlMovement : MonoBehaviour
         }
         else if (collider.CompareTag("ForceDisabler") && isMoving)
         {
-            Debug.Log("Switched direction");
+            // Debug.Log("Switched direction");
             isMoving = false;
             force = 0;
             currDirect = Vector2.zero;

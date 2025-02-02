@@ -15,9 +15,9 @@ public class PearlMovement : MonoBehaviour
     private Vector2 prevPos;
     private Vector2 currPos;
     private bool isMoving = true;
-    private float timer = 0f;
     private bool isPuzzleSolved = false;
-    private bool checkHiddenSwitch = true; //enables hidden direction switcher for the brave
+    private float timer=0f;
+    
     [SerializeField] private AudioSource pearlSource;
     [SerializeField] private AudioClip pearlSound;
     void Awake()
@@ -39,9 +39,9 @@ public class PearlMovement : MonoBehaviour
     }
     void FixedUpdate()
     {
-        if (isMoving) { 
+        timer+=Time.deltaTime;
+	if (isMoving) { 
             currPos= transform.position;
-            timer += Time.deltaTime;
             if (!pearlSource.isPlaying && Mathf.Abs(this.gameObject.GetComponent<Rigidbody2D>().velocity.x) > 1)
             {
                 pearlSource.PlayOneShot(pearlSound);
@@ -50,15 +50,11 @@ public class PearlMovement : MonoBehaviour
             {
                 pearlSource.Stop();
             }
-            if (timer >= 10f && internalForce!=0)
+            if (Input.GetButton("ResetPuzzle") && timer>3f)
             {
-                if (Mathf.Abs(prevPos.x-currPos.x)<1f && Mathf.Abs(prevPos.y - currPos.y) < 1f)
-                {
-                    transform.position = startPos;
-                    currDirect = Vector2.left;
-                }
-                prevPos = currPos;
-                timer = 0f;
+                transform.position = startPos;
+                currDirect = Vector2.left;
+	 	timer=0f;
             }
             pearlrb.AddForce(currDirect * 2 * internalForce);
         }
@@ -78,7 +74,6 @@ public class PearlMovement : MonoBehaviour
             {
                 currDirect = Vector2.right;
                 internalForce = 1.5f;
-                checkHiddenSwitch = false;
             }
             else if(collider.gameObject.name == "DirectionSwitcher2")
             {

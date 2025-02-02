@@ -47,6 +47,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3fc516e69e5338c4ea9c4e9d11ee25e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  musicDelay: 1.5
   musicSounds: []
   sfxSounds:
   - {fileID: 8300000, guid: cdf3d0ce58bf0fd47baf7c84b4afefd6, type: 3}

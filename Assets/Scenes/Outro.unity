@@ -278,10 +278,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\nExecutive director:\r\nMaksimilijan\r\n\nLevel Design:\r\nPetra i Maksimilijan\r\n\nUI
-    programming and design:\r\nVito i Mia\r\n\r\nCharacter movement and bugs:\r\nKarlo
-    i Maksimilijan\r\n\r\nCharacter animations:\r\nMia i Maksimilijan\r\n\r\nAsset
-    sprites:\r\nPetra i Mia\r\n\r\nMarketing:\r\nMia i Vito\r\n\n\nFor asset attribution,
+  m_text: "\nExecutive director:\r\nMaksimilijan\r\n\nLevel Design:\r\nPetra & Maksimilijan\r\n\nUI
+    programming & design:\r\nVito & Mia\r\n\r\nCharacter movement & bugs:\r\nKarlo
+    & Maksimilijan\r\n\r\nCharacter animations:\r\nMia & Maksimilijan\r\n\r\nAsset
+    sprites:\r\nPetra & Mia\r\n\r\nMarketing:\r\nMia & Vito\r\n\n\nFor asset attribution,
     check out the README.md provided in the folder of the Crab Journey executable
     file.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nThank you for playing! \r\n\n\n\n\n\n"
   m_isRightToLeft: 0
@@ -689,6 +689,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1317322341434430716, guid: 83eb035f3a795754bba1bea4399c80fa, type: 3}
+      propertyPath: musicDelay
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1317322341434430716, guid: 83eb035f3a795754bba1bea4399c80fa, type: 3}
       propertyPath: sfxSounds.Array.size
       value: 0

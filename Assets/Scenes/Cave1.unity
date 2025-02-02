@@ -2229,7 +2229,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   infoText: {fileID: 1183412027}
-  fadeDuration: 1
   moveDistance: 25
 --- !u!61 &216040568
 BoxCollider2D:
@@ -14531,6 +14530,11 @@ MonoBehaviour:
   - {x: 0.31, y: -0.35, z: 0}
   - {x: 0.3, y: 0.46, z: 0}
   - {x: -0.38, y: 0.46, z: 0}
+--- !u!4 &436277591 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5148176598552660223, guid: a654d363e89f61f4b9fe3cba12564c56, type: 3}
+  m_PrefabInstance: {fileID: 4081046233104105855}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &439867390
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -20389,6 +20393,11 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: 473406859352828579, guid: 61d50b0d58bb02d45806a2bd9be5b52f, type: 3}
   m_PrefabInstance: {fileID: 537717071}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &538923494 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1923675047674374447, guid: 68e33f018ba7a7b41a6e09f7a67f1d6c, type: 3}
+  m_PrefabInstance: {fileID: 1033319711}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &549852972
 PrefabInstance:
@@ -28744,6 +28753,63 @@ Transform:
   m_Children: []
   m_Father: {fileID: 49376182}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &1033319711
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 436277591}
+    m_Modifications:
+    - target: {fileID: 1923675047674374447, guid: 68e33f018ba7a7b41a6e09f7a67f1d6c, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.04
+      objectReference: {fileID: 0}
+    - target: {fileID: 1923675047674374447, guid: 68e33f018ba7a7b41a6e09f7a67f1d6c, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1923675047674374447, guid: 68e33f018ba7a7b41a6e09f7a67f1d6c, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1923675047674374447, guid: 68e33f018ba7a7b41a6e09f7a67f1d6c, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1923675047674374447, guid: 68e33f018ba7a7b41a6e09f7a67f1d6c, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1923675047674374447, guid: 68e33f018ba7a7b41a6e09f7a67f1d6c, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1923675047674374447, guid: 68e33f018ba7a7b41a6e09f7a67f1d6c, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1923675047674374447, guid: 68e33f018ba7a7b41a6e09f7a67f1d6c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1923675047674374447, guid: 68e33f018ba7a7b41a6e09f7a67f1d6c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1923675047674374447, guid: 68e33f018ba7a7b41a6e09f7a67f1d6c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7015267073742493853, guid: 68e33f018ba7a7b41a6e09f7a67f1d6c, type: 3}
+      propertyPath: m_Name
+      value: Shine_0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 68e33f018ba7a7b41a6e09f7a67f1d6c, type: 3}
 --- !u!1 &1044197191
 GameObject:
   m_ObjectHideFlags: 0
@@ -54120,7 +54186,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 5148176598552660223, guid: a654d363e89f61f4b9fe3cba12564c56, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 538923494}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 2318314118537461309, guid: a654d363e89f61f4b9fe3cba12564c56, type: 3}
       insertIndex: -1
